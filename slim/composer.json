@@ -1,0 +1,67 @@
+{
+    "name": "ash/slim-api",
+    "description": "A Slim Framework skeleton application for rapid development",
+    "keywords": [
+        "microframework",
+        "rest",
+        "router",
+        "psr7"
+    ],
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "monolog/monolog": "^2.0",
+        "php-di/php-di": "^6.1",
+        "slim/psr7": "^1.1",
+        "slim/slim": "^4.5",
+        "slim/twig-view": "^3.1",
+        "vlucas/phpdotenv": "^5.1",
+        "zeuxisoo/slim-whoops": "^0.7.2"
+    },
+    "require-dev": {
+        "ccampbell/chromephp": "^4.1",
+        "jangregor/phpstan-prophecy": "^0.8.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpmd/phpmd": "^2.8",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.37",
+        "phpunit/phpunit": "^8.5",
+        "squizlabs/php_codesniffer": "^3.5",
+        "symfony/var-dumper": "^5.1"
+    },
+    "config": {
+        "process-timeout": 0,
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "helpers/console.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "init-config": [
+            "@composer dump-autoload",
+            "phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility"
+        ],
+        "post-install-cmd": "@init-config",
+        "post-update-cmd": "@init-config",
+        "test": "phpunit",
+        "start": "@php -S 127.0.0.1:8080 -t ../public",
+        "test-version": "phpcs -p --colors --report-width=120 --standard=PHPCompatibility --ignore=*/vendor/* --extensions=php ./ --runtime-set testVersion 7.4-",
+        "phpcs": "phpcs -p --colors --report-width=120 --standard=PSR2 --ignore=*/vendor/* --extensions=php app/ src/ helpers/",
+        "phpcbf": "phpcbf -p --standard=PSR2 --ignore=*/vendor/* --extensions=php app/ src/ helpers/",
+        "phpmd": "phpmd src text cleancode,codesize,design,unusedcode",
+        "phpstan": "phpstan analyse src/"
+    }
+}
