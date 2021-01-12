@@ -6,20 +6,11 @@
     'aliases' => 
     array (
     ),
-    'reference' => '594d4bcb5ee34f8204cf211e53c163a14d535a26',
-    'name' => 'ash/slim-api',
+    'reference' => '91b77c5760b163babddbae9a2b705a6aeeab9b30',
+    'name' => 'elkulo/feeder',
   ),
   'versions' => 
   array (
-    'ash/slim-api' => 
-    array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '594d4bcb5ee34f8204cf211e53c163a14d535a26',
-    ),
     'ccampbell/chromephp' => 
     array (
       'pretty_version' => '4.1.0',
@@ -46,6 +37,15 @@
       array (
       ),
       'reference' => 'd56bf6102915de5702778fe20f2de3b2fe570b5b',
+    ),
+    'elkulo/feeder' => 
+    array (
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '91b77c5760b163babddbae9a2b705a6aeeab9b30',
     ),
     'fig/http-message-util' => 
     array (
