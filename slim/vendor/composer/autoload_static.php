@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede
+class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
 {
     public static $files = array (
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
@@ -18,7 +18,7 @@ class ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
-        '0df6d7e2251ea0b38c30e4ba9d2b24c3' => __DIR__ . '/../..' . '/helpers/console.php',
+        'ae77dfa7beba9d77135ac3c6754d8112' => __DIR__ . '/../..' . '/helpers/console.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -2351,10 +2351,10 @@ class ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitf17f0b7047d8d04e2d095efdb3d36ede::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7::$classMap;
 
         }, null, ClassLoader::class);
     }
