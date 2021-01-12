@@ -5,7 +5,7 @@
 ~~~
 git clone https://github.com/elkulo/Feeder.git Feeder
 cd Feeder/slim
-composer install
+composer start
 ~~~
 
 env を .env にリネーム
