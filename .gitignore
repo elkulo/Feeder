@@ -92,3 +92,4 @@ nb-configuration.xml
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
+.phpunit.result.cache
