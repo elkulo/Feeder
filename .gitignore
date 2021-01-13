@@ -40,6 +40,11 @@ $RECYCLE.BIN/
 */logs/*
 !/logs/README.md
 
+# PHPUnit Test
+/results/
+/phpunit*.xml
+.phpunit.*.cache
+
 #-------------------------
 # Environment Files
 #-------------------------
@@ -88,8 +93,3 @@ nb-configuration.xml
 
 # Visual Studio Code
 .vscode/
-
-/results/
-/phpunit*.xml
-/.phpunit.*.cache
-.phpunit.result.cache
