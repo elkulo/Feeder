@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '91b77c5760b163babddbae9a2b705a6aeeab9b30',
+    'reference' => '9412ab7c8ba6f793aceed2afe384e8df8c4eace7',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -68,7 +68,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '91b77c5760b163babddbae9a2b705a6aeeab9b30',
+      'reference' => '9412ab7c8ba6f793aceed2afe384e8df8c4eace7',
     ),
     'fig/http-message-util' => 
     array (
@@ -81,12 +81,12 @@ private static $installed = array (
     ),
     'filp/whoops' => 
     array (
-      'pretty_version' => '2.9.1',
-      'version' => '2.9.1.0',
+      'pretty_version' => '2.9.2',
+      'version' => '2.9.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '307fb34a5ab697461ec4c9db865b20ff2fd40771',
+      'reference' => 'df7933820090489623ce0be5e85c7e693638e536',
     ),
     'graham-campbell/result-type' => 
     array (
@@ -175,12 +175,12 @@ private static $installed = array (
     ),
     'php-di/invoker' => 
     array (
-      'pretty_version' => '2.2.0',
-      'version' => '2.2.0.0',
+      'pretty_version' => '2.3.0',
+      'version' => '2.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e08a7c87068daeaeef464b95d81643ea530bc535',
+      'reference' => '992fec6c56f2d1ad1ad5fee28267867c85bfb8f9',
     ),
     'php-di/php-di' => 
     array (
@@ -274,12 +274,12 @@ private static $installed = array (
     ),
     'phpstan/phpstan' => 
     array (
-      'pretty_version' => '0.12.66',
-      'version' => '0.12.66.0',
+      'pretty_version' => '0.12.69',
+      'version' => '0.12.69.0',
       'aliases' => 
       array (
       ),
-      'reference' => '4110a2425c6bd53acbdfcda07885e87b66e9ba3e',
+      'reference' => '8f436ea35241da33487fd0d38b4bc3e6dfe30ea8',
     ),
     'phpunit/php-code-coverage' => 
     array (
@@ -328,12 +328,12 @@ private static $installed = array (
     ),
     'phpunit/phpunit' => 
     array (
-      'pretty_version' => '8.5.13',
-      'version' => '8.5.13.0',
+      'pretty_version' => '8.5.14',
+      'version' => '8.5.14.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8e86be391a58104ef86037ba8a846524528d784e',
+      'reference' => 'c25f79895d27b6ecd5abfa63de1606b786a461a3',
     ),
     'psr/container' => 
     array (
@@ -679,12 +679,12 @@ private static $installed = array (
     ),
     'vlucas/phpdotenv' => 
     array (
-      'pretty_version' => 'v5.2.0',
-      'version' => '5.2.0.0',
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'fba64139db67123c7a57072e5f8d3db10d160b66',
+      'reference' => 'b3eac5c7ac896e52deab4a99068e3f4ab12d9e56',
     ),
     'webmozart/assert' => 
     array (
