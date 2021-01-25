@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'SimplePie' => array($vendorDir . '/simplepie/simplepie/library'),
     'PHPMD\\' => array($vendorDir . '/phpmd/phpmd/src/main/php'),
     'ChromePhp' => array($vendorDir . '/ccampbell/chromephp'),
 );

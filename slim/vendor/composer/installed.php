@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9412ab7c8ba6f793aceed2afe384e8df8c4eace7',
+    'reference' => '64b59d010ba1bcb5e072a261ccbe0f45aafd6138',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -45,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9412ab7c8ba6f793aceed2afe384e8df8c4eace7',
+      'reference' => '64b59d010ba1bcb5e072a261ccbe0f45aafd6138',
     ),
     'fig/http-message-util' => 
     array (
@@ -511,6 +511,15 @@
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'simplepie/simplepie' => 
+    array (
+      'pretty_version' => '1.5.6',
+      'version' => '1.5.6.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1c68e14ca3ac84346b6e6fe3c5eedf725d0f92c6',
     ),
     'slim/psr7' => 
     array (
