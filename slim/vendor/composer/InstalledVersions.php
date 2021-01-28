@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '64b59d010ba1bcb5e072a261ccbe0f45aafd6138',
+    'reference' => 'babe1e5f29edadbccafe3becceee9d3574a58506',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -68,7 +68,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '64b59d010ba1bcb5e072a261ccbe0f45aafd6138',
+      'reference' => 'babe1e5f29edadbccafe3becceee9d3574a58506',
     ),
     'fig/http-message-util' => 
     array (
@@ -274,12 +274,12 @@ private static $installed = array (
     ),
     'phpstan/phpstan' => 
     array (
-      'pretty_version' => '0.12.69',
-      'version' => '0.12.69.0',
+      'pretty_version' => '0.12.70',
+      'version' => '0.12.70.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8f436ea35241da33487fd0d38b4bc3e6dfe30ea8',
+      'reference' => '07f0ef37f5f876e8cee44cc8ea0ec3fe80d499ee',
     ),
     'phpunit/php-code-coverage' => 
     array (
@@ -582,21 +582,21 @@ private static $installed = array (
     ),
     'symfony/config' => 
     array (
-      'pretty_version' => 'v5.2.1',
-      'version' => '5.2.1.0',
+      'pretty_version' => 'v5.2.2',
+      'version' => '5.2.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'd0a82d965296083fe463d655a3644cbe49cbaa80',
+      'reference' => '50e0e1314a3b2609d32b6a5a0d0fb5342494c4ab',
     ),
     'symfony/dependency-injection' => 
     array (
-      'pretty_version' => 'v5.2.1',
-      'version' => '5.2.1.0',
+      'pretty_version' => 'v5.2.2',
+      'version' => '5.2.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7f8a9e9eff0581a33e20f6c5d41096fe22832d25',
+      'reference' => '62f72187be689540385dce6c68a5d4c16f034139',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -609,12 +609,12 @@ private static $installed = array (
     ),
     'symfony/filesystem' => 
     array (
-      'pretty_version' => 'v5.2.1',
-      'version' => '5.2.1.0',
+      'pretty_version' => 'v5.2.2',
+      'version' => '5.2.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'fa8f8cab6b65e2d99a118e082935344c5ba8c60d',
+      'reference' => '262d033b57c73e8b59cd6e68a45c528318b15038',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -661,12 +661,12 @@ private static $installed = array (
     ),
     'symfony/var-dumper' => 
     array (
-      'pretty_version' => 'v5.2.1',
-      'version' => '5.2.1.0',
+      'pretty_version' => 'v5.2.2',
+      'version' => '5.2.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '13e7e882eaa55863faa7c4ad7c60f12f1a8b5089',
+      'reference' => '72ca213014a92223a5d18651ce79ef441c12b694',
     ),
     'theseer/tokenizer' => 
     array (
