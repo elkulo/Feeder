@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>API Server{% if title is defined %} | {{ title }}{% endif %}</title>
+<title>{% if title is defined %}{{ title }}{% endif %} Feeder | el.kulo</title>
 {% if description is defined %}
 <meta name="description" content="{{ description }}">
 {% endif %}
@@ -94,5 +94,6 @@
 
 {% block content %}{% endblock %}
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 </body>
 </html>

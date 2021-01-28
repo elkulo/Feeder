@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'babe1e5f29edadbccafe3becceee9d3574a58506',
+    'reference' => '090a7a806ead01d630a7bfc1c5199b228d3a4ba9',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -45,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'babe1e5f29edadbccafe3becceee9d3574a58506',
+      'reference' => '090a7a806ead01d630a7bfc1c5199b228d3a4ba9',
     ),
     'fig/http-message-util' => 
     array (

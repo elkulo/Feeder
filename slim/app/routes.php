@@ -21,13 +21,13 @@ return function (App $app) {
         $feeder = array();
         $sites = [
             [
-                'name' => 'No.1',
-                'feed' => 'https://elkulo.github.io/rss.xml',
+                'name' => '主要',
+                'feed' => 'https://news.yahoo.co.jp/rss/topics/top-picks.xml',
             ],
             [
-                'name' => 'No.2',
-                'feed' => 'https://elkulo.github.io/rss.xml',
-            ]
+                'name' => 'エンタメ',
+                'feed' => 'https://news.yahoo.co.jp/rss/topics/entertainment.xml',
+            ],
         ];
 
         foreach ($sites as $site) {
@@ -53,7 +53,7 @@ return function (App $app) {
                 $rssItems = $rss->get_items(0, 20);
                 foreach ($rssItems as $item) {
                     $posts[] = [
-                        'date' => $item->get_date('Y/m/d'),
+                        'date' => $item->get_date('Y/m/d H:i:s'),
                         'title' => $item->get_title(),
                         'link' =>  $item->get_link(),
                         'content' => $item->get_description(),
@@ -74,7 +74,7 @@ return function (App $app) {
 
         $twig = $app->getContainer()->get(Twig::class);
         return $twig->render($response, 'home.twig', [
-            'title' => '',
+            'title' => 'Yahoo - ',
             'description' => '',
             'feeder' => $feeder
         ]);
