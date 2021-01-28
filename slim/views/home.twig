@@ -4,7 +4,7 @@
 <!-- HEADER -->
 <div class="site">
 
-	<header>
+	<header class="site-header">
 
 		<div class="heroe">
 
@@ -15,11 +15,47 @@
 		</div>
 	</header>
 
-	<footer>
+	<main class="site-section">
+	{% for feed in feeder %}
+
+		<div class="site-section__header">
+			<div class="site-section__header__title">{{feed.name}}</div>
+		</div>
+
+		{% if feed.succeed %}
+			{% for post in feed.posts %}
+				<section class="entry-section">
+					<header class="entry-header">
+						<h2><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h2>
+						<p>{{post.date}}</p>
+					</header>
+					<div class="entry-content">
+						<p>{{post.content}}</p>
+					</div>
+					<footer>
+						<p>→ <a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.link}}</a></p>
+					</footer>
+				</section>
+			{% endfor %}
+		{% else %}
+			<section>
+				<header class="entry-header">
+					<h2>Not Found.</h2>
+				</header>
+				<div class="entry-content">
+					<p>投稿の取得に失敗しました。</p>
+				</div>
+			</section>
+		{% endif %}
+
+	{% endfor %}
+	</main>
+
+	<footer class="site-footer">
 
 		<div class="copyrights">
 
-			<p>&copy; Slim Foundation.</p>
+			<p>&copy; 2020 - 2021 Feeder | el.kulo.</p>
 
 		</div>
 
