@@ -28,7 +28,7 @@ return function (ContainerBuilder $containerBuilder) {
 
     // Defined
     // phpcs:disable
-    defined('STORAGE_JSON') || define('STORAGE_JSON', __DIR__ . '/../' . $_ENV['DB']);
+    defined('FEEDS_DB') || define('FEEDS_DB', __DIR__ . '/../' . $_ENV['FEEDS_DB']);
     // phpcs:enable
 
     // Global Settings Object

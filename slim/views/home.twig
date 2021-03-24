@@ -1,7 +1,6 @@
 {% extends 'templates/layout.twig' %}
 {% block content %}
 
-<!-- HEADER -->
 <div class="site">
 
 	<header class="site-header">
@@ -15,39 +14,48 @@
 		</div>
 	</header>
 
-	<main class="site-section">
+	<main id="app" class="site-section">
+
+    	<ul class="tabs">
+			{% for feed in feeder %}
+        		<li class="tabs__item" v-on:click="change('{{feed.id}}')" v-bind:class="{'active': isActive === '{{feed.id}}'}">{{feed.name}}</li>
+			{% endfor %}
+  		</ul>
+
 	{% for feed in feeder %}
 
-		<div class="site-section__header">
-			<div class="site-section__header__title">{{feed.name}}</div>
-		</div>
+		<template v-if="isActive === '{{feed.id}}'">
+			<div class="site-section__header">
+				<div class="site-section__header__title">{{feed.id}}. {{feed.name}}</div>
+			</div>
 
-		{% if feed.succeed %}
-			{% for post in feed.posts %}
-				<section class="entry-section">
+			{% if feed.succeed %}
+				{% for post in feed.posts %}
+					<section class="entry-section">
+						<header class="entry-header">
+							<h2><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h2>
+							<p>{{post.date}}</p>
+						</header>
+						<div class="entry-content">
+							<p>{{post.content}}</p>
+						</div>
+						<footer>
+							<p>→ <a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.link}}</a></p>
+						</footer>
+					</section>
+				{% endfor %}
+			{% else %}
+				<section>
 					<header class="entry-header">
-						<h2><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h2>
-						<p>{{post.date}}</p>
+						<h2>Not Found.</h2>
 					</header>
 					<div class="entry-content">
-						<p>{{post.content}}</p>
+						<p>投稿の取得に失敗しました。</p>
 					</div>
-					<footer>
-						<p>→ <a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.link}}</a></p>
-					</footer>
 				</section>
-			{% endfor %}
-		{% else %}
-			<section>
-				<header class="entry-header">
-					<h2>Not Found.</h2>
-				</header>
-				<div class="entry-content">
-					<p>投稿の取得に失敗しました。</p>
-				</div>
-			</section>
-		{% endif %}
+			{% endif %}
 
+		</template>
 	{% endfor %}
 	</main>
 
@@ -55,7 +63,7 @@
 
 		<div class="copyrights">
 
-			<p>&copy; 2020 - 2021 Feeder | el.kulo.</p>
+			<p>&copy; Feeder | el.kulo</p>
 
 		</div>
 
