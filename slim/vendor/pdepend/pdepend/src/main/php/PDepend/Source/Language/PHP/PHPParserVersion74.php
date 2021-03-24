@@ -111,7 +111,7 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
 
         $closure = $this->builder->buildAstClosure();
         $closure->setReturnsByReference($this->parseOptionalByReference());
-        $closure->addChild($this->parseFormalParameters());
+        $closure->addChild($this->parseFormalParameters($closure));
         $closure = $this->parseCallableDeclarationAddition($closure);
 
         $closure->addChild(
@@ -126,6 +126,7 @@ abstract class PHPParserVersion74 extends PHPParserVersion73
     /**
      * Override PHP 7.3 checkEllipsisInExpressionSupport to stop throwing the
      * parsing exception.
+     * @return void
      */
     protected function checkEllipsisInExpressionSupport()
     {

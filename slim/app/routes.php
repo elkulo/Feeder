@@ -19,16 +19,26 @@ return function (App $app) {
     $app->get('/', function (Request $request, Response $response) use ($app) {
 
         $feeder = array();
-        $sites = [
+
+        if (is_readable(FEEDS_DB)) {
+            $json = file_get_contents(FEEDS_DB);
+            $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+            $feeds = json_decode($json, true);
+        }
+
+        $sites = $feeds ? $feeds :
             [
-                'name' => '主要',
-                'feed' => 'https://news.yahoo.co.jp/rss/topics/top-picks.xml',
-            ],
-            [
-                'name' => 'エンタメ',
-                'feed' => 'https://news.yahoo.co.jp/rss/topics/entertainment.xml',
-            ],
-        ];
+                [
+                    'id' => '1',
+                    'name' => '主要',
+                    'feed' => 'https://news.yahoo.co.jp/rss/topics/top-picks.xml',
+                ],
+                [
+                    'id' => '2',
+                    'name' => 'エンタメ',
+                    'feed' => 'https://news.yahoo.co.jp/rss/topics/entertainment.xml',
+                ],
+            ];
 
         foreach ($sites as $site) {
             // @reference https://simplepie.org/wiki/reference/simplepie/start
@@ -66,6 +76,7 @@ return function (App $app) {
             }
 
             $feeder[] = array(
+                'id' => $site['id'],
                 'name' => $site['name'],
                 'posts' => $posts,
                 'succeed' => $succeed
@@ -74,14 +85,14 @@ return function (App $app) {
 
         $twig = $app->getContainer()->get(Twig::class);
         return $twig->render($response, 'home.twig', [
-            'title' => 'Yahoo - ',
+            'title' => 'Feeder',
             'description' => '',
             'feeder' => $feeder
         ]);
     });
 
     /*
-    $app->group('/posts', function (Group $group) {
+    $app->group('/feeds', function (Group $group) {
         $group->get('', ListPostsAction::class);
         $group->get('/{id}', ViewPostAction::class);
     });

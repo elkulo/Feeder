@@ -22,23 +22,29 @@ class InMemoryPostRepository implements PostRepository
      */
     public function __construct(array $posts = null)
     {
-        if (is_readable(STORAGE_JSON)) {
-            $json = file_get_contents(STORAGE_JSON);
+        if (is_readable(FEEDS_DB)) {
+            $json = file_get_contents(FEEDS_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
             for ($i=1; $i <= count($data); $i++) {
                 if (isset($data[$i - 1])) {
-                    $posts[$i] = new Post($i, $data[$i - 1]);
+                    $posts[$i] = new Post(
+                        $i,
+                        $data[$i - 1]['name'],
+                        $data[$i - 1]['feed'],
+                        $data[$i - 1]['url'],
+                        $data[$i - 1]['category']
+                    );
                 }
             }
         }
 
         $this->posts = $posts ?? [
-            1 => new Post(1, []),
-            2 => new Post(2, []),
-            3 => new Post(3, []),
-            4 => new Post(4, []),
-            5 => new Post(5, []),
+            1 => new Post(1, 'name', 'feed', 'url', []),
+            2 => new Post(2, 'name', 'feed', 'url', []),
+            3 => new Post(3, 'name', 'feed', 'url', []),
+            4 => new Post(4, 'name', 'feed', 'url', []),
+            5 => new Post(5, 'name', 'feed', 'url', [])
         ];
     }
 

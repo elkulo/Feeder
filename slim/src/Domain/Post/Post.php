@@ -14,18 +14,39 @@ class Post implements JsonSerializable
     private $id;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $feed;
+
+    /**
+     * @var string
+     */
+    private $url;
+
+    /**
      * @var array
      */
-    private $data;
+    private $category;
 
     /**
      * @param int|null  $id
-     * @param array     $data
+     * @param string    $name
+     * @param string    $feed
+     * @param string    $url
+     * @param array     $category
      */
-    public function __construct(?int $id, array $data)
+    public function __construct(?int $id, string $name, string $feed, string $url, array $category)
     {
         $this->id = $id;
-        $this->data = $data;
+        $this->name = $name;
+        $this->feed = $feed;
+        $this->url = $url;
+        $this->category = $category;
     }
 
     /**
@@ -37,11 +58,35 @@ class Post implements JsonSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFeed(): string
+    {
+        return $this->feed;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
      * @return array
      */
-    public function getData(): array
+    public function getCategory(): array
     {
-        return $this->data;
+        return $this->category;
     }
 
     /**
@@ -49,10 +94,12 @@ class Post implements JsonSerializable
      */
     public function jsonSerialize()
     {
-        // $dataにIDがあればそちらを使用
-        if (! isset($this->data['id'])) {
-            $this->data['id'] = (string)$this->id;
-        }
-        return $this->data;
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'feed' => $this->feed,
+            'url' => $this->url,
+            'category' => $this->category,
+        ];
     }
 }
