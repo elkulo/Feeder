@@ -189,25 +189,28 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
     /**
      * @return \PDepend\Source\AST\ASTType
      */
+    protected function parseEndReturnTypeHint()
+    {
+        switch ($this->tokenizer->peek()) {
+            case Tokens::T_ARRAY:
+                return $this->parseArrayType();
+            case Tokens::T_SELF:
+                return $this->parseSelfType();
+            case Tokens::T_PARENT:
+                return $this->parseParentType();
+            default:
+                return $this->parseTypeHint();
+        }
+    }
+
+    /**
+     * @return \PDepend\Source\AST\ASTType
+     */
     protected function parseReturnTypeHint()
     {
         $this->consumeComments();
 
-        switch ($tokenType = $this->tokenizer->peek()) {
-            case Tokens::T_ARRAY:
-                $type = $this->parseArrayType();
-                break;
-            case Tokens::T_SELF:
-                $type = $this->parseSelfType();
-                break;
-            case Tokens::T_PARENT:
-                $type = $this->parseParentType();
-                break;
-            default:
-                $type = $this->parseTypeHint();
-                break;
-        }
-        return $type;
+        return $this->parseEndReturnTypeHint();
     }
 
     /**
@@ -538,12 +541,18 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
                     $this->consumeToken($nextToken);
             }
 
+            if ($this->allowUseGroupDeclarationTrailingComma() &&
+                Tokens::T_CURLY_BRACE_CLOSE === $this->tokenizer->peek()
+            ) {
+                break;
+            }
+
             $subFragments = $this->parseQualifiedNameRaw();
             $this->consumeComments();
 
             $image = $this->parseNamespaceImage($subFragments);
 
-            if (Tokens::T_COMMA != $this->tokenizer->peek()) {
+            if (Tokens::T_COMMA !== $this->tokenizer->peek()) {
                 break;
             }
 
@@ -554,7 +563,9 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
             $this->useSymbolTable->add($image, join('', array_merge($fragments, $subFragments)));
         } while (true);
 
-        $this->useSymbolTable->add($image, join('', array_merge($fragments, $subFragments)));
+        if (isset($image, $subFragments)) {
+            $this->useSymbolTable->add($image, join('', array_merge($fragments, $subFragments)));
+        }
 
         $this->consumeToken(Tokens::T_CURLY_BRACE_CLOSE);
         $this->consumeComments();
@@ -577,5 +588,14 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
         }
 
         throw $this->getUnexpectedTokenException($this->tokenizer->next());
+    }
+
+    /**
+     * use Foo\Bar\{TestA, TestB} is allowed since PHP 7.0
+     * use Foo\Bar\{TestA, TestB,} but trailing comma isn't
+     */
+    protected function allowUseGroupDeclarationTrailingComma()
+    {
+        return false;
     }
 }
