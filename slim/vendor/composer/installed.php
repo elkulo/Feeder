@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '01cbeb09d7c4019f10e82ccda28914c7689c45fe',
+    'reference' => '4482a31360ad2638b7e2289c2ece34b5b0d9e4e5',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -22,12 +22,12 @@
     ),
     'composer/xdebug-handler' => 
     array (
-      'pretty_version' => '1.4.6',
-      'version' => '1.4.6.0',
+      'pretty_version' => '2.0.1',
+      'version' => '2.0.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f27e06cd9675801df441b3656569b328e04aa37c',
+      'reference' => '964adcdd3a28bf9ed5d9ac6450064e0d71ed7496',
     ),
     'doctrine/instantiator' => 
     array (
@@ -45,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '01cbeb09d7c4019f10e82ccda28914c7689c45fe',
+      'reference' => '4482a31360ad2638b7e2289c2ece34b5b0d9e4e5',
     ),
     'fig/http-message-util' => 
     array (
@@ -215,12 +215,12 @@
     ),
     'phpmd/phpmd' => 
     array (
-      'pretty_version' => '2.10.0',
-      'version' => '2.10.0.0',
+      'pretty_version' => '2.10.1',
+      'version' => '2.10.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '58ef9e746a1ab50ad3360d5d301e1229ed2612cb',
+      'reference' => 'bd5ef43d1dcaf7272605027c959c1c5ff3761f7a',
     ),
     'phpoption/phpoption' => 
     array (
@@ -251,12 +251,12 @@
     ),
     'phpstan/phpstan' => 
     array (
-      'pretty_version' => '0.12.85',
-      'version' => '0.12.85.0',
+      'pretty_version' => '0.12.88',
+      'version' => '0.12.88.0',
       'aliases' => 
       array (
       ),
-      'reference' => '20e6333c0067875ad7697cd8acdf245c6ef69d03',
+      'reference' => '464d1a81af49409c41074aa6640ed0c4cbd9bb68',
     ),
     'phpunit/php-code-coverage' => 
     array (
@@ -523,21 +523,21 @@
     ),
     'slim/psr7' => 
     array (
-      'pretty_version' => '1.3.0',
-      'version' => '1.3.0.0',
+      'pretty_version' => '1.4',
+      'version' => '1.4.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '235d2e5a5ee1ad4b97b96870f37f3091b22fffd7',
+      'reference' => '0dca983ca32a26f4a91fb11173b7b9eaee29e9d6',
     ),
     'slim/slim' => 
     array (
-      'pretty_version' => '4.7.1',
-      'version' => '4.7.1.0',
+      'pretty_version' => '4.8.0',
+      'version' => '4.8.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0905e0775f8c1cfb3bbcfabeb6588dcfd8b82d3f',
+      'reference' => 'c9bdc9e0d2f8613055632334ec6711b965d5fdf3',
     ),
     'slim/twig-view' => 
     array (
@@ -559,21 +559,21 @@
     ),
     'symfony/config' => 
     array (
-      'pretty_version' => 'v5.2.7',
-      'version' => '5.2.7.0',
+      'pretty_version' => 'v5.2.8',
+      'version' => '5.2.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '3817662ada105c8c4d1afdb4ec003003efd1d8d8',
+      'reference' => '8dfa5f8adea9cd5155920069224beb04f11d6b7e',
     ),
     'symfony/dependency-injection' => 
     array (
-      'pretty_version' => 'v5.2.7',
-      'version' => '5.2.7.0',
+      'pretty_version' => 'v5.2.9',
+      'version' => '5.2.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => '6ca378b99e3c9ba6127eb43b68389fb2b7348577',
+      'reference' => '2761ca2f7e2f41af3a45951e1ce8c01f121245eb',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -638,12 +638,12 @@
     ),
     'symfony/var-dumper' => 
     array (
-      'pretty_version' => 'v5.2.7',
-      'version' => '5.2.7.0',
+      'pretty_version' => 'v5.2.8',
+      'version' => '5.2.8.0',
       'aliases' => 
       array (
       ),
-      'reference' => '27cb9f7cfa3853c736425c7233a8f68814b19636',
+      'reference' => 'd693200a73fae179d27f8f1b16b4faf3e8569eba',
     ),
     'theseer/tokenizer' => 
     array (
@@ -656,12 +656,12 @@
     ),
     'twig/twig' => 
     array (
-      'pretty_version' => 'v3.3.0',
-      'version' => '3.3.0.0',
+      'pretty_version' => 'v3.3.2',
+      'version' => '3.3.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5',
+      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
     ),
     'vlucas/phpdotenv' => 
     array (
