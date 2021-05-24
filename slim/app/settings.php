@@ -28,7 +28,7 @@ return function (ContainerBuilder $containerBuilder) {
 
     // Defined
     // phpcs:disable
-    defined('FEEDS_DB') || define('FEEDS_DB', __DIR__ . '/../' . $_ENV['FEEDS_DB']);
+    defined('FEED_DB') || define('FEED_DB', __DIR__ . '/../' . $_ENV['FEED_DB']);
     // phpcs:enable
 
     // Global Settings Object

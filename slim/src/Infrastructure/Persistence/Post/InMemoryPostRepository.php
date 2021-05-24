@@ -22,8 +22,8 @@ class InMemoryPostRepository implements PostRepository
      */
     public function __construct(array $posts = null)
     {
-        if (is_readable(FEEDS_DB)) {
-            $json = file_get_contents(FEEDS_DB);
+        if (is_readable(FEED_DB)) {
+            $json = file_get_contents(FEED_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $data = json_decode($json, true);
             for ($i=1; $i <= count($data); $i++) {

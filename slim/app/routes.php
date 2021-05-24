@@ -20,8 +20,8 @@ return function (App $app) {
 
         $feeder = array();
 
-        if (is_readable(FEEDS_DB)) {
-            $json = file_get_contents(FEEDS_DB);
+        if (is_readable(FEED_DB)) {
+            $json = file_get_contents(FEED_DB);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $feeds = json_decode($json, true);
         }
@@ -32,12 +32,7 @@ return function (App $app) {
                     'id' => '1',
                     'name' => '主要',
                     'feed' => 'https://news.yahoo.co.jp/rss/topics/top-picks.xml',
-                ],
-                [
-                    'id' => '2',
-                    'name' => 'エンタメ',
-                    'feed' => 'https://news.yahoo.co.jp/rss/topics/entertainment.xml',
-                ],
+                ]
             ];
 
         foreach ($sites as $site) {
