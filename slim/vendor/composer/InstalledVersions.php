@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4482a31360ad2638b7e2289c2ece34b5b0d9e4e5',
+    'reference' => '4175b448df237d907fa4a6cf384a970299d486e0',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -71,7 +71,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4482a31360ad2638b7e2289c2ece34b5b0d9e4e5',
+      'reference' => '4175b448df237d907fa4a6cf384a970299d486e0',
     ),
     'fig/http-message-util' => 
     array (
@@ -897,9 +897,23 @@ return $installed[0]['root'];
 
 
 
+
 public static function getRawData()
 {
+@trigger_error('getRawData only returns the first dataset loaded, which may not be what you expect. Use getAllRawData() instead which returns all datasets for all autoloaders present in the process.', E_USER_DEPRECATED);
+
 return self::$installed;
+}
+
+
+
+
+
+
+
+public static function getAllRawData()
+{
+return self::getInstalled();
 }
 
 
