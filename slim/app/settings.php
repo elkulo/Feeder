@@ -37,7 +37,7 @@ return function (ContainerBuilder $containerBuilder) {
             'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] : false,
             'displayErrorDetails' => true, // Should be set to false in production
             'logger' => [
-                'name' => 'app',
+                'name' => 'slim-app',
                 'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app-' . date("Y-m-d") . '.log',
                 'level' => Logger::DEBUG,
             ],
