@@ -93,3 +93,11 @@ nb-configuration.xml
 
 # Visual Studio Code
 .vscode/
+
+# NPM
+node_modules/
+jspm_packages/
+package-lock.json
+
+# Composer
+logs/
