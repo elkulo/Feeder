@@ -1,7 +1,7 @@
 /**
  * Webpack 5
  *
- * @version 2021.05.28
+ * @version 2021.06.01
  */
 const dirscript = "./public/webpack";
 
@@ -10,6 +10,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -24,12 +25,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -56,12 +51,13 @@ module.exports = {
     ],
   },
   plugins: [
+    new ESLintPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].min.css",
     }),
   ],
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new CssMinimizerPlugin()],
+    minimizer: [new TerserJSPlugin(), new CssMinimizerPlugin()],
   },
   resolve: {
     extensions: [".js"],
