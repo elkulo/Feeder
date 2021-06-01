@@ -3,17 +3,25 @@
 
 <div class="site">
 
+<div class="container-fluid">
+<div class="row">
+
+<div class="col-md-3 d-block bg-dark sidebar collapse">
 	<header class="site-header">
 
 		<div class="heroe">
 
 			<h1>Feeder</h1>
-
-			<p>The slim framework with powerful features</p>
+			<p>
+				<span data-clock-days></span><br />
+				<span data-clock-times></span>
+			</p>
 
 		</div>
 	</header>
+</div>
 
+<div class="col-md-9 ms-sm-auto px-md-5 bg-light">
 	<main id="app" class="site-section">
 
     	<ul class="tabs">
@@ -26,14 +34,14 @@
 
 		<template v-if="isActive === '{{feed.id}}'">
 			<div class="site-section__header">
-				<div class="site-section__header__title">{{feed.id}}. {{feed.name}}</div>
+				<h2 class="site-section__header__title">{{feed.id}}. {{feed.name}}</h2>
 			</div>
 
 			{% if feed.succeed %}
 				{% for post in feed.posts %}
 					<section class="entry-section">
 						<header class="entry-header">
-							<h2><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h2>
+							<h3><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h3>
 							<p>{{post.date}}</p>
 						</header>
 						<div class="entry-content">
@@ -68,7 +76,9 @@
 		</div>
 
 	</footer>
+</div>
 
+</div>
 </div>
 
 {% endblock %}

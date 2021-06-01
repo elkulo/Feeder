@@ -34,49 +34,9 @@ class Clock {
 			const day = ( '0' + DaysDate.getDate() ).slice( -2 );
 
 			const dayOfWeek = DaysDate.getDay();
-			let dayOfWeekStr = [ '日', '月', '火', '水', '木', '金', '土' ][dayOfWeek];
+			const dayOfWeekStr = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ][dayOfWeek];
 
-			switch ( window.lang ) {
-			case 'en':
-				dayOfWeekStr = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ][
-					dayOfWeek
-				];
-				break;
-			case 'ko':
-				dayOfWeekStr = [
-					'일요일',
-					'월요일',
-					'화요일',
-					'수요일',
-					'목요일',
-					'금요일',
-					'토요일',
-				][dayOfWeek];
-				break;
-			case 'zh-cn':
-			case 'zh-tw':
-				dayOfWeekStr = [
-					'星期天',
-					'星期一',
-					'星期二',
-					'星期三',
-					'星期四',
-					'星期五',
-					'星期六',
-				][dayOfWeek];
-				break;
-			}
-
-			const dayFormat =
-        year +
-        '/' +
-        month +
-        '/' +
-        day +
-        '<span class="dayof">（' +
-        dayOfWeekStr +
-        '）</span>';
-
+			const dayFormat = year + '/' + month + '/' + day + ' <small>' + dayOfWeekStr + '</small>';
 			$daysElement.innerHTML = dayFormat;
 		}
 	}
