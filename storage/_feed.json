@@ -2,25 +2,19 @@
   {
     "id": "1",
     "name": "主要",
-    "category": ["WEB"],
+    "category": ["Yahoo"],
     "feed": "https://news.yahoo.co.jp/rss/topics/top-picks.xml"
   },
   {
     "id": "2",
     "name": "エンタメ",
-    "category": ["WEB", "DTP"],
+    "category": ["Web"],
     "feed": "https://news.yahoo.co.jp/rss/topics/entertainment.xml"
   },
   {
     "id": "3",
-    "name": "エンタメ",
-    "category": ["WEB", "DTP"],
-    "feed": "https://news.yahoo.co.jp/rss/topics/entertainment.xml"
-  },
-  {
-    "id": "4",
-    "name": "エンタメ",
-    "category": ["WEB", "DTP"],
-    "feed": "https://news.yahoo.co.jp/rss/topics/entertainment.xml"
+    "name": "天気",
+    "category": ["Yahoo", "Web"],
+    "feed": "https://rss-weather.yahoo.co.jp/rss/days/4410.xml"
   }
 ]
