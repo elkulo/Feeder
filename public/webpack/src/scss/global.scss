@@ -20,7 +20,11 @@ body {
 h1,
 h2,
 h3 {
+    line-height: 1.4;
     font-family: "Noto Serif JP";
+}
+p {
+    line-height: 1.6;
 }
 
 a {
@@ -120,8 +124,6 @@ a {
         margin-top: 0;
     }
 
-    &__header {
-    }
-    &__content {
-    }
+    //&__header {}
+    //&__content {}
 }
