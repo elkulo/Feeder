@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'efbb92e3eda38037c1951e2991993a0e31914772',
+    'reference' => 'a4395879bef145699d44ce65a1967c68e63decaf',
     'name' => 'elkulo/feeder',
   ),
   'versions' => 
@@ -71,7 +71,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'efbb92e3eda38037c1951e2991993a0e31914772',
+      'reference' => 'a4395879bef145699d44ce65a1967c68e63decaf',
     ),
     'fig/http-message-util' => 
     array (

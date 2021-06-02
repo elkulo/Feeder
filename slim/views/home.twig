@@ -9,7 +9,7 @@
 <div class="col-md-3 d-block bg-dark sidebar collapse">
 	<header class="site-header">
 
-		<div class="heroe">
+		<div class="site-header__heroe">
 
 			<h1>Feeder</h1>
 			<p>
@@ -21,14 +21,16 @@
 	</header>
 </div>
 
-<div class="col-md-9 ms-sm-auto px-md-5 bg-light">
+<div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
 	<main id="app" class="site-section">
 
-    	<ul class="tabs">
-			{% for feed in feeder %}
-        		<li class="tabs__item" v-on:click="change('{{feed.id}}')" v-bind:class="{'active': isActive === '{{feed.id}}'}">{{feed.name}}</li>
-			{% endfor %}
-  		</ul>
+		<nav class="site-navigation">
+    		<ul class="site-navigation__tabs">
+				{% for feed in feeder %}
+        			<li class="site-navigation__tabs__item" v-on:click="change('{{feed.id}}')" v-bind:class="{'active': isActive === '{{feed.id}}'}">{{feed.name}}</li>
+				{% endfor %}
+  			</ul>
+		</nav>
 
 	{% for feed in feeder %}
 
@@ -38,13 +40,13 @@
 			</div>
 
 			{% if feed.succeed %}
-				{% for post in feed.posts %}
-					<section class="entry-section">
-						<header class="entry-header">
+				{% for key, post in feed.posts %}
+					<section class="entry-section entry-section--{{key + 1}}">
+						<header class="entry-section__header">
 							<h3><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h3>
 							<p>{{post.date}}</p>
 						</header>
-						<div class="entry-content">
+						<div class="entry-section__content">
 							<p>{{post.content}}</p>
 						</div>
 						<footer>
@@ -69,7 +71,7 @@
 
 	<footer class="site-footer">
 
-		<div class="copyrights">
+		<div class="site-footer__copyrights">
 
 			<p>&copy; Feeder | el.kulo</p>
 
