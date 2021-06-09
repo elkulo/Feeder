@@ -26,47 +26,49 @@
 
 		<nav class="site-navigation">
     		<ul class="site-navigation__tabs">
-				{% for feed in feeder %}
-        			<li class="site-navigation__tabs__item" v-on:click="change('{{feed.id}}')" v-bind:class="{'active': isActive === '{{feed.id}}'}">{{feed.name}}</li>
-				{% endfor %}
+       			<li
+				   class="site-navigation__tabs__item"
+				   v-for="site in feeds.data"
+				   v-on:click="change(site.id)"
+				   v-bind:class="{'active': isActive === site.id}"
+				   :key="site.id"
+				>
+				   ${site.name}
+				</li>
   			</ul>
 		</nav>
 
-	{% for feed in feeder %}
-
-		<template v-if="isActive === '{{feed.id}}'">
+		<template
+			v-for="site in feeds.data"
+			v-if="isActive == site.id"
+			:key="site.id"
+		>
 			<div class="site-section__header">
-				<h2 class="site-section__header__title">{{feed.id}}. {{feed.name}}</h2>
+				<h2 class="site-section__header__title">
+					${site.id}. ${site.name}
+				</h2>
 			</div>
 
-			{% if feed.succeed %}
-				{% for key, post in feed.posts %}
-					<section class="entry-section entry-section--{{key + 1}}">
-						<header class="entry-section__header">
-							<h3><a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.title}}</a></h3>
-							<p>{{post.date}}</p>
-						</header>
-						<div class="entry-section__content">
-							<p>{{post.content}}</p>
-						</div>
-						<footer>
-							<p>→ <a href="{{post.link}}" title="{{post.title}}" target="_blank">{{post.link}}</a></p>
-						</footer>
-					</section>
-				{% endfor %}
-			{% else %}
-				<section>
-					<header class="entry-header">
-						<h2>Not Found.</h2>
-					</header>
-					<div class="entry-content">
-						<p>投稿の取得に失敗しました。</p>
-					</div>
-				</section>
-			{% endif %}
-
+			<section
+				v-for="(single, index) in site.feeder"
+				class="entry-section entry-section--${index}"
+			   :key="index"
+			>
+				<header class="entry-section__header">
+					<h3>
+						<a href="${single.link}" title="${single.title}" target="_blank">${single.title}</a>
+					</h3>
+					<p>${single.date}</p>
+				</header>
+				<div class="entry-section__content">
+					<p>${single.content}</p>
+				</div>
+				<footer>
+					<p>→ <a href="${single.link}" title="${single.title}" target="_blank">${single.link}</a></p>
+				</footer>
+			</section>
 		</template>
-	{% endfor %}
+
 	</main>
 
 	<footer class="site-footer">

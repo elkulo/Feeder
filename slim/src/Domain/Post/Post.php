@@ -21,7 +21,7 @@ class Post implements JsonSerializable
     /**
      * @var string
      */
-    private $feed;
+    private $src;
 
     /**
      * @var string
@@ -34,19 +34,26 @@ class Post implements JsonSerializable
     private $category;
 
     /**
+     * @var array
+     */
+    private $feeder;
+
+    /**
      * @param int|null  $id
      * @param string    $name
-     * @param string    $feed
+     * @param string    $src
      * @param string    $url
      * @param array     $category
+     * @param array     $feeder
      */
-    public function __construct(?int $id, string $name, string $feed, string $url, array $category)
+    public function __construct(?int $id, string $name, string $src, string $url, array $category, array $feeder)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->feed = $feed;
+        $this->src = $src;
         $this->url = $url;
         $this->category = $category;
+        $this->feeder = $feeder;
     }
 
     /**
@@ -68,9 +75,9 @@ class Post implements JsonSerializable
     /**
      * @return string
      */
-    public function getFeed(): string
+    public function getSrc(): string
     {
-        return $this->feed;
+        return $this->src;
     }
 
     /**
@@ -92,14 +99,23 @@ class Post implements JsonSerializable
     /**
      * @return array
      */
+    public function getFeeder(): array
+    {
+        return $this->feeder;
+    }
+
+    /**
+     * @return array
+     */
     public function jsonSerialize()
     {
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'feed' => $this->feed,
+            'src' => $this->src,
             'url' => $this->url,
             'category' => $this->category,
+            'feeder' => $this->feeder
         ];
     }
 }
