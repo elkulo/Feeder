@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @param  string|int $level
  * @return void
  */
-function console(string $message, $level = 1): void
+function console($message, $level = 1): void
 {
     switch ($level) {
         case 'error':

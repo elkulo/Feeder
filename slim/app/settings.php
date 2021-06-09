@@ -28,7 +28,8 @@ return function (ContainerBuilder $containerBuilder) {
 
     // Defined
     // phpcs:disable
-    defined('FEED_DB') || define('FEED_DB', __DIR__ . '/../' . $_ENV['FEED_DB']);
+    defined('SLIM_PATH') || define('SLIM_PATH', dirname(__DIR__));
+    defined('FEED_DB') || define('FEED_DB', SLIM_PATH  . '/' . $_ENV['FEED_DB']);
     // phpcs:enable
 
     // Global Settings Object

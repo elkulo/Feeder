@@ -1,20 +1,23 @@
 [
   {
     "id": "1",
-    "name": "主要",
-    "category": ["Yahoo"],
-    "feed": "https://news.yahoo.co.jp/rss/topics/top-picks.xml"
+    "name": "Yahoo主要",
+    "src": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
+    "url": "https://news.yahoo.co.jp/",
+    "category": ["Yahoo"]
   },
   {
     "id": "2",
     "name": "エンタメ",
-    "category": ["Web"],
-    "feed": "https://news.yahoo.co.jp/rss/topics/entertainment.xml"
+    "src": "https://news.yahoo.co.jp/rss/topics/entertainment.xml",
+    "url": "https://news.yahoo.co.jp/",
+    "category": ["Web"]
   },
   {
     "id": "3",
     "name": "天気",
-    "category": ["Yahoo", "Web"],
-    "feed": "https://rss-weather.yahoo.co.jp/rss/days/4410.xml"
+    "src": "https://rss-weather.yahoo.co.jp/rss/days/4410.xml",
+    "url": "https://news.yahoo.co.jp/",
+    "category": ["Yahoo", "Web"]
   }
 ]
