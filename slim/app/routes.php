@@ -21,7 +21,8 @@ return function (App $app) {
         $twig = $app->getContainer()->get(Twig::class);
         return $twig->render($response, 'home.twig', [
             'title' => 'Feeder',
-            'description' => ''
+            'description' => '',
+            'robots' => 'noindex, nofollow'
         ]);
     });
 

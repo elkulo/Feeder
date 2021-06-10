@@ -1,7 +1,7 @@
 /**
  * Webpack 5
  *
- * @version 2021.06.01
+ * @version 2021.06.10
  */
 const dirscript = "./public/webpack";
 
@@ -59,12 +59,15 @@ module.exports = {
   optimization: {
     minimizer: [new TerserJSPlugin(), new CssMinimizerPlugin()],
   },
-  resolve: {
-    extensions: [".js"],
-  },
   performance: {
     assetFilter: function (assetFilename) {
       return assetFilename.endsWith(".js");
+    },
+  },
+  resolve: {
+    extensions: [".js"],
+    alias: {
+      vue$: "vue/dist/vue.js",
     },
   },
 };
