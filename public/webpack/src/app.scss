@@ -36,6 +36,14 @@ a {
     }
 }
 
+#app {
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+#app.loaded {
+    opacity: 1;
+}
+
 .site-header {
     text-align: center;
 
@@ -95,7 +103,7 @@ a {
     }
 }
 
-.site-section {
+.content-area {
     &__header {
         margin: 3rem 0.5rem;
 
@@ -107,22 +115,35 @@ a {
 }
 
 .site-footer {
-    padding: 3rem 0;
+    padding: 3rem 0 1rem;
     text-align: center;
 
-    &__copyrights {
+    &__branding {
         font-family: "Noto Serif JP";
-        padding: 0.25rem 1.75rem;
-        text-align: center;
+        font-size: 1.5rem;
+        font-family: 700;
+
+        &__link {
+            text-decoration: none;
+            color: #719e40;
+
+            &:hover,
+            &:focus {
+                color: darken(#719e40, 15%);
+            }
+        }
+    }
+
+    &__copyright {
+        font-family: "Noto Serif JP";
+        font-size: 0.875rem;
+        font-family: 400;
+        margin-top: 3rem;
     }
 }
 
 .entry-section {
-    margin: 3rem 0;
-
-    &--1 {
-        margin-top: 0;
-    }
+    margin: 3rem 0 0;
 
     //&__header {}
     //&__content {}

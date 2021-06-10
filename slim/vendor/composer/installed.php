@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4551bb5d376f78197679d98f514751985fdae7da',
+        'reference' => '32131cf11862960044ab904305cb54d40e705096',
         'name' => 'elkulo/feeder',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4551bb5d376f78197679d98f514751985fdae7da',
+            'reference' => '32131cf11862960044ab904305cb54d40e705096',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -158,12 +158,12 @@
             'dev_requirement' => false,
         ),
         'php-di/php-di' => array(
-            'pretty_version' => '6.3.3',
-            'version' => '6.3.3.0',
+            'pretty_version' => '6.3.4',
+            'version' => '6.3.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../php-di/php-di',
             'aliases' => array(),
-            'reference' => 'da8e476cafc8011477e2ec9fd2e4706947758af2',
+            'reference' => 'f53bcba06ab31b18e911b77c039377f4ccd1f7a5',
             'dev_requirement' => false,
         ),
         'php-di/phpdoc-reader' => array(
@@ -322,8 +322,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '^1.0',
             ),
         ),
         'psr/http-factory' => array(
