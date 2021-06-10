@@ -1,89 +1,54 @@
 {% extends 'templates/layout.twig' %}
 {% block content %}
 
-<div class="site">
-
-<div class="container-fluid">
-<div class="row">
-
-<div class="col-md-3 d-block bg-dark sidebar collapse">
-	<header class="site-header">
-
-		<div class="site-header__heroe">
-
-			<h1>Feeder</h1>
-			<p>
-				<span data-clock-days></span><br />
-				<span data-clock-times></span>
-			</p>
-
-		</div>
-	</header>
-</div>
-
-<div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
-	<main id="app" class="site-section">
-	<template id="app-template">
-		<nav class="site-navigation">
-    		<ul class="site-navigation__tabs">
-       			<li
-				   class="site-navigation__tabs__item"
-				   v-for="site in feeds.data"
-				   v-on:click="change(site.id)"
-				   v-bind:class="{'active': isActive === site.id}"
-				   :key="site.id"
-				>
-				   ${site.name}
-				</li>
-  			</ul>
-		</nav>
-
-		<div
-			v-for="site in feeds.data"
-			v-if="isActive === site.id"
-			:key="site.id"
-		>
-			<div class="site-section__header">
-				<h2 class="site-section__header__title">
-					${site.id}. ${site.name}
-				</h2>
-			</div>
-
-			<section
-				v-for="(single, index) in site.feeder"
-				class="entry-section"
-				v-bind:class = "'entry-section--' + index"
-			   :key="index"
+<main class="site-content">
+	<nav class="site-navigation">
+    	<ul class="site-navigation__tabs">
+       		<li
+			   class="site-navigation__tabs__item"
+			   v-for="site in feeds.data"
+			   v-on:click="changeTab(site.id)"
+			   v-bind:class="{'active': isActiveTab === site.id}"
+			   :key="site.id"
 			>
-				<header class="entry-section__header">
-					<h3>
-						<a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.title}</a>
-					</h3>
-					<p>${single.date}</p>
-				</header>
-				<div class="entry-section__content">
-					<p>${single.content}</p>
-				</div>
-				<footer>
-					<p>→ <a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.link}</a></p>
-				</footer>
-			</section>
-		</div>
-	</template>
-	</main>
+			   ${site.name}
+			</li>
+		</ul>
+	</nav>
 
-	<footer class="site-footer">
-
-		<div class="site-footer__copyrights">
-
-			<p>&copy; Feeder | el.kulo</p>
-
+	<div
+		class="content-area"
+		v-for="site in feeds.data"
+		v-if="isActiveTab === site.id"
+		:key="site.id"
+	>
+		<div class="content-area__header">
+			<h2 class="content-area__header__title">${site.name}</h2>
+			<p class="content-area__header__url">
+				<a v-bind:href="site.url" v-bind:title="site.name" target="_blank">${site.url}</a>
+			</p>
 		</div>
 
-	</footer>
-</div>
-
-</div>
-</div>
+		<section
+			v-for="(single, index) in site.feeder"
+			class="entry-section"
+			v-bind:class = "'entry-section--' + index"
+			:key="index"
+		>
+			<header class="entry-section__header">
+				<h3>
+					<a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.title}</a>
+				</h3>
+				<p>${single.date}</p>
+			</header>
+			<div class="entry-section__content">
+				<p>${single.content}</p>
+			</div>
+			<footer>
+				<p>→ <a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.link}</a></p>
+			</footer>
+		</section>
+	</div>
+</main>
 
 {% endblock %}
