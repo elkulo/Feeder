@@ -23,7 +23,7 @@
 
 <div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
 	<main id="app" class="site-section">
-
+	<template id="app-template">
 		<nav class="site-navigation">
     		<ul class="site-navigation__tabs">
        			<li
@@ -38,9 +38,9 @@
   			</ul>
 		</nav>
 
-		<template
+		<div
 			v-for="site in feeds.data"
-			v-if="isActive == site.id"
+			v-if="isActive === site.id"
 			:key="site.id"
 		>
 			<div class="site-section__header">
@@ -51,12 +51,13 @@
 
 			<section
 				v-for="(single, index) in site.feeder"
-				class="entry-section entry-section--${index}"
+				class="entry-section"
+				v-bind:class = "'entry-section--' + index"
 			   :key="index"
 			>
 				<header class="entry-section__header">
 					<h3>
-						<a href="${single.link}" title="${single.title}" target="_blank">${single.title}</a>
+						<a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.title}</a>
 					</h3>
 					<p>${single.date}</p>
 				</header>
@@ -64,11 +65,11 @@
 					<p>${single.content}</p>
 				</div>
 				<footer>
-					<p>→ <a href="${single.link}" title="${single.title}" target="_blank">${single.link}</a></p>
+					<p>→ <a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.link}</a></p>
 				</footer>
 			</section>
-		</template>
-
+		</div>
+	</template>
 	</main>
 
 	<footer class="site-footer">

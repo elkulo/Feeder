@@ -1,12 +1,12 @@
-/*
+/**
  * 時計
  */
 class Clock {
 
 	/*
-   * constructor
-   *
-   */
+	 * constructor
+	 *
+	 */
 	constructor() {
 		this.addCurrentDay = this.addCurrentDay.bind( this );
 		this.addCurrentTime = this.addCurrentTime.bind( this );
@@ -20,11 +20,11 @@ class Clock {
 		);
 	}
 
-	/*
-   * currentDay
-   *
-   * 現在日時
-   */
+	/**
+	 * currentDay
+	 *
+	 * 現在日時
+	 */
 	addCurrentDay() {
 		const $daysElement = document.querySelector( '[data-clock-days]' );
 		if ( $daysElement ) {
@@ -41,11 +41,11 @@ class Clock {
 		}
 	}
 
-	/*
-   * currentTime
-   *
-   * 現在時間
-   */
+	/**
+	 * currentTime
+	 *
+	 * 現在時間
+	 */
 	addCurrentTime() {
 		let timer = 0;
 
@@ -59,8 +59,7 @@ class Clock {
 				const hour = ( '0' + TimesDate.getHours() ).slice( -2 );
 				const minute = ( '0' + TimesDate.getMinutes() ).slice( -2 );
 				const second = ( '0' + TimesDate.getSeconds() ).slice( -2 );
-				const timeFormat =
-          hour + ':' + minute + ':<small>' + second + '</small>';
+				const timeFormat = hour + ':' + minute + ':<small>' + second + '</small>';
 				$timesElement.innerHTML = timeFormat;
 
 				timer = setTimeout( () => {
