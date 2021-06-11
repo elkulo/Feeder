@@ -8,8 +8,8 @@ body {
 }
 
 body {
-    background-color: rgba(247, 248, 249, 1);
-    color: rgba(33, 37, 41, 1);
+    background-color: #f8f9fa;
+    color: #212529;
     font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji";
     -webkit-font-smoothing: antialiased;
@@ -38,7 +38,7 @@ a {
 
 #app {
     opacity: 0;
-    transition: opacity 300ms ease;
+    transition: opacity 200ms ease;
 }
 #app.loaded {
     opacity: 1;
@@ -48,7 +48,11 @@ a {
     text-align: center;
 
     &__heroe {
-        margin: 3rem auto;
+        margin: 3rem auto 5rem;
+
+        @media (min-width: 768px) {
+            margin: 3rem auto;
+        }
 
         h1 {
             letter-spacing: -0.02em;
@@ -67,7 +71,69 @@ a {
 }
 
 .site-navigation {
-    &__tabs {
+    &__list {
+        display: flex;
+        list-style: none;
+        margin: 0.5rem 0;
+        padding: 0;
+        white-space: nowrap;
+        overflow-x: auto;
+        border-top: solid 1px #565656;
+
+        @media (min-width: 768px) {
+            display: block;
+            margin: 0;
+            border: none;
+        }
+
+        &__item {
+            margin: 0.5rem 1rem 0.5rem 0;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 3px;
+            color: #fff;
+            transition: background 300ms ease;
+
+            @media (min-width: 768px) {
+                margin: 0 0 1rem;
+                font-size: 1.25rem;
+                text-align: right;
+                background: {
+                    image: linear-gradient(to right, rgba(113, 158, 64, 0) 33.33%, rgba(113, 158, 64, 1) 66.66%);
+                    size: 300% 100%;
+                    position: 0% 0%;
+                }
+            }
+
+            &:last-child {
+                margin-right: 0;
+
+                @media (min-width: 768px) {
+                    margin-bottom: 0;
+                }
+            }
+
+            &:not(.active):hover,
+            &:not(.active):focus {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            &.active,
+            &.active:hover,
+            &.active:focus {
+                background-color: #719e40;
+
+                @media (min-width: 768px) {
+                    background-color: transparent;
+                    background-position: 50% 0%;
+                }
+            }
+        }
+    }
+}
+
+.content-navi {
+    &__tab {
         display: flex;
         list-style: none;
         margin: 0.5rem 0;
@@ -83,13 +149,6 @@ a {
             border-radius: 3px;
             transition: background-color 300ms ease;
 
-            &.active,
-            &.active:hover,
-            &.active:focus {
-                color: #fff;
-                background: #719e40;
-            }
-
             &:last-child {
                 margin-right: 0;
             }
@@ -98,6 +157,13 @@ a {
             &:focus {
                 color: #212121;
                 background: rgba(0, 0, 0, 0.05);
+            }
+
+            &.active,
+            &.active:hover,
+            &.active:focus {
+                color: #fff;
+                background: #719e40;
             }
         }
     }
