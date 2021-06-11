@@ -31,6 +31,26 @@
 						</p>
 
 					</div>
+					<nav class="site-navigation">
+					    <ul class="site-navigation__list">
+       						<li
+							   class="site-navigation__list__item"
+							   v-on:click="changeCategory()"
+							   v-bind:class="{'active': isActiveCategory === ''}"
+							>
+							ホーム
+							</li>
+       						<li
+							   class="site-navigation__list__item"
+							   v-for="(category, index) in categories"
+							   v-on:click="changeCategory(category)"
+							   v-bind:class="{'active': isActiveCategory === category}"
+							   :key="index"
+							>
+							${category}
+							</li>
+						</ul>
+					</nav>
 				</header>
 			</div>
 			<div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
