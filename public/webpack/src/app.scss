@@ -36,14 +36,6 @@ a {
     }
 }
 
-#app {
-    opacity: 0;
-    transition: opacity 200ms ease;
-}
-#app.loaded {
-    opacity: 1;
-}
-
 .site-header {
     text-align: center;
 

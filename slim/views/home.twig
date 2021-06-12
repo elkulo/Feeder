@@ -22,7 +22,7 @@
 		v-if="isActiveTab === site.id"
 		:key="site.id"
 	>
-		<div class="content-area__header">
+		<div class="content-area__header" v-if="isActiveTab !== 0">
 			<h2 class="content-area__header__title">${site.name}</h2>
 			<p class="content-area__header__url">
 				<a v-bind:href="site.url" v-bind:title="site.name" target="_blank">${site.url}</a>
