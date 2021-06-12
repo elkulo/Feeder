@@ -64,7 +64,7 @@ class InMemoryPostRepository implements PostRepository
                         'date' => $item->get_date('Y/m/d H:i:s'),
                         'title' => $item->get_title(),
                         'link' =>  $item->get_link(),
-                        'content' => $item->get_description(),
+                        'content' => strip_tags($item->get_description()),
                     ];
                 }
 

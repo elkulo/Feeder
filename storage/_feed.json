@@ -4,41 +4,48 @@
     "name": "Yahoo主要",
     "src": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
     "url": "https://news.yahoo.co.jp/",
-    "category": ["Yahoo","Yahoo1","Yahoo2","Yahoo3","Yahoo4"]
+    "category": ["トピックス"]
   },
   {
     "id": "2",
-    "name": "エンタメ",
-    "src": "https://news.yahoo.co.jp/rss/topics/entertainment.xml",
+    "name": "国内",
+    "src": "https://news.yahoo.co.jp/rss/topics/domestic.xml",
     "url": "https://news.yahoo.co.jp/",
-    "category": ["Web"]
+    "category": ["トピックス"]
   },
   {
     "id": "3",
-    "name": "天気",
-    "src": "https://rss-weather.yahoo.co.jp/rss/days/4410.xml",
+    "name": "国際",
+    "src": "https://news.yahoo.co.jp/rss/topics/world.xml",
     "url": "https://news.yahoo.co.jp/",
-    "category": ["Yahoo", "Web"]
+    "category": ["トピックス"]
   },
   {
     "id": "4",
-    "name": "Yahoo主要A",
-    "src": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
+    "name": "エンタメ",
+    "src": "https://news.yahoo.co.jp/rss/topics/entertainment.xml",
     "url": "https://news.yahoo.co.jp/",
-    "category": ["Yahoo"]
+    "category": ["トピックス"]
   },
   {
     "id": "5",
-    "name": "エンタメB",
-    "src": "https://news.yahoo.co.jp/rss/topics/entertainment.xml",
+    "name": "IT",
+    "src": "https://news.yahoo.co.jp/rss/topics/it.xml",
     "url": "https://news.yahoo.co.jp/",
-    "category": ["Web"]
+    "category": ["トピックス"]
   },
   {
     "id": "6",
-    "name": "天気B",
-    "src": "https://rss-weather.yahoo.co.jp/rss/days/4410.xml",
+    "name": "国内・政治",
+    "src": "https://news.yahoo.co.jp/polls/domestic/rss.xml",
     "url": "https://news.yahoo.co.jp/",
-    "category": ["Yahoo", "Web"]
+    "category": ["みんなの意見"]
+  },
+  {
+    "id": "7",
+    "name": "ライフ",
+    "src": "https://news.yahoo.co.jp/polls/life/rss.xml",
+    "url": "https://news.yahoo.co.jp/",
+    "category": ["みんなの意見"]
   }
 ]
