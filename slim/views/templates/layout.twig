@@ -11,7 +11,6 @@
 {% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
-<link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet" /> 
 <link rel='stylesheet' id='app-style-css' href='/webpack/dest/app.min.css' type='text/css' media='all' />
 </head>
@@ -32,22 +31,30 @@
 
 					</div>
 					<nav class="site-navigation">
-					    <ul class="site-navigation__list">
-       						<li
-							   class="site-navigation__list__item"
-							   v-on:click="changeCategory()"
-							   v-bind:class="{'active': isActiveCategory === ''}"
+						<ul class="site-navigation__list">
+							<li
+								class="site-navigation__list__item"
 							>
-							ホーム
+								<a
+									href="javascript:void(0)"
+									v-on:click="changeCategory()"
+									v-bind:class="{'active': isActiveCategory === ''}"
+								>
+									ホーム
+								</a>
 							</li>
-       						<li
-							   class="site-navigation__list__item"
-							   v-for="(category, index) in categories"
-							   v-on:click="changeCategory(category)"
-							   v-bind:class="{'active': isActiveCategory === category}"
-							   :key="index"
+							<li
+								class="site-navigation__list__item"
+								v-for="(category, index) in categories"
+								:key="index"
 							>
-							${category}
+								<a
+									href="javascript:void(0)"
+									v-on:click="changeCategory(category)"
+									v-bind:class="{'active': isActiveCategory === category}"
+								>
+									${category}
+								</a>
 							</li>
 						</ul>
 					</nav>
@@ -55,7 +62,7 @@
 			</div>
 			<div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
 
-                {% block content %}{% endblock %}
+				{% block content %}{% endblock %}
 
 				<footer class="site-footer">
 					<div class="site-footer__branding">

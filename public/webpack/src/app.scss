@@ -67,7 +67,7 @@ a {
         display: flex;
         list-style: none;
         margin: 0.5rem 0;
-        padding: 0;
+        padding: 0.5rem 0 0;
         white-space: nowrap;
         overflow-x: auto;
         border-top: solid 1px #565656;
@@ -75,26 +75,17 @@ a {
         @media (min-width: 768px) {
             display: block;
             margin: 0;
+            padding: 0;
             border: none;
         }
 
         &__item {
             margin: 0.5rem 1rem 0.5rem 0;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 3px;
-            color: #fff;
-            transition: background 300ms ease;
 
             @media (min-width: 768px) {
                 margin: 0 0 1rem;
                 font-size: 1.25rem;
                 text-align: right;
-                background: {
-                    image: linear-gradient(to right, rgba(113, 158, 64, 0) 33.33%, rgba(113, 158, 64, 1) 66.66%);
-                    size: 300% 100%;
-                    position: 0% 0%;
-                }
             }
 
             &:last-child {
@@ -105,19 +96,36 @@ a {
                 }
             }
 
-            &:not(.active):hover,
-            &:not(.active):focus {
-                background: rgba(255, 255, 255, 0.05);
-            }
-
-            &.active,
-            &.active:hover,
-            &.active:focus {
-                background-color: #719e40;
+            a {
+                display: block;
+                padding: 0.5rem 1rem;
+                border-radius: 3px;
+                text-decoration: none;
+                color: #fff;
+                transition: background 300ms ease;
 
                 @media (min-width: 768px) {
-                    background-color: transparent;
-                    background-position: 50% 0%;
+                    background: {
+                        image: linear-gradient(to right, rgba(113, 158, 64, 0) 33.33%, rgba(113, 158, 64, 1) 66.66%);
+                        size: 300% 100%;
+                        position: 0% 0%;
+                    }
+                }
+
+                &:not(.active):hover,
+                &:not(.active):focus {
+                    background: rgba(255, 255, 255, 0.05);
+                }
+
+                &.active,
+                &.active:hover,
+                &.active:focus {
+                    background-color: #719e40;
+
+                    @media (min-width: 768px) {
+                        background-color: transparent;
+                        background-position: 50% 0%;
+                    }
                 }
             }
         }
@@ -129,33 +137,63 @@ a {
         display: flex;
         list-style: none;
         margin: 0.5rem 0;
-        padding: 0;
+        padding: 0.5rem 0 1rem;
         white-space: nowrap;
         overflow-x: auto;
         border-bottom: solid 1px #bbb;
 
+        @media (min-width: 768px) {
+            padding: 0 0 1rem;
+        }
+
         &__item {
-            margin: 0 1rem 0.5rem 0;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 3px;
-            transition: background-color 300ms ease;
+            margin: 0 1rem 0 0;
+
+            &:first-child {
+                position: relative;
+                padding-right: 1rem;
+
+                &::after {
+                    position: absolute;
+                    display: block;
+                    content: "";
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    height: 60%;
+                    border-right: solid 1px #bbb;
+                }
+            }
 
             &:last-child {
                 margin-right: 0;
             }
 
-            &:hover,
-            &:focus {
-                color: #212121;
-                background: rgba(0, 0, 0, 0.05);
-            }
+            a {
+                box-sizing: border-box;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: 0.5rem 1rem;
+                border-radius: 3px;
+                text-decoration: none;
+                color: inherit;
+                transition: background-color 300ms ease;
 
-            &.active,
-            &.active:hover,
-            &.active:focus {
-                color: #fff;
-                background: #719e40;
+                &:hover,
+                &:focus {
+                    background: rgba(0, 0, 0, 0.05);
+                }
+
+                &.active,
+                &.active:hover,
+                &.active:focus {
+                    color: #fff;
+                    background: #719e40;
+                }
             }
         }
     }

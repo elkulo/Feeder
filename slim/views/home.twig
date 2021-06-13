@@ -3,15 +3,19 @@
 
 <main class="site-content">
 	<nav class="content-navi">
-    	<ul class="content-navi__tab">
-       		<li
-			   class="content-navi__tab__item"
-			   v-for="site in feederQuery"
-			   v-on:click="changeTab(site.id)"
-			   v-bind:class="{'active': isActiveTab === site.id}"
-			   :key="site.id"
+		<ul class="content-navi__tab">
+			<li
+				class="content-navi__tab__item"
+				v-for="site in feederQuery"
+				:key="site.id"
 			>
-			   ${site.name}
+				<a
+					href="javascript:void(0)"
+					v-on:click="changeTab(site.id)"
+					v-bind:class="{'active': isActiveTab === site.id}"
+				>
+					${site.name}
+				</a>
 			</li>
 		</ul>
 	</nav>

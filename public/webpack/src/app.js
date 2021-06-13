@@ -59,19 +59,19 @@ new Vue({
 			this.isActiveTab = tabID;
 		},
 		changeCategory: function( requestCategory = '' ) {
-			let taxonomy = [];
-			let result;
+			let inTaxonomy = [];
+			let result = [];
 			this.APIQuery.data.forEach( ( singleQuery ) => {
 				result = singleQuery.category.filter( ( val ) => val === requestCategory );
 				if ( result[0]) {
-					taxonomy.push( singleQuery );
+					inTaxonomy.push( singleQuery );
 				}
 			});
 
-			if ( taxonomy.length ) {
+			if ( inTaxonomy.length ) {
 
 				// カテゴリーに記事がある場合
-				this.feederQuery = [ ...this.getQueryAll( requestCategory ), ...taxonomy ];
+				this.feederQuery = [ ...this.getQueryAll( requestCategory ), ...inTaxonomy ];
 			} else {
 
 				// ホームでは全記事表示
@@ -80,24 +80,24 @@ new Vue({
 			this.isActiveTab = 0;
 			this.isActiveCategory = requestCategory;
 		},
-		getQueryAll: function( requestCategory='' ) {
-			let all = [];
-			let result;
+		getQueryAll: function( requestCategory = '' ) {
+			let inPosts = [];
+			let result = [];
 
 			// サイトから記事の配列のみを抜き取り結合
 			this.APIQuery.data.forEach( ( singleQuery ) => {
 				if ( requestCategory ) {
 					result = singleQuery.category.filter( ( val ) => val === requestCategory );
 					if ( result[0]) {
-						all = Array.from( new Set([ ...all, ...singleQuery.feeder ]) );
+						inPosts = Array.from( new Set([ ...inPosts, ...singleQuery.feeder ]) );
 					}
 				} else {
-					all = Array.from( new Set([ ...all, ...singleQuery.feeder ]) );
+					inPosts = Array.from( new Set([ ...inPosts, ...singleQuery.feeder ]) );
 				}
 			});
 
 			// 更新順にソート
-			all.sort( ( a, b ) => {
+			inPosts.sort( ( a, b ) => {
 				if ( a.date > b.date ) {
 					return -1;
 				} else {
@@ -112,7 +112,7 @@ new Vue({
 				'src': '',
 				'url': '',
 				'category': [],
-				'feeder': all.filter( ( val, index ) => index < POSTS_PER_PAGE )
+				'feeder': inPosts.filter( ( val, index ) => index < POSTS_PER_PAGE )
 			}];
 		},
 		currentDay: function() {
