@@ -10,6 +10,12 @@ const API_PATH = '/api/v1/posts';
 // 1ページの表示上限.
 const POSTS_PER_PAGE = 50;
 
+// 自動更新の間隔.
+const RELOAD_TIMER = {
+	id: 0,
+	interval: 10 // リロード間隔(分)
+};
+
 new Vue({
 	el: '#app',
 	data: {
@@ -26,29 +32,11 @@ new Vue({
 	created() {
 		this.currentDay();
 		this.currentTime();
-		axios
-			.get( API_PATH )
-			.then( ( response ) => {
-
-				// クエリーを生成
-				this.APIQuery = response.data;
-				this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
-
-				// カテゴリーを生成
-				let categories = [];
-				this.APIQuery.data.forEach( ( single ) => {
-					categories = Array.from( new Set([ ...categories, ...single.category ]) );
-				});
-				this.categories = categories;
-			})
-			.catch( ( error ) => {
-				// eslint-disable-next-line no-console
-				console.error( '読み込み失敗', error );
-			})
-			.finally( () => {
-				// eslint-disable-next-line no-console
-				console.info( 'ローディング完了' );
-			});
+		this.onAjaxReload();
+		RELOAD_TIMER.id = setInterval( () => this.onAjaxReload(), 60 * 1000 * RELOAD_TIMER.interval );
+	},
+	destroyed() {
+		clearInterval( RELOAD_TIMER.id );
 	},
 	methods: {
 		debug: function( text ) {
@@ -57,6 +45,43 @@ new Vue({
 		},
 		changeTab: function( tabID ) {
 			this.isActiveTab = tabID;
+		},
+		onAjaxReload: function() {
+			axios
+				.get( API_PATH )
+				.then( ( response ) => {
+
+					// クエリーを生成
+					this.APIQuery = response.data;
+					this.APIQuery.data.forEach( ( singleQuery ) => {
+
+						// feeder要素に掲載サイトの情報を追加.
+						singleQuery.feeder.forEach( ( entry, index ) => {
+							const parentQuery = singleQuery;
+							singleQuery.feeder[index].parent = {
+								id: parentQuery.id,
+								name: parentQuery.name
+							};
+						});
+					});
+
+					this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
+
+					// カテゴリーを生成
+					let categories = [];
+					this.APIQuery.data.forEach( ( single ) => {
+						categories = Array.from( new Set([ ...categories, ...single.category ]) );
+					});
+					this.categories = categories;
+				})
+				.catch( ( error ) => {
+				// eslint-disable-next-line no-console
+					console.error( '読み込み失敗', error );
+				})
+				.finally( () => {
+				// eslint-disable-next-line no-console
+					console.info( 'ローディング完了' );
+				});
 		},
 		changeCategory: function( requestCategory = '' ) {
 			let inTaxonomy = [];
