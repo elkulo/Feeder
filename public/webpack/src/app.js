@@ -19,7 +19,7 @@ const RELOAD_TIMER = {
 new Vue({
 	el: '#app',
 	data: {
-		APIQuery: [], // 元データオブジェクト
+		APIQuery: [], // APIデータオブジェクト
 		feederQuery: [], // フィードオブジェクト
 		categories: [], // カテゴリーリスト
 		isActiveTab: 0, // アクティブな記事ID
@@ -43,8 +43,8 @@ new Vue({
 			// eslint-disable-next-line no-console
 			console.log( text );
 		},
-		changeTab: function( tabID ) {
-			this.isActiveTab = tabID;
+		changeTab: function( dataID = 0 ) {
+			this.isActiveTab = dataID;
 		},
 		onAjaxReload: function() {
 			axios
@@ -65,25 +65,27 @@ new Vue({
 						});
 					});
 
+					// フィードリストを生成
 					this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
 
-					// カテゴリーを生成
+					// カテゴリーリストを生成
 					let categories = [];
 					this.APIQuery.data.forEach( ( single ) => {
 						categories = Array.from( new Set([ ...categories, ...single.category ]) );
 					});
 					this.categories = categories;
+					this.changeCategory( this.isActiveCategory, this.isActiveTab );
 				})
 				.catch( ( error ) => {
 				// eslint-disable-next-line no-console
-					console.error( '読み込み失敗', error );
+					console.error( 'Failed to load API.', error );
 				})
 				.finally( () => {
 				// eslint-disable-next-line no-console
-					console.info( 'ローディング完了' );
+					console.info( 'API loading is complete.' );
 				});
 		},
-		changeCategory: function( requestCategory = '' ) {
+		changeCategory: function( requestCategory = '', dataID = 0 ) {
 			let inTaxonomy = [];
 			let result = [];
 			this.APIQuery.data.forEach( ( singleQuery ) => {
@@ -102,7 +104,7 @@ new Vue({
 				// ホームでは全記事表示
 				this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
 			}
-			this.isActiveTab = 0;
+			this.isActiveTab = dataID;
 			this.isActiveCategory = requestCategory;
 		},
 		getQueryAll: function( requestCategory = '' ) {
