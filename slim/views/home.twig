@@ -43,7 +43,10 @@
 				<h3>
 					<a v-bind:href="single.link" v-bind:title="single.title" target="_blank">${single.title}</a>
 				</h3>
-				<p>${single.date}</p>
+				<p>
+					<span class="entry-date" v-if="single.date">${single.date}</span>
+					<span class="entry-parent-site" v-if="isActiveTab === 0">${single.parent.name}</span>
+				</p>
 			</header>
 			<div class="entry-section__content">
 				<p>${single.content}</p>
