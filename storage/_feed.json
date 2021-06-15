@@ -36,16 +36,16 @@
   },
   {
     "id": "6",
-    "name": "国内・政治",
-    "src": "https://news.yahoo.co.jp/polls/domestic/rss.xml",
-    "url": "https://news.yahoo.co.jp/",
-    "category": ["みんなの意見"]
+    "name": "Apple Music トップ50",
+    "src": "https://rss.itunes.apple.com/api/v1/jp/apple-music/top-songs/all/50/non-explicit.rss",
+    "url": "https://music.apple.com/jp/browse",
+    "category": ["音楽"]
   },
   {
     "id": "7",
-    "name": "ライフ",
-    "src": "https://news.yahoo.co.jp/polls/life/rss.xml",
-    "url": "https://news.yahoo.co.jp/",
-    "category": ["みんなの意見"]
+    "name": "Apple TV トップ50",
+    "src": "https://rss.itunes.apple.com/api/v1/jp/movies/top-movies/all/50/non-explicit.rss",
+    "url": "https://tv.apple.com/jp",
+    "category": ["映画"]
   }
 ]
