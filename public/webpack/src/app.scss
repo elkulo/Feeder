@@ -208,6 +208,16 @@ a {
             font-weight: 700;
         }
     }
+}
+
+.entry-section {
+    margin: 3rem 0 0;
+
+    //&__header {}
+    //&__content {}
+    &__footer {
+        overflow: hidden; // Safariで横スクロールが発生の対策.
+    }
 
     .entry-date {
         display: inline-block;
@@ -250,11 +260,4 @@ a {
         font-family: 400;
         margin-top: 3rem;
     }
-}
-
-.entry-section {
-    margin: 3rem 0 0;
-
-    //&__header {}
-    //&__content {}
 }
