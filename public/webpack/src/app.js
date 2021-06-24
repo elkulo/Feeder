@@ -13,7 +13,7 @@ const POSTS_PER_PAGE = 50;
 // 自動更新の間隔.
 const RELOAD_TIMER = {
 	id: 0,
-	interval: 10 // リロード間隔(分)
+	interval: 15 // リロード間隔(分)
 };
 
 new Vue({
@@ -24,6 +24,11 @@ new Vue({
 		categories: [], // カテゴリーリスト
 		isActiveTab: 0, // アクティブな記事ID
 		isActiveCategory: '', // アクティブなカテゴリー名
+		hasPreLoad: true, // プリロードのフラグ
+		toast: {
+			display: false,
+			latest: '',
+		},
 		clock: {
 			day: '', // 日付
 			time: '', // 時間
@@ -43,8 +48,11 @@ new Vue({
 			// eslint-disable-next-line no-console
 			console.log( text );
 		},
-		changeTab: function( dataID = 0 ) {
-			this.isActiveTab = dataID;
+		changeTab: function( dataSiteID = 0 ) {
+			this.isActiveTab = dataSiteID;
+		},
+		chengeToastDisplay: function( show = false ) {
+			this.toast.display = show;
 		},
 		onAjaxReload: function() {
 			axios
@@ -77,15 +85,30 @@ new Vue({
 					this.changeCategory( this.isActiveCategory, this.isActiveTab );
 				})
 				.catch( ( error ) => {
-				// eslint-disable-next-line no-console
+					// eslint-disable-next-line no-console
 					console.error( 'Failed to load API.', error );
 				})
 				.finally( () => {
-				// eslint-disable-next-line no-console
+					// eslint-disable-next-line no-console
 					console.info( 'API loading is complete.' );
+
+					// プリロード済みにフラグ変更
+					if ( this.hasPreLoad ) {
+						setTimeout( () => this.hasPreLoad = false, 1000 );
+					} else {
+
+						// ２回目以降はトースト.
+						this.toast = {
+							display: true,
+							latest: 'Latest: ' + this.clock.time,
+						};
+
+						// トーストを自動で閉じる.
+						setTimeout( () => this.toast.display = false, 10000 );
+					}
 				});
 		},
-		changeCategory: function( requestCategory = '', dataID = 0 ) {
+		changeCategory: function( requestCategory = '', dataSiteID = 0 ) {
 			let inTaxonomy = [];
 			let result = [];
 			this.APIQuery.data.forEach( ( singleQuery ) => {
@@ -104,7 +127,7 @@ new Vue({
 				// ホームでは全記事表示
 				this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
 			}
-			this.isActiveTab = dataID;
+			this.isActiveTab = dataSiteID;
 			this.isActiveCategory = requestCategory;
 		},
 		getQueryAll: function( requestCategory = '' ) {
