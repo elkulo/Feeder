@@ -16,65 +16,65 @@
 </head>
 <body>
 <div id="app" class="site">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-3 d-block bg-dark sidebar collapse">
-				<header class="site-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 d-block bg-dark sidebar collapse">
+        <header class="site-header">
 
-					<div class="site-header__heroe">
+          <div class="site-header__heroe">
 
-						<h1>Feeder</h1>
-						<p>
-							<span v-html="clock.day"></span><br />
-							<span v-html="clock.time"></span>
-						</p>
+            <h1>Feeder</h1>
+            <p>
+              <span v-html="clock.day"></span><br />
+              <span v-html="clock.time"></span>
+            </p>
 
-					</div>
-					<nav class="site-navigation">
-						<ul class="site-navigation__list">
-							<li
-								class="site-navigation__list__item"
-							>
-								<a
-									href="javascript:void(0)"
-									v-on:click="changeCategory()"
-									v-bind:class="{'active': isActiveCategory === ''}"
-								>
-									ホーム
-								</a>
-							</li>
-							<li
-								class="site-navigation__list__item"
-								v-for="(category, index) in categories"
-								:key="index"
-							>
-								<a
-									href="javascript:void(0)"
-									v-on:click="changeCategory(category)"
-									v-bind:class="{'active': isActiveCategory === category}"
-								>
-									${category}
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</header>
-			</div>
-			<div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
+          </div>
+          <nav class="site-navigation">
+            <ul class="site-navigation__list">
+              <li
+                class="site-navigation__list__item"
+              >
+                <a
+                  href="javascript:void(0)"
+                  v-on:click="changeCategory()"
+                  v-bind:class="{'active': isActiveCategory === ''}"
+                >
+                  ホーム
+                </a>
+              </li>
+              <li
+                class="site-navigation__list__item"
+                v-for="(category, index) in categories"
+                :key="index"
+              >
+                <a
+                  href="javascript:void(0)"
+                  v-on:click="changeCategory(category)"
+                  v-bind:class="{'active': isActiveCategory === category}"
+                >
+                  ${category}
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <div class="col-md-9 ms-sm-auto px-md-5 pt-md-3 bg-light">
 
-				{% block content %}{% endblock %}
+        {% block content %}{% endblock %}
 
-				<footer class="site-footer">
-					<div class="site-footer__branding">
-						<a href="/" class="site-footer__branding__link" title="Feeder | el.kulo">Feeder | el.kulo</a>
-					</div>
-					<div class="site-footer__copyright">
-						<p>© Feeder | el.kulo, Built with Vue. </p>
-					</div>
-				</footer>
-			</div>
-		</div>
-	</div>
+        <footer class="site-footer">
+          <div class="site-footer__branding">
+            <a href="/" class="site-footer__branding__link" title="Feeder | el.kulo">Feeder | el.kulo</a>
+          </div>
+          <div class="site-footer__copyright">
+            <p>© Feeder | el.kulo, Built with Vue. </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
 </div>
 <script id='app-script-js' src="/webpack/dest/app.min.js"></script>
 </body>
