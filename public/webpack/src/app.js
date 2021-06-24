@@ -90,7 +90,7 @@ new Vue({
 				})
 				.finally( () => {
 					// eslint-disable-next-line no-console
-					console.info( 'API loading is complete.' );
+					console.info( 'API loading is complete, at ' + this.clock.time.replace( /(<([^>]+)>)/gi, '' ) );
 
 					// プリロード済みにフラグ変更
 					if ( this.hasPreLoad ) {
@@ -100,11 +100,11 @@ new Vue({
 						// ２回目以降はトースト.
 						this.toast = {
 							display: true,
-							latest: 'Latest: ' + this.clock.time,
+							latest: 'Latest ' + this.clock.time,
 						};
 
 						// トーストを自動で閉じる.
-						setTimeout( () => this.toast.display = false, 10000 );
+						setTimeout( () => this.toast.display = false, 20000 );
 					}
 				});
 		},
