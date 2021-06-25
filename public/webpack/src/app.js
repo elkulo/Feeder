@@ -33,26 +33,49 @@ new Vue({
 			day: '', // 日付
 			time: '', // 時間
 		},
+		backToTop: {
+			display: false, // スクロールトップの表示
+		}
 	},
 	created() {
-		this.currentDay();
-		this.currentTime();
 		this.onAjaxReload();
 		RELOAD_TIMER.id = setInterval( () => this.onAjaxReload(), 60 * 1000 * RELOAD_TIMER.interval );
+
+		this.onCurrentDay();
+		this.onCurrentTime();
+		this.onShowScrollTopButton();
 	},
 	destroyed() {
 		clearInterval( RELOAD_TIMER.id );
 	},
 	methods: {
-		debug: function( text ) {
-			// eslint-disable-next-line no-console
-			console.log( text );
-		},
 		changeTab: function( dataSiteID = 0 ) {
 			this.isActiveTab = dataSiteID;
 		},
 		chengeToastDisplay: function( show = false ) {
 			this.toast.display = show;
+		},
+		changeCategory: function( requestCategory = '', dataSiteID = 0 ) {
+			let inTaxonomy = [];
+			let result = [];
+			this.APIQuery.data.forEach( ( singleQuery ) => {
+				result = singleQuery.category.filter( ( val ) => val === requestCategory );
+				if ( result[0]) {
+					inTaxonomy.push( singleQuery );
+				}
+			});
+
+			if ( inTaxonomy.length ) {
+
+				// カテゴリーに記事がある場合
+				this.feederQuery = [ ...this.getQueryAll( requestCategory ), ...inTaxonomy ];
+			} else {
+
+				// ホームでは全記事表示
+				this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
+			}
+			this.isActiveTab = dataSiteID;
+			this.isActiveCategory = requestCategory;
 		},
 		onAjaxReload: function() {
 			axios
@@ -92,43 +115,25 @@ new Vue({
 					// eslint-disable-next-line no-console
 					console.info( 'API loading is complete, at ' + this.clock.time.replace( /(<([^>]+)>)/gi, '' ) );
 
-					// プリロード済みにフラグ変更
-					if ( this.hasPreLoad ) {
-						setTimeout( () => this.hasPreLoad = false, 1000 );
-					} else {
-
-						// ２回目以降はトースト.
-						this.toast = {
-							display: true,
-							latest: 'Latest ' + this.clock.time,
-						};
-
-						// トーストを自動で閉じる.
-						setTimeout( () => this.toast.display = false, 20000 );
-					}
+					this.onAjaxReloadAfter();
 				});
 		},
-		changeCategory: function( requestCategory = '', dataSiteID = 0 ) {
-			let inTaxonomy = [];
-			let result = [];
-			this.APIQuery.data.forEach( ( singleQuery ) => {
-				result = singleQuery.category.filter( ( val ) => val === requestCategory );
-				if ( result[0]) {
-					inTaxonomy.push( singleQuery );
-				}
-			});
+		onAjaxReloadAfter: function() {
 
-			if ( inTaxonomy.length ) {
-
-				// カテゴリーに記事がある場合
-				this.feederQuery = [ ...this.getQueryAll( requestCategory ), ...inTaxonomy ];
+			// プリロード済みにフラグ変更
+			if ( this.hasPreLoad ) {
+				setTimeout( () => this.hasPreLoad = false, 1000 );
 			} else {
 
-				// ホームでは全記事表示
-				this.feederQuery = [ ...this.getQueryAll(), ...this.APIQuery.data ];
+				// ２回目以降はトースト.
+				this.toast = {
+					display: true,
+					latest: 'Latest ' + this.clock.time,
+				};
+
+				// トーストを自動で閉じる.
+				setTimeout( () => this.toast.display = false, 20000 );
 			}
-			this.isActiveTab = dataSiteID;
-			this.isActiveCategory = requestCategory;
 		},
 		getQueryAll: function( requestCategory = '' ) {
 			let inPosts = [];
@@ -165,7 +170,7 @@ new Vue({
 				'feeder': inPosts.filter( ( val, index ) => index < POSTS_PER_PAGE )
 			}];
 		},
-		currentDay: function() {
+		onCurrentDay: function() {
 			const DaysDate = new Date();
 			const year = DaysDate.getFullYear();
 			const month = ( '0' + ( DaysDate.getMonth() + 1 ) ).slice( -2 );
@@ -177,7 +182,7 @@ new Vue({
 			const dayFormat = year + '/' + month + '/' + day + ' <small>' + dayOfWeekStr + '</small>';
 			this.clock.day = dayFormat;
 		},
-		currentTime: function() {
+		onCurrentTime: function() {
 			let timer = 0;
 
 			const timeLoop = () => {
@@ -196,6 +201,37 @@ new Vue({
 				}, 1000 );
 			};
 			timeLoop();
+		},
+		onShowScrollTopButton: function() {
+			const $backToTop = document.querySelector( '#back-to-top' );
+			const windowHeight = window.innerHeight;
+			let ticking = false;
+
+			window.addEventListener( 'scroll', () => {
+
+				if ( ! ticking && $backToTop ) {
+					ticking = true;
+
+					window.requestAnimationFrame( () => {
+						if ( window.pageYOffset > windowHeight ) {
+							this.backToTop.display = true;
+						} else {
+							this.backToTop.display = false;
+						}
+						ticking = false;
+					});
+				}
+			}, { passive: true });
+		},
+		onBackToTop: function() {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		},
+		debug: function( text ) {
+			// eslint-disable-next-line no-console
+			console.log( text );
 		},
 	},
 	delimiters: [ '${', '}' ],
