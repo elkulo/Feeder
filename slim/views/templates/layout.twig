@@ -5,7 +5,7 @@
 {% if robots is defined %}
 <meta name="robots" content="{{ robots }}">
 {% endif %}
-<title>{% if title is defined %}{{ title }}{% endif %} | el.kulo</title>
+<title>{{ title }}</title>
 {% if description is defined %}
 <meta name="description" content="{{ description }}">
 {% endif %}
@@ -17,7 +17,8 @@
 <body>
 <div id="app" class="site">
   <div
-    class="d-flex justify-content-center align-items-center vh-100 text-success"
+    class="d-flex justify-content-center align-items-center text-success"
+    style="height:var(--maxvh, 100vh)"
     v-if="hasPreLoad" 
   >
     <div class="spinner-border h1" role="status">
@@ -78,10 +79,10 @@
 
         <footer class="site-footer">
           <div class="site-footer__branding">
-            <a href="/" class="site-footer__branding__link" title="Feeder | el.kulo">Feeder | el.kulo</a>
+            <a href="/" class="site-footer__branding__link" title="{{title}}">{{title}}</a>
           </div>
           <div class="site-footer__copyright">
-            <p>© Feeder | el.kulo, Built with Vue. </p>
+            <p>© {{title}}, Built with Vue. </p>
           </div>
         </footer>
       </div>

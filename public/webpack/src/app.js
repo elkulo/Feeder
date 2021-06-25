@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.scss';
 import Vue from 'vue';
 import axios from 'axios';
+import smoothscroll from 'smoothscroll-polyfill';
 
 // APIのパス.
 const API_PATH = '/api/v1/posts';
@@ -15,6 +16,14 @@ const RELOAD_TIMER = {
 	id: 0,
 	interval: 15 // リロード間隔(分)
 };
+
+// 100vh Fix
+document.addEventListener( 'DOMContentLoaded', () => {
+	document.documentElement.style.setProperty(
+		'--maxvh',
+		`${window.innerHeight}px`
+	);
+}, false );
 
 new Vue({
 	el: '#app',
@@ -224,9 +233,13 @@ new Vue({
 			}, { passive: true });
 		},
 		onBackToTop: function() {
+
+			// Safari Polyfill.
+			smoothscroll.polyfill();
+
 			window.scrollTo({
-				top: 0,
-				behavior: 'smooth'
+				behavior: 'smooth',
+				top: 0
 			});
 		},
 		debug: function( text ) {
