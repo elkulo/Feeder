@@ -20,7 +20,7 @@ return function (App $app) {
     $app->get('/', function (Request $request, Response $response) use ($app) {
         $twig = $app->getContainer()->get(Twig::class);
         return $twig->render($response, 'home.twig', [
-            'title' => 'Feeder',
+            'title' => isset($_ENV['SITE_NAME']) ? $_ENV['SITE_NAME'] : 'Feeder',
             'description' => '',
             'robots' => 'noindex, nofollow'
         ]);
