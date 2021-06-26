@@ -46,7 +46,7 @@ a {
             margin: 3rem auto;
         }
 
-        h1 {
+        &__title {
             letter-spacing: -0.02em;
             font-size: 3rem;
             font-weight: 500;
@@ -54,7 +54,7 @@ a {
             color: #719e40;
         }
 
-        p {
+        &__clock {
             font-size: 1.5rem;
             font-weight: 300;
             color: #999;

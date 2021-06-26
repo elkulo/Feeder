@@ -12,9 +12,9 @@
     <div class="spinner-grow text-success spinner-grow-sm" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-    <strong class="d-inline-block me-auto px-2 text-success">AUTO RELOAD</strong>
+    <strong class="d-inline-block me-auto px-2 text-success" v-html="toast.title"></strong>
     <span class="text-secondary" v-html="toast.latest"></span>
     <button type="button" class="btn-close" v-on:click="chengeToastDisplay(false)"></button>
   </div>
-  <div class="toast-body bg-success bg-gradient text-white">最新の配信情報に更新しました。</div>
+  <div class="toast-body bg-success bg-gradient text-white" v-html="toast.content"></div>
 </div>

@@ -34,13 +34,19 @@ new Vue({
 		isActiveTab: 0, // アクティブな記事ID
 		isActiveCategory: '', // アクティブなカテゴリー名
 		hasPreLoad: true, // プリロードのフラグ
-		toast: {
-			display: false,
-			latest: '',
+		autoload: {
+			display: false, // 表示切替
+			latest: '', // 時刻
 		},
 		clock: {
 			day: '', // 日付
 			time: '', // 時間
+		},
+		toast: {
+			display: false, // 表示切替
+			latest: '', // 時刻
+			title: 'Alert', // タイトル
+			content: 'Hello,world!' // 内容
 		},
 		backToTop: {
 			display: false, // スクロールトップの表示
@@ -129,19 +135,26 @@ new Vue({
 		},
 		onAjaxReloadAfter: function() {
 
-			// プリロード済みにフラグ変更
 			if ( this.hasPreLoad ) {
+
+				// プリロード済みにフラグ変更
 				setTimeout( () => this.hasPreLoad = false, 1000 );
+
+				// オートロード時間の更新
+				this.autoload = {
+					display: false,
+					latest: 'Latest ' + this.clock.time,
+				};
 			} else {
 
-				// ２回目以降はトースト.
-				this.toast = {
+				// オートロード時間の更新
+				this.autoload = {
 					display: true,
 					latest: 'Latest ' + this.clock.time,
 				};
 
-				// トーストを自動で閉じる.
-				setTimeout( () => this.toast.display = false, 20000 );
+				// オートロードを自動で閉じる
+				setTimeout( () => this.autoload.display = false, 10000 );
 			}
 		},
 		getQueryAll: function( requestCategory = '' ) {
