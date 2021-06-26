@@ -36,11 +36,22 @@
 
           <div class="site-header__heroe">
 
-            <h1>Feeder</h1>
-            <p>
+            <h1 class="site-header__heroe__title">Feeder</h1>
+
+            <div class="site-header__heroe__clock">
               <span v-html="clock.day"></span><br />
               <span v-html="clock.time"></span>
-            </p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mt-3 pe-3">
+              <div
+                class="spinner-grow text-success spinner-grow-sm"
+                role="status"
+                v-bind:style="autoload.display ? { visibility: 'visible' } : { visibility: 'hidden' }"
+              >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <div class="px-2 text-success" v-html="autoload.latest"></div>
+            </div>
 
           </div>
           <nav class="site-navigation">
