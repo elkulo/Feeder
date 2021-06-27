@@ -52,17 +52,6 @@ new Vue({
 			display: false, // スクロールトップの表示
 		}
 	},
-	created() {
-		this.onAjaxReload();
-		RELOAD_TIMER.id = setInterval( () => this.onAjaxReload(), 60 * 1000 * RELOAD_TIMER.interval );
-
-		this.onCurrentDay();
-		this.onCurrentTime();
-		this.onShowScrollTopButton();
-	},
-	destroyed() {
-		clearInterval( RELOAD_TIMER.id );
-	},
 	methods: {
 		changeTab: function( dataSiteID = 0 ) {
 			this.isActiveTab = dataSiteID;
@@ -154,7 +143,7 @@ new Vue({
 				};
 
 				// オートロードを自動で閉じる
-				setTimeout( () => this.autoload.display = false, 10000 );
+				setTimeout( () => this.autoload.display = false, 20000 );
 			}
 		},
 		getQueryAll: function( requestCategory = '' ) {
@@ -259,6 +248,17 @@ new Vue({
 			// eslint-disable-next-line no-console
 			console.log( text );
 		},
+	},
+	created() {
+		this.onAjaxReload();
+		RELOAD_TIMER.id = setInterval( () => this.onAjaxReload(), 60 * 1000 * RELOAD_TIMER.interval );
+
+		this.onCurrentDay();
+		this.onCurrentTime();
+		this.onShowScrollTopButton();
+	},
+	destroyed() {
+		clearInterval( RELOAD_TIMER.id );
 	},
 	delimiters: [ '${', '}' ],
 });
