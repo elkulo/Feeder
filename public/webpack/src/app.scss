@@ -57,9 +57,15 @@ a {
 }
 
 .site-setting {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: inline-block;
+    margin: 1rem 0;
+
+    @media (min-width: 768px) {
+        position: fixed;
+        left: 2rem;
+        bottom: 0;
+        margin: 0.5rem;
+    }
 
     .bi {
         opacity: 0.25;
@@ -74,7 +80,8 @@ a {
 }
 
 .site-powered {
-    margin: 1.5rem;
+    display: inline-block;
+    margin: 1rem 0;
 
     @media (min-width: 768px) {
         position: fixed;
