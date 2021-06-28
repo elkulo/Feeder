@@ -48,11 +48,24 @@ new Vue({
 			title: 'Alert', // タイトル
 			content: 'Hello,world!' // 内容
 		},
+		setting: {
+			autoload: true,
+			darkmode: false
+		},
 		backToTop: {
 			display: false, // スクロールトップの表示
 		}
 	},
 	methods: {
+		toggleSwitchSetting: function( key ) {
+			if ( this.setting[key] === true ) {
+				this.setting[key] = false;
+			} else {
+				this.setting[key] = true;
+			}
+
+			this.debug( this.setting[key]);
+		},
 		changeTab: function( dataSiteID = 0 ) {
 			this.isActiveTab = dataSiteID;
 		},
