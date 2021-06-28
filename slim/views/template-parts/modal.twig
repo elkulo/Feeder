@@ -10,25 +10,34 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="__modalLabel">設定</h5>
+        <h5 class="modal-title fw-bold" id="__modalLabel">設定</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
       </div>
       <div class="modal-body px-4">
+        <div class="mb-3">設定はブラウザのローカルストレージに保存します。ブラウザのキャッシュを削除すると設定はリセットされます。</div>
         <div class="form-check form-switch ps-0">
-          <input class="form-check-input btn-lg float-end" type="checkbox" id="flexSwitchCheckChecked" checked>
-          <label class="form-check-label fw-bold" for="flexSwitchCheckChecked">オートリロード</label>
+          <input
+            class="form-check-input btn-lg float-end"
+            type="checkbox"
+            id="switchAutoload"
+            v-bind:checked="setting.autoload ? 'checked' : ''"
+            v-on:click="toggleSwitchSetting('autoload')"
+          >
+          <label class="form-check-label fw-bold" for="switchAutoload">オートリロード</label>
           <p class="text-secondary"><small>最新の情報に自動更新します。</small></p>
         </div>
         <hr class="bg-secondary" />
         <div class="form-check form-switch ps-0 mb-3">
-          <input class="form-check-input btn-lg float-end" type="checkbox" id="flexSwitchCheckDefault">
-          <label class="form-check-label fw-bold" for="flexSwitchCheckDefault">ダークモード</label>
+          <input
+            class="form-check-input btn-lg float-end"
+            type="checkbox"
+            id="switchDarkmode"
+            v-bind:checked="setting.darkmode ? 'checked' : ''"
+            v-on:click="toggleSwitchSetting('darkmode')"
+          >
+          <label class="form-check-label fw-bold" for="switchDarkmode">ダークモード</label>
           <p class="text-secondary"><small>画面を暗くします。</small></p>
         </div>
-      </div>
-      <div class="modal-footer d-flex justify-content-end align-items-center">
-        <div class="me-2 text-secondary">設定はブラウザのCookieに保存します。</div>
-        <button type="button" class="btn btn-sm btn-outline-secondary text-nowrap ms-auto">リセット</button>
       </div>
     </div>
   </div>
