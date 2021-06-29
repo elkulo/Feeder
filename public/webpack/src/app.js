@@ -17,15 +17,8 @@ const RELOAD_TIMER = {
 	interval: 15 // リロード間隔(分)
 };
 
-// 100vh Fix
-document.addEventListener( 'DOMContentLoaded', () => {
-	document.documentElement.style.setProperty(
-		'--maxvh',
-		`${window.innerHeight}px`
-	);
-}, false );
-
-new Vue({
+// Vueアプリケーション.
+const App = () => new Vue({
 	el: '#app',
 	data: {
 		APIQuery: [], // APIデータオブジェクト
@@ -56,6 +49,52 @@ new Vue({
 			display: false, // スクロールトップの表示
 		}
 	},
+	computed: {
+
+		// 連想配列のパラメーターの変更を取得.
+		computedSetting() {
+			return JSON.parse( JSON.stringify( this.setting ) );
+		}
+	},
+	watch: {
+
+		// APIの更新を監視.
+		APIQuery: {
+			handler: function() {
+				if ( this.setting.autoload ) {
+					clearTimeout( RELOAD_TIMER.id );
+					RELOAD_TIMER.id = setTimeout( () => this.onAjaxReload(), 60 * 1000 * RELOAD_TIMER.interval );
+				} else {
+					clearTimeout( RELOAD_TIMER.id );
+				}
+			}
+		},
+
+		// 連想配列のパラメーターの変更を比較.
+		computedSetting: {
+			handler: function( newValue, oldValue ) {
+
+				// オートロード.
+				if ( oldValue.autoload !== newValue.autoload ) {
+					if ( newValue.autoload ) {
+						this.onAjaxReload(); // TrueならAPIを更新.
+					} else {
+						clearTimeout( RELOAD_TIMER.id ); // FalseならTimerを停止.
+					}
+				}
+
+				// ダークモード.
+				if ( oldValue.darkmode !== newValue.darkmode ) {
+					if ( newValue.darkmode ) {
+						document.body.classList.add( 'darkmode' );
+					} else {
+						document.body.classList.remove( 'darkmode' );
+					}
+				}
+			},
+			deep: true
+		}
+	},
 	methods: {
 		toggleSwitchSetting: function( key ) {
 			if ( this.setting[key] === true ) {
@@ -63,8 +102,6 @@ new Vue({
 			} else {
 				this.setting[key] = true;
 			}
-
-			this.debug( this.setting[key]);
 		},
 		changeTab: function( dataSiteID = 0 ) {
 			this.isActiveTab = dataSiteID;
@@ -264,14 +301,25 @@ new Vue({
 	},
 	created() {
 		this.onAjaxReload();
-		RELOAD_TIMER.id = setInterval( () => this.onAjaxReload(), 60 * 1000 * RELOAD_TIMER.interval );
-
 		this.onCurrentDay();
 		this.onCurrentTime();
 		this.onShowScrollTopButton();
 	},
 	destroyed() {
-		clearInterval( RELOAD_TIMER.id );
+		clearTimeout( RELOAD_TIMER.id );
 	},
 	delimiters: [ '${', '}' ],
 });
+
+// アプリケーションDOMイベント.
+document.addEventListener( 'DOMContentLoaded', () => {
+
+	// 100vh Fix.
+	document.documentElement.style.setProperty(
+		'--maxvh',
+		`${window.innerHeight}px`
+	);
+
+	// Vue.
+	App();
+}, false );
