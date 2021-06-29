@@ -1,3 +1,30 @@
+:root {
+    --body-text__color: #212529;
+    --body-background__color: #f8f9fa;
+    --text-gray: #ededed;
+}
+.darkmode {
+    --body-text__color: #f8f9fa;
+    --body-background__color: #212529;
+    --text-gray: #6c757d;
+
+    .bg-light {
+        background: #0d1117 !important;
+        color: #f8f9fa;
+    }
+
+    a {
+        color: #0dcaf0;
+
+        &:hover {
+            color: #0d6efd;
+        }
+    }
+}
+div {
+    transition: background 200ms ease, color 200ms ease;
+}
+
 html,
 body {
     font-size: 16px;
@@ -7,8 +34,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: #f8f9fa;
-    color: #212529;
+    background-color: var(--body-background__color);
+    color: var(--body-text_color);
     font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -236,6 +263,7 @@ a {
 }
 
 .content-area {
+
     &__header {
         margin: 3rem 0.5rem;
 
@@ -264,7 +292,7 @@ a {
         display: inline-block;
         vertical-align: middle;
         padding: 0 0.325rem;
-        background: #ededed;
+        background: var(--text-gray);
         border-radius: 10px;
         font-size: 0.75em;
     }
