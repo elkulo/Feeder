@@ -1,28 +1,26 @@
 :root {
-    --body-text__color: #212529;
     --body-background__color: #f8f9fa;
-    --text-gray: #ededed;
+    --body-text__color: #212529;
+    --sidebar-background__color: #212529;
+    --sidebar-text__color: #f8f9fa;
+    --main-background__color: #f8f9fa;
+    --main-text__color: inherit;
+    --main-border__color: #ededed;
+    --link-text__color: #1976d2;
+    --link-hover-text__color: #115293;
+    --link-visited-text__color: #ff9800;
 }
 .darkmode {
-    --body-text__color: #f8f9fa;
     --body-background__color: #212529;
-    --text-gray: #6c757d;
-
-    .bg-light {
-        background: #0d1117 !important;
-        color: #f8f9fa;
-    }
-
-    a {
-        color: #0dcaf0;
-
-        &:hover {
-            color: #0d6efd;
-        }
-    }
-}
-div {
-    transition: background 200ms ease, color 200ms ease;
+    --body-text__color: #f8f9fa;
+    --sidebar-background__color: #212529;
+    --sidebar-text__color: #f8f9fa;
+    --main-background__color: #0d1117;
+    --main-text__color: #f8f9fa;
+    --main-border__color: #323232;
+    --link-text__color: #90caf9;
+    --link-hover-text__color: #648dae;
+    --link-visited-text__color: #ff9800;
 }
 
 html,
@@ -52,11 +50,33 @@ p {
 
 a {
     transition: background-color 300ms ease, color 300ms ease;
+    color: var(--link-text__color);
+
+    &:visited {
+        color: var(--link-visited-text__color);
+    }
+
+    &:hover,
+    &:active {
+        color: var(--link-hover-text__color);
+        text-decoration: none;
+    }
 
     &:focus {
-        background-color: rgba(221, 72, 20, 0.2);
+        background-color: rgba(221, 72, 20, 0.1);
         outline: none;
     }
+}
+
+.main {
+    background: var(--main-background__color);
+    color: var(--main-text__color);
+    transition: background-color 200ms ease, color 200ms ease;
+}
+.sidebar {
+    background: var(--sidebar-background__color);
+    color: var(--sidebar-text__color);
+    transition: background-color 200ms ease, color 200ms ease;
 }
 
 .site-header {
@@ -89,16 +109,15 @@ a {
 
     @media (min-width: 768px) {
         position: fixed;
-        left: 2rem;
+        left: 3rem;
         bottom: 0;
         margin: 0.5rem;
     }
 
     .bi {
-        opacity: 0.25;
         width: 1.5rem;
         height: 1.5rem;
-        color: #fff;
+        color: #767676;
     }
 
     .btn:focus {
@@ -114,14 +133,18 @@ a {
         position: fixed;
         left: 0;
         bottom: 0;
-        margin: 1rem;
+        margin: 0.5rem;
     }
 
     .bi {
-        opacity: 0.25;
         width: 1.5rem;
         height: 1.5rem;
-        color: #fff;
+        color: #767676;
+    }
+
+    .btn:focus {
+        box-shadow: none;
+        background: none;
     }
 }
 
@@ -130,10 +153,9 @@ a {
         display: flex;
         list-style: none;
         margin: 0.5rem 0;
-        padding: 0.5rem 0 0;
+        padding: 0;
         white-space: nowrap;
         overflow-x: auto;
-        border-top: solid 1px #565656;
 
         @media (min-width: 768px) {
             display: block;
@@ -203,7 +225,7 @@ a {
         padding: 0.5rem 0 1rem;
         white-space: nowrap;
         overflow-x: auto;
-        border-bottom: solid 1px #bbb;
+        border-bottom: solid 1px var(--main-border__color);
 
         @media (min-width: 768px) {
             padding: 0 0 1rem;
@@ -225,7 +247,8 @@ a {
                     transform: translateY(-50%);
                     width: 1px;
                     height: 60%;
-                    border-right: solid 1px #bbb;
+                    border-right: solid 1px currentColor;
+                    opacity: 0.5;
                 }
             }
 
@@ -263,7 +286,6 @@ a {
 }
 
 .content-area {
-
     &__header {
         margin: 3rem 0.5rem;
 
@@ -292,7 +314,7 @@ a {
         display: inline-block;
         vertical-align: middle;
         padding: 0 0.325rem;
-        background: var(--text-gray);
+        background: var(--main-border__color);
         border-radius: 10px;
         font-size: 0.75em;
     }
@@ -310,6 +332,10 @@ a {
         &__link {
             text-decoration: none;
             color: #719e40;
+
+            &:visited {
+                color: #719e40;
+            }
 
             &:hover,
             &:focus {
