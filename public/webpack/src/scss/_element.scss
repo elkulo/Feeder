@@ -1,0 +1,44 @@
+html,
+body {
+  font-size: 16px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--body-background__color);
+  color: var(--body-text_color);
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.4;
+  font-family: "Noto Serif JP";
+}
+p {
+  line-height: 1.6;
+}
+
+a {
+  transition: background-color 300ms ease, color 300ms ease;
+  color: var(--link-text__color);
+
+  &:visited {
+    color: var(--link-visited-text__color);
+  }
+
+  &:hover,
+  &:active {
+    color: var(--link-hover-text__color);
+    text-decoration: none;
+  }
+
+  &:focus {
+    background-color: rgba(221, 72, 20, 0.1);
+    outline: none;
+  }
+}
