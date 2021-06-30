@@ -1,0 +1,24 @@
+:root {
+  --body-background__color: #f8f9fa;
+  --body-text__color: #212529;
+  --sidebar-background__color: #212529;
+  --sidebar-text__color: #f8f9fa;
+  --main-background__color: #f8f9fa;
+  --main-text__color: inherit;
+  --main-border__color: #ededed;
+  --link-text__color: #1976d2;
+  --link-hover-text__color: #115293;
+  --link-visited-text__color: #ff9800;
+}
+.darkmode {
+  --body-background__color: #0d1117;
+  --body-text__color: #f8f9fa;
+  --sidebar-background__color: #212529;
+  --sidebar-text__color: #f8f9fa;
+  --main-background__color: #0d1117;
+  --main-text__color: #f8f9fa;
+  --main-border__color: #323232;
+  --link-text__color: #90caf9;
+  --link-hover-text__color: #648dae;
+  --link-visited-text__color: #ff9800;
+}
