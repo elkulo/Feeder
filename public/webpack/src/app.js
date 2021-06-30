@@ -17,6 +17,36 @@ const RELOAD_TIMER = {
 	interval: 15 // リロード間隔(分)
 };
 
+// ストレージのサポート判定
+const isStorageAvailable = ( type ) => {
+	let storage;
+	try {
+		storage = window[type];
+		let x = '__storage_test__';
+		storage.setItem( x, x );
+		storage.removeItem( x );
+		return true;
+	} catch ( e ) {
+		return e instanceof DOMException && (
+
+		// everything except Firefox
+			e.code === 22 ||
+
+					// Firefox
+					e.code === 1014 ||
+
+					// test name field too, because code might not be present
+					// everything except Firefox
+					e.name === 'QuotaExceededError' ||
+
+					// Firefox
+					e.name === 'NS_ERROR_DOM_QUOTA_REACHED' ) &&
+
+					// acknowledge QuotaExceededError only if there's something already stored
+					( storage && storage.length !== 0 );
+	}
+};
+
 // Vueアプリケーション.
 const App = () => new Vue({
 	el: '#app',
@@ -42,8 +72,8 @@ const App = () => new Vue({
 			content: 'Hello,world!' // 内容
 		},
 		setting: {
-			autoload: true,
-			darkmode: false
+			autoload: true, // 自動更新
+			darkmode: false // ダークモード
 		},
 		backToTop: {
 			display: false, // スクロールトップの表示
@@ -91,11 +121,24 @@ const App = () => new Vue({
 						document.body.classList.remove( 'darkmode' );
 					}
 				}
+
+				if ( isStorageAvailable( 'localStorage' ) ) {
+					localStorage.setItem( 'feeder-app-setting', JSON.stringify( this.setting ) );
+				}
 			},
 			deep: true
 		}
 	},
 	methods: {
+		onResetSetting: function() {
+			if ( isStorageAvailable( 'localStorage' ) ) {
+				localStorage.removeItem( 'feeder-app-setting' );
+				this.setting = {
+					autoload: true, // 自動更新
+					darkmode: false // ダークモード
+				};
+			}
+		},
 		toggleSwitchSetting: function( key ) {
 			if ( this.setting[key] === true ) {
 				this.setting[key] = false;
@@ -300,6 +343,16 @@ const App = () => new Vue({
 		},
 	},
 	created() {
+
+		// ローカルストレージから設定を取得
+		if ( isStorageAvailable( 'localStorage' ) ) {
+			const data = localStorage.getItem( 'feeder-app-setting' );
+			if ( data ) {
+				this.setting = Object.assign( this.setting, JSON.parse( data ) );
+			}
+		}
+
+		// 初回イベント
 		this.onAjaxReload();
 		this.onCurrentDay();
 		this.onCurrentTime();
