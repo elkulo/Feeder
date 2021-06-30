@@ -14,7 +14,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
       </div>
       <div class="modal-body px-4">
-        <div class="mb-3">設定はブラウザのローカルストレージに保存します。ブラウザのキャッシュを削除すると設定はリセットされます。</div>
+        <div class="mb-3">設定はブラウザのローカルストレージに保存します。</div>
         <div class="form-check form-switch ps-0">
           <input
             class="form-check-input btn-lg float-end"
@@ -38,6 +38,9 @@
           <label class="form-check-label fw-bold" for="switchDarkmode">ダークモード</label>
           <p class="text-secondary"><small>画面を暗くします。</small></p>
         </div>
+      </div>
+      <div class="modal-footer px-2">
+        <button class="btn btn-sm btn-secondary" v-on:click="onResetSetting()">リセット</button>
       </div>
     </div>
   </div>
