@@ -1,21 +1,21 @@
 {# BootstrapのToastアラート #}
 
-<div
-  class="toast position-fixed top-0 end-0 m-3"
-  role="alert"
-  aria-live="assertive"
-  aria-atomic="true"
-  style="display:none"
-  v-bind:style="toast.display ? { opacity: 1 } : ''"
-  v-show="toast.display"
->
-  <div class="toast-header">
-    <div class="spinner-grow text-danger spinner-grow-sm" role="status">
-      <span class="visually-hidden">Loading...</span>
+<template id="__toast" v-if="toast.display">
+  <div
+    class="toast position-fixed top-0 start-50 translate-middle-x my-1 show"
+    style="z-index:1100"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="toast-header">
+      <div class="spinner-grow text-danger spinner-grow-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <strong class="d-inline-block me-auto px-2 text-danger" v-html="toast.title"></strong>
+      <span class="text-secondary" v-html="toast.latest"></span>
+      <button type="button" class="btn-close" v-on:click="chengeToastDisplay(false)"></button>
     </div>
-    <strong class="d-inline-block me-auto px-2 text-danger" v-html="toast.title"></strong>
-    <span class="text-secondary" v-html="toast.latest"></span>
-    <button type="button" class="btn-close" v-on:click="chengeToastDisplay(false)"></button>
+    <div class="toast-body bg-danger bg-gradient text-white rounded-bottom" v-html="toast.content"></div>
   </div>
-  <div class="toast-body bg-danger bg-gradient text-white" v-html="toast.content"></div>
-</div>
+</template>
