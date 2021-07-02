@@ -186,7 +186,7 @@ new Vue({
 					// Toastでアラートを表示.
 					this.toast = {
 						display: true,
-						latest: 'Latest ' + this.clock.time, // 時刻
+						latest: 'at ' + this.clock.time, // 時刻
 						title: 'Failed to load API.', // タイトル
 						content: '最新情報の取得に失敗しました。', // 内容
 					};
@@ -296,7 +296,7 @@ new Vue({
 			timeLoop();
 		},
 		onShowScrollTopButton: function() {
-			const $backToTop = document.querySelector( '#back-to-top' );
+			const $backToTop = document.querySelector( '#__back-to-top' );
 			const windowHeight = window.innerHeight;
 			let ticking = false;
 
