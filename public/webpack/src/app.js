@@ -2,9 +2,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Vue from 'vue';
 import axios from 'axios';
-import smoothscroll from 'smoothscroll-polyfill';
-import isStorageAvailable from './js/isStorageAvailable.js';
-import fix100vh from './js/fix100vh.js';
+import fix100vh from './mixins/fix100vh.js';
+import getCurrentClock from './mixins/getCurrentClock.js';
+import isStorageAvailable from './mixins/isStorageAvailable.js';
+import onBackToTop from './mixins/onBackToTop.js';
+import onScrollEvent from './mixins/onScrollEvent.js';
 import './app.scss';
 
 // APIのパス.
@@ -22,34 +24,32 @@ const RELOAD_TIMER = {
 // Vueアプリケーション.
 new Vue({
 	el: '#app',
-	data: {
-		APIQuery: [], // APIデータオブジェクト
-		feederQuery: [], // フィードオブジェクト
-		categories: [], // カテゴリーリスト
-		isActiveTab: 0, // アクティブな記事ID
-		isActiveCategory: '', // アクティブなカテゴリー名
-		hasPreLoad: true, // プリロードのフラグ
-		autoload: {
-			display: false, // 表示切替
-			latest: '', // 時刻
-		},
-		clock: {
-			day: '', // 日付
-			time: '', // 時間
-		},
-		toast: {
-			display: false, // 表示切替
-			latest: '', // 時刻
-			title: 'Alert', // タイトル
-			content: 'Hello,world!', // 内容
-		},
-		setting: {
-			autoload: true, // 自動更新
-			darkmode: false, // ダークモード
-		},
-		backToTop: {
-			display: false, // スクロールトップの表示
-		},
+	data: function() {
+		return {
+			APIQuery: [], // APIデータオブジェクト
+			feederQuery: [], // フィードオブジェクト
+			categories: [], // カテゴリーリスト
+			isActiveTab: 0, // アクティブな記事ID
+			isActiveCategory: '', // アクティブなカテゴリー名
+			hasPreLoad: true, // プリロードのフラグ
+			autoload: {
+				display: false, // 表示切替
+				latest: '', // 時刻
+			},
+			toast: {
+				display: false, // 表示切替
+				latest: '', // 時刻
+				title: 'Alert', // タイトル
+				content: 'Hello,world!', // 内容
+			},
+			setting: {
+				autoload: true, // 自動更新
+				darkmode: false, // ダークモード
+			},
+			backToTop: {
+				display: false, // スクロールトップの表示
+			},
+		};
 	},
 	computed: {
 
@@ -94,7 +94,7 @@ new Vue({
 					}
 				}
 
-				if ( isStorageAvailable( 'localStorage' ) ) {
+				if ( this.isStorageAvailable( 'localStorage' ) ) {
 					localStorage.setItem( 'feeder-app-setting', JSON.stringify( this.setting ) );
 				}
 			},
@@ -103,7 +103,7 @@ new Vue({
 	},
 	methods: {
 		onResetSetting: function() {
-			if ( isStorageAvailable( 'localStorage' ) ) {
+			if ( this.isStorageAvailable( 'localStorage' ) ) {
 				localStorage.removeItem( 'feeder-app-setting' );
 				this.setting = {
 					autoload: true, // 自動更新
@@ -265,96 +265,53 @@ new Vue({
 				},
 			];
 		},
-		onCurrentDay: function() {
-			const DaysDate = new Date();
-			const year = DaysDate.getFullYear();
-			const month = ( '0' + ( DaysDate.getMonth() + 1 ) ).slice( -2 );
-			const day = ( '0' + DaysDate.getDate() ).slice( -2 );
-
-			const dayOfWeek = DaysDate.getDay();
-			const dayOfWeekStr = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ][ dayOfWeek ];
-
-			const dayFormat = year + '/' + month + '/' + day + ' <small>' + dayOfWeekStr + '</small>';
-			this.clock.day = dayFormat;
-		},
-		onCurrentTime: function() {
-			let timer = 0;
-
-			const timeLoop = () => {
-				if ( 0 < timer ) {
-					clearTimeout( timer );
-				}
-				const TimesDate = new Date();
-				const hour = ( '0' + TimesDate.getHours() ).slice( -2 );
-				const minute = ( '0' + TimesDate.getMinutes() ).slice( -2 );
-				const second = ( '0' + TimesDate.getSeconds() ).slice( -2 );
-				const timeFormat = hour + ':' + minute + ':<small>' + second + '</small>';
-				this.clock.time = timeFormat;
-
-				timer = setTimeout( () => timeLoop(), 1000 );
-			};
-			timeLoop();
-		},
-		onShowScrollTopButton: function() {
-			const $backToTop = document.querySelector( '#__back-to-top' );
-			const windowHeight = window.innerHeight;
-			let ticking = false;
-
-			window.addEventListener(
-				'scroll',
-				() => {
-					if ( ! ticking && $backToTop ) {
-						ticking = true;
-
-						window.requestAnimationFrame( () => {
-							if ( window.pageYOffset > windowHeight ) {
-								this.backToTop.display = true;
-							} else {
-								this.backToTop.display = false;
-							}
-							ticking = false;
-						});
-					}
-				},
-				{ passive: true }
-			);
-		},
-		onBackToTop: function() {
-
-			// Safari Polyfill.
-			smoothscroll.polyfill();
-
-			window.scrollTo({
-				behavior: 'smooth',
-				top: 0,
-			});
-		},
 		debug: function( text ) {
 			// eslint-disable-next-line no-console
 			console.log( text );
 		},
 	},
+
+	/**
+	 * Vue Created
+	 */
 	created() {
 
-		// 100vhを調整
-		fix100vh();
-
 		// ローカルストレージから設定を取得
-		if ( isStorageAvailable( 'localStorage' ) ) {
+		if ( this.isStorageAvailable( 'localStorage' ) ) {
 			const data = localStorage.getItem( 'feeder-app-setting' );
 			if ( data ) {
 				this.setting = Object.assign( this.setting, JSON.parse( data ) );
 			}
 		}
-
-		// 初回イベント
 		this.onAjaxReload();
-		this.onCurrentDay();
-		this.onCurrentTime();
-		this.onShowScrollTopButton();
 	},
+
+	/**
+	 * Vue Destroyed
+	 */
 	destroyed() {
 		clearTimeout( RELOAD_TIMER.id );
 	},
+
+	/**
+	 * カスタムイベント.
+	 */
+	onScrollEvent() {
+		const windowHeight = window.innerHeight;
+		if ( window.scrollY > windowHeight ) {
+			this.backToTop.display = true;
+		} else {
+			this.backToTop.display = false;
+		}
+	},
+
+	/**
+	 * ミックスイン.
+	 */
+	mixins: [ fix100vh, getCurrentClock, isStorageAvailable, onBackToTop, onScrollEvent ],
+
+	/**
+	 * コンフリクト対策.
+	 */
 	delimiters: [ '${', '}' ],
 });
