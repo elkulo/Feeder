@@ -9,9 +9,9 @@ use Dotenv\Dotenv;
 return function (ContainerBuilder $containerBuilder) {
 
     // Dotenv
-    $env_dir = __DIR__ . '/../.env';
+    $env = __DIR__ . '/../.env';
     try {
-        if (is_readable($env_dir)) {
+        if (is_readable($env)) {
             $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
             $dotenv->load();
         } else {
@@ -25,12 +25,6 @@ return function (ContainerBuilder $containerBuilder) {
     if (isset($_ENV['TIME_ZONE'])) {
         date_default_timezone_set($_ENV['TIME_ZONE']);
     }
-
-    // Defined
-    // phpcs:disable
-    defined('SLIM_PATH') || define('SLIM_PATH', dirname(__DIR__));
-    defined('FEED_DB') || define('FEED_DB', SLIM_PATH  . '/' . $_ENV['FEED_DB']);
-    // phpcs:enable
 
     // Global Settings Object
     $containerBuilder->addDefinitions([
@@ -47,6 +41,8 @@ return function (ContainerBuilder $containerBuilder) {
                 'strict_variables' => true,
                 'cache' => __DIR__ . '/../var/cache/twig',
             ],
+            'slim.path' => dirname(__DIR__),
+            'feed.src' => __DIR__ . '/../' . $_ENV['FEED_SOURCE'],
         ],
     ]);
 };

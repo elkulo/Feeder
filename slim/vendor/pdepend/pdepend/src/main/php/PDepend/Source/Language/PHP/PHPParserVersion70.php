@@ -133,6 +133,7 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
             case Tokens::T_UNSET:
                 return true;
         }
+
         return parent::isConstantName($tokenType);
     }
 
@@ -146,7 +147,23 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
             case Tokens::T_CLASS:
                 return true;
         }
+
         return $this->isConstantName($tokenType);
+    }
+
+    /**
+     * @param integer $tokenType
+     * @return bool
+     */
+    protected function isTypeHint($tokenType)
+    {
+        switch ($tokenType) {
+            case Tokens::T_SELF:
+            case Tokens::T_PARENT:
+                return true;
+        }
+
+        return parent::isTypeHint($tokenType);
     }
 
     /**
@@ -257,7 +274,8 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
         $expr = $this->parseBraceExpression(
             $expr,
             $this->consumeToken(Tokens::T_PARENTHESIS_OPEN),
-            Tokens::T_PARENTHESIS_CLOSE
+            Tokens::T_PARENTHESIS_CLOSE,
+            Tokens::T_COMMA
         );
 
         while ($this->tokenizer->peek() === Tokens::T_PARENTHESIS_OPEN) {
@@ -406,7 +424,7 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
             return $this->parseStaticMemberPrimaryPrefix($node);
         }
 
-        if ($this->tokenizer->peek() === Tokens::T_OBJECT_OPERATOR) {
+        if ($this->isNextTokenObjectOperator()) {
             return $this->parseMemberPrimaryPrefix($node);
         }
 
@@ -425,7 +443,7 @@ abstract class PHPParserVersion70 extends PHPParserVersion56
             return $this->parseStaticMemberPrimaryPrefix($expr->getChild(0));
         }
 
-        if ($this->tokenizer->peek() === Tokens::T_OBJECT_OPERATOR) {
+        if ($this->isNextTokenObjectOperator()) {
             $node = count($expr->getChildren()) === 0 ? $expr : $expr->getChild(0);
             return $this->parseMemberPrimaryPrefix($node);
         }
