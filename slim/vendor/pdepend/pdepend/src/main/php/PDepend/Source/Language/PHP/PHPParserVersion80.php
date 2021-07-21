@@ -67,6 +67,17 @@ use PDepend\Source\Tokenizer\Tokens;
  */
 abstract class PHPParserVersion80 extends PHPParserVersion74
 {
+    protected $possiblePropertyTypes = array(
+        Tokens::T_STRING,
+        Tokens::T_ARRAY,
+        Tokens::T_QUESTION_MARK,
+        Tokens::T_BACKSLASH,
+        Tokens::T_CALLABLE,
+        Tokens::T_SELF,
+        Tokens::T_NULL,
+        Tokens::T_FALSE,
+    );
+
     /**
      * Will return <b>true</b> if the given <b>$tokenType</b> is a valid class
      * name part.
@@ -220,7 +231,7 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
      */
     protected function parseFunctionPostfix(ASTNode $node)
     {
-        if (!($node instanceof ASTIdentifier) || $node->getImage() !== 'match') {
+        if (!($node instanceof ASTIdentifier) || $node->getImageWithoutNamespace() !== 'match') {
             return parent::parseFunctionPostfix($node);
         }
 
@@ -267,12 +278,7 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
      */
     protected function parseEndReturnTypeHint()
     {
-        switch ($this->tokenizer->peek()) {
-            case Tokens::T_STATIC:
-                return $this->parseStaticType();
-            default:
-                return parent::parseEndReturnTypeHint();
-        }
+        return $this->parseTypeHint();
     }
 
     protected function parseSingleTypeHint()
@@ -280,6 +286,18 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         $this->consumeComments();
 
         switch ($this->tokenizer->peek()) {
+            case Tokens::T_ARRAY:
+                $type = $this->parseArrayType();
+                break;
+            case Tokens::T_SELF:
+                $type = $this->parseSelfType();
+                break;
+            case Tokens::T_PARENT:
+                $type = $this->parseParentType();
+                break;
+            case Tokens::T_STATIC:
+                $type = $this->parseStaticType();
+                break;
             case Tokens::T_NULL:
                 $type = new ASTScalarType('null');
                 $this->tokenizer->next();
@@ -354,5 +372,53 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         if ($this->tokenizer->peek() === Tokens::T_VARIABLE) {
             parent::parseCatchVariable($stmt);
         }
+    }
+
+    /**
+     * Trailing commas is allowed in closure use list from PHP 8.0
+     * @return false
+     */
+    protected function allowTrailingCommaInClosureUseList()
+    {
+        return true;
+    }
+
+    /**
+     * use of trailing comma in formal parameters list is allowed since PHP 8.0
+     * example function foo(string $bar, int $baz,)
+     */
+    protected function allowTrailingCommaInFormalParametersList()
+    {
+        return true;
+    }
+
+    protected function isNextTokenObjectOperator()
+    {
+        return in_array($this->tokenizer->peek(), array(
+            Tokens::T_OBJECT_OPERATOR,
+            Tokens::T_NULLSAFE_OBJECT_OPERATOR,
+        ), true);
+    }
+
+    protected function consumeObjectOperatorToken()
+    {
+        return $this->consumeToken($this->tokenizer->peek() === Tokens::T_NULLSAFE_OBJECT_OPERATOR
+            ? Tokens::T_NULLSAFE_OBJECT_OPERATOR
+            : Tokens::T_OBJECT_OPERATOR
+        );
+    }
+
+    protected function parseThrowExpression()
+    {
+        if ($this->tokenizer->peek() === Tokens::T_THROW) {
+            return $this->parseThrowStatement(array(
+                Tokens::T_SEMICOLON,
+                Tokens::T_COMMA,
+                Tokens::T_COLON,
+                Tokens::T_PARENTHESIS_CLOSE
+            ));
+        }
+
+        $this->throwUnexpectedTokenException();
     }
 }

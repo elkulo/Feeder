@@ -7,6 +7,7 @@ namespace App\Infrastructure\Persistence\Post;
 use App\Domain\Post\Post;
 use App\Domain\Post\PostNotFoundException;
 use App\Domain\Post\PostRepository;
+use Psr\Container\ContainerInterface;
 
 class InMemoryPostRepository implements PostRepository
 {
@@ -19,13 +20,17 @@ class InMemoryPostRepository implements PostRepository
      * InMemoryPostRepository constructor.
      *
      * @param array|null $posts
+     * @param ContainerInterface $container
      */
-    public function __construct(array $posts = null)
+    public function __construct(array $posts = null, ContainerInterface $container)
     {
+        $slim_path = $container->get('settings')['slim.path'];
+        $src = $container->get('settings')['feed.src'];
+
         $resource = array();
 
-        if (is_readable(FEED_DB)) {
-            $json = file_get_contents(FEED_DB);
+        if (is_readable($src)) {
+            $json = file_get_contents($src);
             $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
             $resource = json_decode($json, true);
         }
@@ -49,7 +54,7 @@ class InMemoryPostRepository implements PostRepository
             $rss->set_feed_url($site['src']);
 
             // Cache ディレクトリを指定.
-            $rss->set_cache_location(SLIM_PATH . '/var/cache/simplepie');
+            $rss->set_cache_location($slim_path . '/var/cache/simplepie');
             $success = $rss->init();
 
             // 投稿格納

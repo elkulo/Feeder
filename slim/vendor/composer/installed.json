@@ -746,17 +746,17 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.9.1",
-            "version_normalized": "2.9.1.0",
+            "version": "2.10.0",
+            "version_normalized": "2.10.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "1632f0cee84512ffd6dde71e58536b3b06528c41"
+                "reference": "1fd30f4352b630ad53fec3fd5e8b8ba760f85596"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1632f0cee84512ffd6dde71e58536b3b06528c41",
-                "reference": "1632f0cee84512ffd6dde71e58536b3b06528c41",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/1fd30f4352b630ad53fec3fd5e8b8ba760f85596",
+                "reference": "1fd30f4352b630ad53fec3fd5e8b8ba760f85596",
                 "shasum": ""
             },
             "require": {
@@ -771,7 +771,7 @@
                 "phpunit/phpunit": "^4.8.36|^5.7.27",
                 "squizlabs/php_codesniffer": "^2.0.0"
             },
-            "time": "2021-04-15T21:36:28+00:00",
+            "time": "2021-07-20T09:56:09+00:00",
             "bin": [
                 "src/bin/pdepend"
             ],
@@ -794,7 +794,7 @@
             "description": "Official version of pdepend to be handled with Composer",
             "support": {
                 "issues": "https://github.com/pdepend/pdepend/issues",
-                "source": "https://github.com/pdepend/pdepend/tree/2.9.1"
+                "source": "https://github.com/pdepend/pdepend/tree/2.10.0"
             },
             "funding": [
                 {
@@ -806,17 +806,17 @@
         },
         {
             "name": "phar-io/manifest",
-            "version": "2.0.1",
-            "version_normalized": "2.0.1.0",
+            "version": "2.0.3",
+            "version_normalized": "2.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
-                "reference": "85265efd3af7ba3ca4b2a2c34dbfc5788dd29133"
+                "reference": "97803eca37d319dfa7826cc2437fc020857acb53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/manifest/zipball/85265efd3af7ba3ca4b2a2c34dbfc5788dd29133",
-                "reference": "85265efd3af7ba3ca4b2a2c34dbfc5788dd29133",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/97803eca37d319dfa7826cc2437fc020857acb53",
+                "reference": "97803eca37d319dfa7826cc2437fc020857acb53",
                 "shasum": ""
             },
             "require": {
@@ -826,7 +826,7 @@
                 "phar-io/version": "^3.0.1",
                 "php": "^7.2 || ^8.0"
             },
-            "time": "2020-06-27T14:33:11+00:00",
+            "time": "2021-07-20T11:28:43+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -863,7 +863,7 @@
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
             "support": {
                 "issues": "https://github.com/phar-io/manifest/issues",
-                "source": "https://github.com/phar-io/manifest/tree/master"
+                "source": "https://github.com/phar-io/manifest/tree/2.0.3"
             },
             "install-path": "../phar-io/manifest"
         },
@@ -1613,17 +1613,17 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.92",
-            "version_normalized": "0.12.92.0",
+            "version": "0.12.93",
+            "version_normalized": "0.12.93.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "64d4c5dc8ea96972bc18432d137a330239a5d2b2"
+                "reference": "7b7602f05d340ffa418c59299f8c053ac6c3e7ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/64d4c5dc8ea96972bc18432d137a330239a5d2b2",
-                "reference": "64d4c5dc8ea96972bc18432d137a330239a5d2b2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7b7602f05d340ffa418c59299f8c053ac6c3e7ea",
+                "reference": "7b7602f05d340ffa418c59299f8c053ac6c3e7ea",
                 "shasum": ""
             },
             "require": {
@@ -1632,7 +1632,7 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
-            "time": "2021-07-10T13:53:49+00:00",
+            "time": "2021-07-20T10:49:53+00:00",
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -1656,7 +1656,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.92"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.93"
             },
             "funding": [
                 {
@@ -1756,17 +1756,17 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "2.0.3",
-            "version_normalized": "2.0.3.0",
+            "version": "2.0.4",
+            "version_normalized": "2.0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "4b49fb70f067272b659ef0174ff9ca40fdaa6357"
+                "reference": "28af674ff175d0768a5a978e6de83f697d4a7f05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/4b49fb70f067272b659ef0174ff9ca40fdaa6357",
-                "reference": "4b49fb70f067272b659ef0174ff9ca40fdaa6357",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/28af674ff175d0768a5a978e6de83f697d4a7f05",
+                "reference": "28af674ff175d0768a5a978e6de83f697d4a7f05",
                 "shasum": ""
             },
             "require": {
@@ -1775,7 +1775,7 @@
             "require-dev": {
                 "phpunit/phpunit": "^8.5"
             },
-            "time": "2020-11-30T08:25:21+00:00",
+            "time": "2021-07-19T06:46:01+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1807,7 +1807,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
-                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/2.0.3"
+                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/2.0.4"
             },
             "funding": [
                 {
@@ -1992,17 +1992,17 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.17",
-            "version_normalized": "8.5.17.0",
+            "version": "8.5.18",
+            "version_normalized": "8.5.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "79067856d85421c56d413bd238d4e2cd6b0e54da"
+                "reference": "bd5fc77c869e8dd65040dacbad170f074c13796c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/79067856d85421c56d413bd238d4e2cd6b0e54da",
-                "reference": "79067856d85421c56d413bd238d4e2cd6b0e54da",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bd5fc77c869e8dd65040dacbad170f074c13796c",
+                "reference": "bd5fc77c869e8dd65040dacbad170f074c13796c",
                 "shasum": ""
             },
             "require": {
@@ -2040,7 +2040,7 @@
                 "ext-xdebug": "*",
                 "phpunit/php-invoker": "^2.0.0"
             },
-            "time": "2021-06-23T05:12:43+00:00",
+            "time": "2021-07-19T06:13:17+00:00",
             "bin": [
                 "phpunit"
             ],
@@ -2076,7 +2076,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.17"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.18"
             },
             "funding": [
                 {
