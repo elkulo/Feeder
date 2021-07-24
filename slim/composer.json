@@ -12,6 +12,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
+        "mibe/feedwriter": "^1.1",
         "monolog/monolog": "^2.0",
         "php-di/php-di": "^6.1",
         "simplepie/simplepie": "^1.5",

@@ -92,6 +92,7 @@ class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
         'F' => 
         array (
             'Fig\\Http\\Message\\' => 17,
+            'FeedWriter\\' => 11,
             'FastRoute\\' => 10,
         ),
         'D' => 
@@ -252,6 +253,10 @@ class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
         array (
             0 => __DIR__ . '/..' . '/fig/http-message-util/src',
         ),
+        'FeedWriter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mibe/feedwriter',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
@@ -312,6 +317,7 @@ class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
         'App\\Application\\Actions\\ActionPayload' => __DIR__ . '/../..' . '/src/Application/Actions/ActionPayload.php',
         'App\\Application\\Actions\\Post\\ListPostsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/ListPostsAction.php',
         'App\\Application\\Actions\\Post\\PostAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/PostAction.php',
+        'App\\Application\\Actions\\Post\\RSSPostsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/RSSPostsAction.php',
         'App\\Application\\Actions\\Post\\ViewPostAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/ViewPostAction.php',
         'App\\Application\\Handlers\\HttpErrorHandler' => __DIR__ . '/../..' . '/src/Application/Handlers/HttpErrorHandler.php',
         'App\\Application\\Handlers\\ShutdownHandler' => __DIR__ . '/../..' . '/src/Application/Handlers/ShutdownHandler.php',
@@ -475,6 +481,12 @@ class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
         'FastRoute\\RouteCollector' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteCollector.php',
         'FastRoute\\RouteParser' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser.php',
         'FastRoute\\RouteParser\\Std' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser/Std.php',
+        'FeedWriter\\ATOM' => __DIR__ . '/..' . '/mibe/feedwriter/ATOM.php',
+        'FeedWriter\\Feed' => __DIR__ . '/..' . '/mibe/feedwriter/Feed.php',
+        'FeedWriter\\InvalidOperationException' => __DIR__ . '/..' . '/mibe/feedwriter/InvalidOperationException.php',
+        'FeedWriter\\Item' => __DIR__ . '/..' . '/mibe/feedwriter/Item.php',
+        'FeedWriter\\RSS1' => __DIR__ . '/..' . '/mibe/feedwriter/RSS1.php',
+        'FeedWriter\\RSS2' => __DIR__ . '/..' . '/mibe/feedwriter/RSS2.php',
         'Fig\\Http\\Message\\RequestMethodInterface' => __DIR__ . '/..' . '/fig/http-message-util/src/RequestMethodInterface.php',
         'Fig\\Http\\Message\\StatusCodeInterface' => __DIR__ . '/..' . '/fig/http-message-util/src/StatusCodeInterface.php',
         'GrahamCampbell\\ResultType\\Error' => __DIR__ . '/..' . '/graham-campbell/result-type/src/Error.php',
