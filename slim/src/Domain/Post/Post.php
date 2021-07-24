@@ -16,27 +16,27 @@ class Post implements JsonSerializable
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $src;
+    private $src;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * @var array
      */
-    public $category;
+    private $category;
 
     /**
      * @var array
      */
-    public $feeder;
+    private $feeder;
 
     /**
      * @param int|null  $id
