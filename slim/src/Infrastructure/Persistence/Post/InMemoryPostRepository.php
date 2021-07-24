@@ -8,9 +8,16 @@ use App\Domain\Post\Post;
 use App\Domain\Post\PostNotFoundException;
 use App\Domain\Post\PostRepository;
 use Psr\Container\ContainerInterface;
+use FeedWriter\RSS2;
 
 class InMemoryPostRepository implements PostRepository
 {
+
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
     /**
      * @var Post[]
      */
@@ -24,6 +31,7 @@ class InMemoryPostRepository implements PostRepository
      */
     public function __construct(array $posts = null, ContainerInterface $container)
     {
+        $this->container = $container;
         $slim_path = $container->get('settings')['slim.path'];
         $src = $container->get('settings')['feed.src'];
 
@@ -107,5 +115,44 @@ class InMemoryPostRepository implements PostRepository
         }
 
         return $this->posts[$id - 1];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function findRSS(): string
+    {
+        $settings = $this->container->get('settings');
+
+        // チャンネル情報の登録
+        $feed = new RSS2;
+        $feed->setTitle($settings['site.title']);
+        $feed->setDescription($settings['site.description']);
+        $feed->setLink($settings['site.URL']);
+        $feed->setDate(new \DateTime());
+        $feed->setChannelElement('pubDate', date(\DATE_RSS, time()));
+        $feed->setChannelElement('language', $settings['site.language']);
+        $feed->setChannelElement('category', $settings['site.category']);
+
+        // 全フィードを取得
+        $sites = $this->posts;
+
+        // フィードのアイテムを追加
+        // TODO: 新着順に並べ替え
+        foreach ($sites as $site) {
+            $siteFeeder = $site->getFeeder();
+            foreach ($siteFeeder as $data) {
+                $item = $feed->createNewItem();
+                $item->setDate($data['date']);
+                $item->setTitle($data['title']);
+                $item->setLink($data['link']);
+                $item->setDescription($data['content']);
+                $item->setId($data['link'], true);
+                $item->setAuthor($site->getName());
+                $feed->addItem($item);
+            }
+        }
+
+        return $feed->generateFeed();
     }
 }

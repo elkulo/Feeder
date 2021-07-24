@@ -19,10 +19,11 @@ return function (App $app) {
     // HOME
     $app->get('/', function (Request $request, Response $response) use ($app) {
         $twig = $app->getContainer()->get(Twig::class);
+        $settings = $app->getContainer()->get('settings');
         return $twig->render($response, 'home.twig', [
-            'title' => isset($_ENV['SITE_NAME']) ? $_ENV['SITE_NAME'] : 'Feeder',
-            'description' => '',
-            'robots' => 'noindex, nofollow'
+            'title' => $settings['site.title'],
+            'description' => $settings['site.description'],
+            'robots' => $settings['site.robots']
         ]);
     });
 

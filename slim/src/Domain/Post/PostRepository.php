@@ -16,4 +16,9 @@ interface PostRepository
      * @throws PostNotFoundException
      */
     public function findPostOfId(int $id): Post;
+
+    /**
+     * @return string
+     */
+    public function findRSS(): string;
 }

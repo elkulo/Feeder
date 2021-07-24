@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3ae0c98d936db2c0f328b9e1aa739875ff09e840',
+        'reference' => '2f50549e1645999f26982928b04b396b0814c8a5',
         'name' => 'elkulo/feeder',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3ae0c98d936db2c0f328b9e1aa739875ff09e840',
+            'reference' => '2f50549e1645999f26982928b04b396b0814c8a5',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
