@@ -44,16 +44,16 @@ class Post implements JsonSerializable
      * @param string    $src
      * @param string    $url
      * @param array     $category
-     * @param array     $feeder
+     * @param array     $entries
      */
-    public function __construct(?int $id, string $name, string $src, string $url, array $category, array $feeder)
+    public function __construct(?int $id, string $name, string $src, string $url, array $category, array $entries)
     {
         $this->id = $id;
         $this->name = $name;
         $this->src = $src;
         $this->url = $url;
         $this->category = $category;
-        $this->feeder = $feeder;
+        $this->feeder = $entries;
     }
 
     /**

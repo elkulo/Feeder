@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Post;
@@ -46,11 +45,11 @@ class InMemoryPostRepository implements PostRepository
         $sites = $resource ? $resource :
             [
                 [
-                    "id" => "1",
-                    "name" => "Yahoo主要",
-                    "src" => "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
-                    "url" => "https://news.yahoo.co.jp/",
-                    "category" => ["Yahoo"]
+                    'id' => '1',
+                    'name' => 'Yahoo主要',
+                    'src' => 'https://news.yahoo.co.jp/rss/topics/top-picks.xml',
+                    'url' => 'https://news.yahoo.co.jp/',
+                    'category' => ['Yahoo']
                 ]
             ];
 
@@ -66,14 +65,14 @@ class InMemoryPostRepository implements PostRepository
             $success = $rss->init();
 
             // 投稿格納
-            $feeder = array();
+            $entries = [];
 
             // RSSが取得できたら情報をパース
             if ($success) {
                 // 表示件数を指定.
-                $rssItems = $rss->get_items(0, 20);
+                $rssItems = $rss->get_items(0, 50);
                 foreach ($rssItems as $item) {
-                    $feeder[] = [
+                    $entries[] = [
                         'date' => $item->get_date('Y/m/d H:i:s'),
                         'title' => $item->get_title(),
                         'link' =>  $item->get_link(),
@@ -87,7 +86,7 @@ class InMemoryPostRepository implements PostRepository
                     $site['src'],
                     $site['url'],
                     $site['category'],
-                    $feeder
+                    $entries
                 );
             }
         }
@@ -123,6 +122,8 @@ class InMemoryPostRepository implements PostRepository
     public function findRSS(): string
     {
         $settings = $this->container->get('settings');
+        $feedAllArray = [];
+        $updated = [];
 
         // チャンネル情報の登録
         $feed = new RSS2;
@@ -137,22 +138,34 @@ class InMemoryPostRepository implements PostRepository
         // 全フィードを取得
         $sites = $this->posts;
 
-        // フィードのアイテムを追加
-        // TODO: 新着順に並べ替え
+        // フィードをフラットに生成
         foreach ($sites as $site) {
             $siteFeeder = $site->getFeeder();
             foreach ($siteFeeder as $data) {
-                $item = $feed->createNewItem();
-                $item->setDate($data['date']);
-                $item->setTitle($data['title']);
-                $item->setLink($data['link']);
-                $item->setDescription($data['content']);
-                $item->setId($data['link'], true);
-                $item->setAuthor($site->getName());
-                $feed->addItem($item);
+                $data['author'] = $site->getName();
+                $feedAllArray[] = $data;
             }
         }
 
+        // 日付でソート
+        foreach ($feedAllArray as $key => $value) {
+            $updated[$key] = $value['date'];
+        }
+        array_multisort($updated, SORT_DESC, $feedAllArray);
+
+        // フィードのアイテムを追加
+        foreach ($feedAllArray as $data) {
+            $item = $feed->createNewItem();
+            $item->setDate($data['date']);
+            $item->setTitle($data['title']);
+            $item->setLink($data['link']);
+            $item->setDescription($data['content']);
+            $item->setId($data['link'], true);
+            $item->setAuthor($data['author']);
+            $feed->addItem($item);
+        }
+
+        // xmlを返り値
         return $feed->generateFeed();
     }
 }
