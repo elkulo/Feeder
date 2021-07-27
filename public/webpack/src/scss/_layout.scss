@@ -34,51 +34,6 @@
   }
 }
 
-.site-setting {
-  display: inline-block;
-  margin: 1rem 0;
-
-  @media (min-width: 768px) {
-    position: fixed;
-    left: 3rem;
-    bottom: 0;
-    margin: 0.5rem;
-  }
-
-  .bi {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #767676;
-  }
-
-  .btn:focus {
-    box-shadow: none;
-  }
-}
-
-.site-powered {
-  display: inline-block;
-  margin: 1rem 0;
-
-  @media (min-width: 768px) {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    margin: 0.5rem;
-  }
-
-  .bi {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #767676;
-  }
-
-  .btn:focus {
-    box-shadow: none;
-    background: none;
-  }
-}
-
 .site-navigation {
   &__list {
     display: flex;
@@ -259,6 +214,7 @@
     font-family: "Noto Serif JP";
     font-size: 1.5rem;
     font-family: 700;
+    margin-bottom: 1rem;
 
     &__link {
       text-decoration: none;
@@ -279,6 +235,73 @@
     font-family: "Noto Serif JP";
     font-size: 0.875rem;
     font-family: 400;
-    margin-top: 3rem;
+    margin-top: 2rem;
+  }
+}
+
+.site-rss {
+  display: inline-block;
+
+  @media (min-width: 768px) {
+    position: fixed;
+    left: 6rem;
+    bottom: 0;
+    margin: 0.5rem;
+  }
+
+  .bi {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #767676;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .btn:focus {
+    box-shadow: none;
+    background: none;
+  }
+}
+
+.site-setting {
+  display: inline-block;
+
+  @media (min-width: 768px) {
+    position: fixed;
+    left: 3rem;
+    bottom: 0;
+    margin: 0.5rem;
+  }
+
+  .bi {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #767676;
+  }
+
+  .btn:focus {
+    box-shadow: none;
+  }
+}
+
+.site-powered {
+  display: inline-block;
+
+  @media (min-width: 768px) {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 0.5rem;
+  }
+
+  .bi {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #767676;
+  }
+
+  .btn:focus {
+    box-shadow: none;
+    background: none;
   }
 }
