@@ -27,7 +27,7 @@ return function (ContainerBuilder $containerBuilder) {
         },
         Twig::class => function (ContainerInterface $container) {
             $settings = $container->get('settings');
-            return Twig::create(__DIR__ . '/../views', $settings['twig']);
+            return Twig::create(__DIR__ . '/../src/Views', $settings['twig']);
         },
     ]);
 };
