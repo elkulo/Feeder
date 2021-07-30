@@ -11,21 +11,21 @@
 {% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet" />
 <link rel='stylesheet' id='app-style-css' href='/webpack/dest/app.min.css' type='text/css' media='all' />
 <link rel="alternate" type="application/rss+xml" title="{{ title }} &raquo; フィード" href="/rss" />
 </head>
 <body>
 <div id="app" class="site">
   <div
-    class="d-flex justify-content-center align-items-center text-success"
+    class="d-flex justify-content-center align-items-center text-success site-preload"
     style="height:var(--maxvh, 100vh)"
     v-if="hasPreLoad" 
   >
-    <div class="spinner-border h1" role="status">
+    <div class="spinner-border h5 m-0 p-0" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-    <div class="h3 px-3">Loading...</div>
+    <div class="px-3">Loading...</div>
   </div>
   <div
     class="container-fluid"
