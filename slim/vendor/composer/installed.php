@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '89fec20dea0f04df695c590ce046e15c5bef8a80',
+        'reference' => 'af4bb164432682f4d2ee78198191dbacbaa96c67',
         'name' => 'elkulo/feeder',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '89fec20dea0f04df695c590ce046e15c5bef8a80',
+            'reference' => 'af4bb164432682f4d2ee78198191dbacbaa96c67',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -158,12 +158,12 @@
             'dev_requirement' => true,
         ),
         'php-di/invoker' => array(
-            'pretty_version' => '2.3.1',
-            'version' => '2.3.1.0',
+            'pretty_version' => '2.3.2',
+            'version' => '2.3.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../php-di/invoker',
             'aliases' => array(),
-            'reference' => '360efcf2b30282ac4f9e6cb5b06ac795013d3d03',
+            'reference' => '5214cbe5aad066022cd845dbf313f0e47aed928f',
             'dev_requirement' => false,
         ),
         'php-di/php-di' => array(
