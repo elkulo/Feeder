@@ -3,19 +3,19 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Persistence\Post;
 
+use App\Application\Settings\SettingsInterface;
 use App\Domain\Post\Post;
 use App\Domain\Post\PostNotFoundException;
 use App\Domain\Post\PostRepository;
-use Psr\Container\ContainerInterface;
 use FeedWriter\RSS2;
 
 class InMemoryPostRepository implements PostRepository
 {
 
     /**
-     * @var ContainerInterface
+     * @var SettingsInterface
      */
-    private $container;
+    private $settings;
 
     /**
      * @var Post[]
@@ -26,13 +26,13 @@ class InMemoryPostRepository implements PostRepository
      * InMemoryPostRepository constructor.
      *
      * @param array|null $posts
-     * @param ContainerInterface $container
+     * @param SettingsInterface $settings
      */
-    public function __construct(array $posts = null, ContainerInterface $container)
+    public function __construct(array $posts = null, SettingsInterface $settings)
     {
-        $this->container = $container;
-        $slim_path = $container->get('settings')['slim.path'];
-        $src = $container->get('settings')['feed.src'];
+        $this->settings = $settings;
+        $slim_path = $settings->get('slim.path');
+        $src = $settings->get('feed.src');
 
         $resource = array();
 
@@ -121,19 +121,19 @@ class InMemoryPostRepository implements PostRepository
      */
     public function findRSS(): string
     {
-        $settings = $this->container->get('settings');
+        $settings = $this->settings;
         $feedAllArray = [];
         $updated = [];
 
         // チャンネル情報の登録
         $feed = new RSS2;
-        $feed->setTitle($settings['site.title']);
-        $feed->setDescription($settings['site.description']);
-        $feed->setLink($settings['site.URL']);
+        $feed->setTitle($settings->get('site.title'));
+        $feed->setDescription($settings->get('site.description'));
+        $feed->setLink($settings->get('site.URL'));
         $feed->setDate(new \DateTime());
         $feed->setChannelElement('pubDate', date(\DATE_RSS, time()));
-        $feed->setChannelElement('language', $settings['site.language']);
-        $feed->setChannelElement('category', $settings['site.category']);
+        $feed->setChannelElement('language', $settings->get('site.language'));
+        $feed->setChannelElement('category', $settings->get('site.category'));
 
         // 全フィードを取得
         $sites = $this->posts;

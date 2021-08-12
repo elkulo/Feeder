@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Application\Settings\SettingsInterface;
 use App\Application\Middleware\SessionMiddleware;
 use Slim\App;
 use Zeuxisoo\Whoops\Slim\WhoopsMiddleware;
@@ -12,12 +13,13 @@ return function (App $app) {
 
     // Whoops.
     $c = $app->getContainer();
-    if ((bool)($c->get('settings')['debug'] ?? false)) {
+    $settings = $c->get(SettingsInterface::class);
+    if ((bool)($settings->get('debug') ?? false)) {
         $app->add(new WhoopsMiddleware(['enable' => true]));
     } else {
         $errorMiddleware = $app->addErrorMiddleware(false, true, true);
         $errorHandler    = $errorMiddleware->getDefaultErrorHandler();
-        $errorHandler->registerErrorRenderer('text/html', HtmlErrorRenderer::class);
+        //$errorHandler->registerErrorRenderer('text/html', HtmlErrorRenderer::class);
     }
 
     // Twig.

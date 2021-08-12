@@ -323,6 +323,8 @@ class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
         'App\\Application\\Handlers\\ShutdownHandler' => __DIR__ . '/../..' . '/src/Application/Handlers/ShutdownHandler.php',
         'App\\Application\\Middleware\\SessionMiddleware' => __DIR__ . '/../..' . '/src/Application/Middleware/SessionMiddleware.php',
         'App\\Application\\ResponseEmitter\\ResponseEmitter' => __DIR__ . '/../..' . '/src/Application/ResponseEmitter/ResponseEmitter.php',
+        'App\\Application\\Settings\\Settings' => __DIR__ . '/../..' . '/src/Application/Settings/Settings.php',
+        'App\\Application\\Settings\\SettingsInterface' => __DIR__ . '/../..' . '/src/Application/Settings/SettingsInterface.php',
         'App\\Domain\\DomainException\\DomainException' => __DIR__ . '/../..' . '/src/Domain/DomainException/DomainException.php',
         'App\\Domain\\DomainException\\DomainRecordNotFoundException' => __DIR__ . '/../..' . '/src/Domain/DomainException/DomainRecordNotFoundException.php',
         'App\\Domain\\Post\\Post' => __DIR__ . '/../..' . '/src/Domain/Post/Post.php',
