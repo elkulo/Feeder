@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Application\Settings\SettingsInterface;
 use App\Application\Actions\Post\ListPostsAction;
 use App\Application\Actions\Post\ViewPostAction;
 use App\Application\Actions\Post\RSSPostsAction;
@@ -19,11 +20,11 @@ return function (App $app) {
     // HOME
     $app->get('/', function (Request $request, Response $response) use ($app) {
         $twig = $app->getContainer()->get(Twig::class);
-        $settings = $app->getContainer()->get('settings');
+        $settings = $app->getContainer()->get(SettingsInterface::class);
         return $twig->render($response, 'home.twig', [
-            'title' => $settings['site.title'],
-            'description' => $settings['site.description'],
-            'robots' => $settings['site.robots']
+            'title' => $settings->get('site.title'),
+            'description' => $settings->get('site.description'),
+            'robots' => $settings->get('site.robots')
         ]);
     });
 

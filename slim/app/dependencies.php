@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Application\Settings\SettingsInterface;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -12,9 +13,9 @@ use Slim\Views\Twig;
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
         LoggerInterface::class => function (ContainerInterface $c) {
-            $settings = $c->get('settings');
+            $settings = $c->get(SettingsInterface::class);
 
-            $loggerSettings = $settings['logger'];
+            $loggerSettings = $settings->get('logger');
             $logger = new Logger($loggerSettings['name']);
 
             $processor = new UidProcessor();
@@ -25,9 +26,9 @@ return function (ContainerBuilder $containerBuilder) {
 
             return $logger;
         },
-        Twig::class => function (ContainerInterface $container) {
-            $settings = $container->get('settings');
-            return Twig::create(__DIR__ . '/../src/Views', $settings['twig']);
+        Twig::class => function (ContainerInterface $c) {
+            $settings = $c->get(SettingsInterface::class);
+            return Twig::create(__DIR__ . '/../src/Views', $settings->get('twig'));
         },
     ]);
 };

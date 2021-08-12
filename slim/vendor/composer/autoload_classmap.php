@@ -17,6 +17,8 @@ return array(
     'App\\Application\\Handlers\\ShutdownHandler' => $baseDir . '/src/Application/Handlers/ShutdownHandler.php',
     'App\\Application\\Middleware\\SessionMiddleware' => $baseDir . '/src/Application/Middleware/SessionMiddleware.php',
     'App\\Application\\ResponseEmitter\\ResponseEmitter' => $baseDir . '/src/Application/ResponseEmitter/ResponseEmitter.php',
+    'App\\Application\\Settings\\Settings' => $baseDir . '/src/Application/Settings/Settings.php',
+    'App\\Application\\Settings\\SettingsInterface' => $baseDir . '/src/Application/Settings/SettingsInterface.php',
     'App\\Domain\\DomainException\\DomainException' => $baseDir . '/src/Domain/DomainException/DomainException.php',
     'App\\Domain\\DomainException\\DomainRecordNotFoundException' => $baseDir . '/src/Domain/DomainException/DomainRecordNotFoundException.php',
     'App\\Domain\\Post\\Post' => $baseDir . '/src/Domain/Post/Post.php',
