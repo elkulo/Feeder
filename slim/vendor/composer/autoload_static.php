@@ -315,6 +315,7 @@ class ComposerStaticInit26f2869bca85fcf9717ddf8ece7e4bb7
         'App\\Application\\Actions\\Action' => __DIR__ . '/../..' . '/src/Application/Actions/Action.php',
         'App\\Application\\Actions\\ActionError' => __DIR__ . '/../..' . '/src/Application/Actions/ActionError.php',
         'App\\Application\\Actions\\ActionPayload' => __DIR__ . '/../..' . '/src/Application/Actions/ActionPayload.php',
+        'App\\Application\\Actions\\Page\\HomePageAction' => __DIR__ . '/../..' . '/src/Application/Actions/Page/HomePageAction.php',
         'App\\Application\\Actions\\Post\\ListPostsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/ListPostsAction.php',
         'App\\Application\\Actions\\Post\\PostAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/PostAction.php',
         'App\\Application\\Actions\\Post\\RSSPostsAction' => __DIR__ . '/../..' . '/src/Application/Actions/Post/RSSPostsAction.php',
