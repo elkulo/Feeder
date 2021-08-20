@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use App\Application\Actions\Page\HomePageAction;
+use App\Application\Actions\Home\HomeAction;
 use App\Application\Actions\Post\ListPostsAction;
 use App\Application\Actions\Post\ViewPostAction;
 use App\Application\Actions\Post\RSSPostsAction;
@@ -17,9 +17,9 @@ return function (App $app) {
     });
 
     // Home Page
-    $app->get('/', HomePageAction::class);
+    $app->get('/', HomeAction::class);
 
-    // API
+    // Posts API
     $app->group('/api/v1/posts', function (Group $group) {
         $group->get('', ListPostsAction::class);
         $group->get('/{id}', ViewPostAction::class);
