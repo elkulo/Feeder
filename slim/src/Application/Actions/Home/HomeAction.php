@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Application\Actions\Page;
+namespace App\Application\Actions\Home;
 
 use App\Application\Settings\SettingsInterface;
 use App\Application\Actions\Action;
@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 
-class HomePageAction extends Action
+class HomeAction extends Action
 {
 
     /**
