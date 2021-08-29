@@ -9,6 +9,7 @@ return array(
     'App\\Application\\Actions\\Action' => $baseDir . '/src/Application/Actions/Action.php',
     'App\\Application\\Actions\\ActionError' => $baseDir . '/src/Application/Actions/ActionError.php',
     'App\\Application\\Actions\\ActionPayload' => $baseDir . '/src/Application/Actions/ActionPayload.php',
+    'App\\Application\\Actions\\Home\\HomeAction' => $baseDir . '/src/Application/Actions/Home/HomeAction.php',
     'App\\Application\\Actions\\Post\\ListPostsAction' => $baseDir . '/src/Application/Actions/Post/ListPostsAction.php',
     'App\\Application\\Actions\\Post\\PostAction' => $baseDir . '/src/Application/Actions/Post/PostAction.php',
     'App\\Application\\Actions\\Post\\RSSPostsAction' => $baseDir . '/src/Application/Actions/Post/RSSPostsAction.php',
