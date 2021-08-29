@@ -6,27 +6,8 @@ use App\Application\Settings\Settings;
 use App\Application\Settings\SettingsInterface;
 use DI\ContainerBuilder;
 use Monolog\Logger;
-use Dotenv\Dotenv;
 
 return function (ContainerBuilder $containerBuilder) {
-
-    // Dotenv
-    $env = __DIR__ . '/../.env';
-    try {
-        if (is_readable($env)) {
-            $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-            $dotenv->load();
-        } else {
-            throw new Exception('環境設定ファイルがありません');
-        }
-    } catch (Exception $e) {
-        exit($e->getMessage());
-    }
-
-    // Timezone
-    if (isset($_ENV['TIME_ZONE'])) {
-        date_default_timezone_set($_ENV['TIME_ZONE']);
-    }
 
     // Global Settings Object
     $containerBuilder->addDefinitions([
