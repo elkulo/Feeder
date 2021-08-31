@@ -14,7 +14,7 @@ require __DIR__ . '/../vendor/autoload.php';
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();
 
-// Dotenv
+// Set up Dotenv
 $env = __DIR__ . '/../.env';
 try {
 	if (is_readable($env)) {
@@ -27,13 +27,13 @@ try {
 	exit($e->getMessage());
 }
 
-// Timezone
+// Set up Timezone
 if (isset($_ENV['TIME_ZONE'])) {
 	date_default_timezone_set($_ENV['TIME_ZONE']);
 }
 
-// Cache
-if (isset($_ENV['DEBUG']) ? !$_ENV['DEBUG'] : false) { // Should be set to true in production
+// Should be set to true in production
+if (isset($_ENV['DEBUG']) ? !$_ENV['DEBUG'] : false) {
 	//$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
 }
 
