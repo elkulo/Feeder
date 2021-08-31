@@ -225,7 +225,7 @@ new Vue({
 				};
 
 				// オートロードを自動で閉じる
-				setTimeout( () => ( this.autoload.display = false ), 20000 );
+				setTimeout( () => ( this.autoload.display = false ), 5600 );
 			}
 		},
 		getQueryAll: function( requestCategory = '' ) {
