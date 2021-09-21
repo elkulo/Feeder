@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+{% apply spaceless %}
 <head>
-<meta charset="UTF-8">
-{% if robots is defined %}
-<meta name="robots" content="{{ robots }}">
-{% endif %}
-<title>{{ title }}</title>
-{% if description is defined %}
-<meta name="description" content="{{ description }}">
-{% endif %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" type="image/png" href="/favicon.ico" />
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet" />
-<link rel='stylesheet' id='app-style-css' href='/webpack/dest/app.min.css' type='text/css' media='all' />
-<link rel="alternate" type="application/rss+xml" title="{{ title }} &raquo; フィード" href="/rss" />
+  <meta charset="UTF-8">
+  {% if robots is defined %}
+  <meta name="robots" content="{{ robots }}">
+  {% endif %}
+  <title>{{ title }}</title>
+  {% if description is defined %}
+  <meta name="description" content="{{ description }}">
+  {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel='stylesheet' id='app-style-css' href='/webpack/dest/app.min.css' type='text/css' media='all' />
+  <link rel="alternate" type="application/rss+xml" title="{{ title }} &raquo; フィード" href="/rss" />
 </head>
+{% endapply %}
 <body>
 <div id="app" class="site">
   <div
