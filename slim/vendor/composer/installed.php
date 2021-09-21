@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'd8267844c31a47e1a677260a96595fdf4cd12d89',
+        'reference' => '5f8cbccdac9560039e444adb5f814631b3529b82',
         'name' => 'elkulo/feeder',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'd8267844c31a47e1a677260a96595fdf4cd12d89',
+            'reference' => '5f8cbccdac9560039e444adb5f814631b3529b82',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -56,12 +56,12 @@
             'dev_requirement' => false,
         ),
         'filp/whoops' => array(
-            'pretty_version' => '2.14.1',
-            'version' => '2.14.1.0',
+            'pretty_version' => '2.14.3',
+            'version' => '2.14.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../filp/whoops',
             'aliases' => array(),
-            'reference' => '15ead64e9828f0fc90932114429c4f7923570cb1',
+            'reference' => '89584ce67dd32307f1063cc43846674f4679feda',
             'dev_requirement' => false,
         ),
         'graham-campbell/result-type' => array(
@@ -92,12 +92,12 @@
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
-            'pretty_version' => '2.3.2',
-            'version' => '2.3.2.0',
+            'pretty_version' => '2.3.4',
+            'version' => '2.3.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../monolog/monolog',
             'aliases' => array(),
-            'reference' => '71312564759a7db5b789296369c1a264efc43aad',
+            'reference' => '437e7a1c50044b92773b361af77620efb76fff59',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
@@ -167,12 +167,12 @@
             'dev_requirement' => false,
         ),
         'php-di/php-di' => array(
-            'pretty_version' => '6.3.4',
-            'version' => '6.3.4.0',
+            'pretty_version' => '6.3.5',
+            'version' => '6.3.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../php-di/php-di',
             'aliases' => array(),
-            'reference' => 'f53bcba06ab31b18e911b77c039377f4ccd1f7a5',
+            'reference' => 'b8126d066ce144765300ee0ab040c1ed6c9ef588',
             'dev_requirement' => false,
         ),
         'php-di/phpdoc-reader' => array(
@@ -212,12 +212,12 @@
             'dev_requirement' => true,
         ),
         'phpdocumentor/type-resolver' => array(
-            'pretty_version' => '1.4.0',
-            'version' => '1.4.0.0',
+            'pretty_version' => '1.5.0',
+            'version' => '1.5.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpdocumentor/type-resolver',
             'aliases' => array(),
-            'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
+            'reference' => '30f38bffc6f24293dadd1823936372dfa9e86e2f',
             'dev_requirement' => true,
         ),
         'phpmd/phpmd' => array(
@@ -239,12 +239,12 @@
             'dev_requirement' => false,
         ),
         'phpspec/prophecy' => array(
-            'pretty_version' => '1.13.0',
-            'version' => '1.13.0.0',
+            'pretty_version' => '1.14.0',
+            'version' => '1.14.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpspec/prophecy',
             'aliases' => array(),
-            'reference' => 'be1996ed8adc35c3fd795488a653f4b518be70ea',
+            'reference' => 'd86dfc2e2a3cd366cee475e52c6bb3bbc371aa0e',
             'dev_requirement' => true,
         ),
         'phpstan/extension-installer' => array(
@@ -257,12 +257,12 @@
             'dev_requirement' => true,
         ),
         'phpstan/phpstan' => array(
-            'pretty_version' => '0.12.96',
-            'version' => '0.12.96.0',
+            'pretty_version' => '0.12.99',
+            'version' => '0.12.99.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpstan/phpstan',
             'aliases' => array(),
-            'reference' => 'a98bdc51318f20fcae8c953d266f81a70254917f',
+            'reference' => 'b4d40f1d759942f523be267a1bab6884f46ca3f7',
             'dev_requirement' => true,
         ),
         'phpunit/php-code-coverage' => array(
@@ -311,12 +311,12 @@
             'dev_requirement' => true,
         ),
         'phpunit/phpunit' => array(
-            'pretty_version' => '8.5.19',
-            'version' => '8.5.19.0',
+            'pretty_version' => '8.5.20',
+            'version' => '8.5.20.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
-            'reference' => '496281b64ec781856ed0a583483b5923b4033722',
+            'reference' => '9deefba183198398a09b927a6ac6bc1feb0b7b70',
             'dev_requirement' => true,
         ),
         'psr/container' => array(
@@ -395,7 +395,7 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
             ),
         ),
         'ralouphie/getallheaders' => array(
@@ -570,12 +570,12 @@
             'dev_requirement' => true,
         ),
         'symfony/dependency-injection' => array(
-            'pretty_version' => 'v5.3.4',
-            'version' => '5.3.4.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/dependency-injection',
             'aliases' => array(),
-            'reference' => '5a825e4b386066167a8b55487091cb62beec74c2',
+            'reference' => 'a665946279f566d94ed5eb98999cfa65c6fa5a78',
             'dev_requirement' => true,
         ),
         'symfony/deprecation-contracts' => array(
@@ -648,12 +648,12 @@
             ),
         ),
         'symfony/var-dumper' => array(
-            'pretty_version' => 'v5.3.6',
-            'version' => '5.3.6.0',
+            'pretty_version' => 'v5.3.7',
+            'version' => '5.3.7.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/var-dumper',
             'aliases' => array(),
-            'reference' => '3dd8ddd1e260e58ecc61bb78da3b6584b3bfcba0',
+            'reference' => '3ad5af4aed07d0a0201bbcfc42658fe6c5b2fb8f',
             'dev_requirement' => true,
         ),
         'theseer/tokenizer' => array(
@@ -666,12 +666,12 @@
             'dev_requirement' => true,
         ),
         'twig/twig' => array(
-            'pretty_version' => 'v3.3.2',
-            'version' => '3.3.2.0',
+            'pretty_version' => 'v3.3.3',
+            'version' => '3.3.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
-            'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
+            'reference' => 'a27fa056df8a6384316288ca8b0fa3a35fdeb569',
             'dev_requirement' => false,
         ),
         'vlucas/phpdotenv' => array(
