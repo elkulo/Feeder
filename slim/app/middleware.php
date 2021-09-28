@@ -23,6 +23,5 @@ return function (App $app) {
     }
 
     // Twig.
-    $app->add(SessionMiddleware::class);
     $app->add(TwigMiddleware::createFromContainer($app, Twig::class));
 };
