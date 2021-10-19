@@ -20,7 +20,7 @@ class HomeAction extends Action
     /**
      * @var Twig
      */
-    protected $twig;
+    protected $view;
 
     /**
      * @param LoggerInterface $logger
@@ -31,7 +31,7 @@ class HomeAction extends Action
     {
         parent::__construct($logger);
         $this->settings = $settings;
-        $this->twig = $twig;
+        $this->view = $twig;
     }
 
     /**
@@ -42,16 +42,10 @@ class HomeAction extends Action
 
         $this->logger->info('Home was viewed.');
 
-        $twig = $this->twig;
-        $settings = $this->settings;
-
-        // bodyを生成
-        $response = $twig->render($this->response, 'home.twig', [
-            'title' => $settings->get('site.title'),
-            'description' => $settings->get('site.description'),
-            'robots' => $settings->get('site.robots')
+        return $this->view->render($this->response, 'home.twig', [
+            'title' => $this->settings->get('site.title'),
+            'description' => $this->settings->get('site.description'),
+            'robots' => $this->settings->get('site.robots')
         ]);
-
-        return $response;
     }
 }

@@ -984,6 +984,9 @@ abstract class AbstractPHPParser
                 case Tokens::T_FINAL:
                     $modifiers |= State::IS_FINAL;
                     break;
+                case Tokens::T_READONLY:
+                    $modifiers |= State::IS_READONLY;
+                    break;
                 case Tokens::T_FUNCTION:
                     $method = $this->parseMethodDeclaration();
                     $method->setModifiers($modifiers);
@@ -2199,9 +2202,11 @@ abstract class AbstractPHPParser
         $startToken = $this->consumeToken(Tokens::T_ISSET);
         $this->consumeComments();
         $this->consumeToken(Tokens::T_PARENTHESIS_OPEN);
+        $this->consumeComments();
 
         $expr = $this->builder->buildAstIssetExpression();
-        $expr = $this->parseVariableList($expr);
+        $expr = $this->parseVariableList($expr, true);
+        $this->consumeComments();
 
         $stopToken = $this->consumeToken(Tokens::T_PARENTHESIS_CLOSE);
 
@@ -2213,6 +2218,11 @@ abstract class AbstractPHPParser
         );
 
         return $expr;
+    }
+
+    protected function allowTrailingCommaInSpecialFunctions()
+    {
+        return false;
     }
 
     /**
@@ -3388,9 +3398,11 @@ abstract class AbstractPHPParser
         $this->consumeToken(Tokens::T_UNSET);
         $this->consumeComments();
         $this->consumeToken(Tokens::T_PARENTHESIS_OPEN);
+        $this->consumeComments();
 
         $stmt = $this->builder->buildAstUnsetStatement();
-        $stmt = $this->parseVariableList($stmt);
+        $stmt = $this->parseVariableList($stmt, true);
+        $this->consumeComments();
 
         $this->consumeToken(Tokens::T_PARENTHESIS_CLOSE);
 
@@ -4894,16 +4906,24 @@ abstract class AbstractPHPParser
      * @return T The prepared entire node.
      * @since 0.9.12
      */
-    private function parseVariableList(ASTNode $node)
+    private function parseVariableList(ASTNode $node, $inCall = false)
     {
         $this->consumeComments();
         while ($this->tokenizer->peek() !== Tokenizer::T_EOF) {
             $node->addChild($this->parseVariableOrConstantOrPrimaryPrefix());
 
             $this->consumeComments();
+
             if ($this->tokenizer->peek() === Tokens::T_COMMA) {
                 $this->consumeToken(Tokens::T_COMMA);
                 $this->consumeComments();
+
+                if ($inCall &&
+                    $this->allowTrailingCommaInSpecialFunctions() &&
+                    $this->tokenizer->peek() === Tokens::T_PARENTHESIS_CLOSE
+                ) {
+                    break;
+                }
             } else {
                 break;
             }

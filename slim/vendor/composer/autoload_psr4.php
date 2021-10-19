@@ -7,8 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
-    'Zeuxisoo\\Whoops\\Slim\\Tests\\' => array($vendorDir . '/zeuxisoo/slim-whoops/tests'),
-    'Zeuxisoo\\Whoops\\Slim\\' => array($vendorDir . '/zeuxisoo/slim-whoops/src/Zeuxisoo/Whoops/Slim'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
@@ -36,6 +34,8 @@ return array(
     'PDepend\\' => array($vendorDir . '/pdepend/pdepend/src/main/php/PDepend'),
     'Opis\\Closure\\' => array($vendorDir . '/opis/closure/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Middlewares\\Utils\\' => array($vendorDir . '/middlewares/utils/src'),
+    'Middlewares\\' => array($vendorDir . '/middlewares/whoops/src'),
     'JanGregor\\Prophecy\\' => array($vendorDir . '/jangregor/phpstan-prophecy/src'),
     'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
