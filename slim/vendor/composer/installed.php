@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '626247a8a84de96a926f37784847de84956a3ce2',
+        'reference' => '80545e1ccb731d94745d1a956caedaa9e25c1558',
         'name' => 'elkulo/feeder',
         'dev' => true,
     ),
@@ -43,7 +43,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '626247a8a84de96a926f37784847de84956a3ce2',
+            'reference' => '80545e1ccb731d94745d1a956caedaa9e25c1558',
             'dev_requirement' => false,
         ),
         'fig/http-message-util' => array(
@@ -402,12 +402,12 @@
             'dev_requirement' => false,
         ),
         'psr/log' => array(
-            'pretty_version' => '1.1.4',
-            'version' => '1.1.4.0',
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
-            'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+            'reference' => 'fe5ea303b0887d5caefd3d431c3e61ad47037001',
             'dev_requirement' => false,
         ),
         'psr/log-implementation' => array(
