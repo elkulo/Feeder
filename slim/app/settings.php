@@ -40,8 +40,9 @@ return function (ContainerBuilder $containerBuilder) {
                     'level' => Logger::DEBUG,
                 ],
                 'twig' => [
-                    'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] : false,
-                    'strict_variables' => true,
+                    'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
+                    'auto_reload' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
+                    'strict_variables' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                     'cache' => __DIR__ . '/../var/cache/twig',
                 ],
             ]);
