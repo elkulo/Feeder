@@ -196,7 +196,8 @@ class ASTFormalParameter extends AbstractASTNode
 
         $expected = ~State::IS_PUBLIC
             & ~State::IS_PROTECTED
-            & ~State::IS_PRIVATE;
+            & ~State::IS_PRIVATE
+            & ~State::IS_READONLY;
 
         if (($expected & $modifiers) !== 0) {
             throw new InvalidArgumentException('Invalid constructor property modifier given.');
@@ -255,5 +256,10 @@ class ASTFormalParameter extends AbstractASTNode
     public function isPrivate()
     {
         return ($this->getModifiers() & State::IS_PRIVATE) === State::IS_PRIVATE;
+    }
+
+    public function __sleep()
+    {
+        return array_merge(array('modifiers'), parent::__sleep());
     }
 }

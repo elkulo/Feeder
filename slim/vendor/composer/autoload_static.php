@@ -10,10 +10,10 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -26,11 +26,6 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
-        ),
-        'Z' => 
-        array (
-            'Zeuxisoo\\Whoops\\Slim\\Tests\\' => 27,
-            'Zeuxisoo\\Whoops\\Slim\\' => 21,
         ),
         'W' => 
         array (
@@ -76,6 +71,8 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Middlewares\\Utils\\' => 18,
+            'Middlewares\\' => 12,
         ),
         'J' => 
         array (
@@ -118,14 +115,6 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        'Zeuxisoo\\Whoops\\Slim\\Tests\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/tests',
-        ),
-        'Zeuxisoo\\Whoops\\Slim\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/src/Zeuxisoo/Whoops/Slim',
         ),
         'Whoops\\' => 
         array (
@@ -236,6 +225,14 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Middlewares\\Utils\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/middlewares/utils/src',
+        ),
+        'Middlewares\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/middlewares/whoops/src',
         ),
         'JanGregor\\Prophecy\\' => 
         array (
@@ -515,6 +512,16 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'JanGregor\\Prophecy\\Reflection\\ObjectProphecy\\MethodsClassReflectionExtension' => __DIR__ . '/..' . '/jangregor/phpstan-prophecy/src/Reflection/ObjectProphecy/MethodsClassReflectionExtension.php',
         'JanGregor\\Prophecy\\Type\\ObjectProphecy\\WillExtendOrImplementDynamicReturnTypeExtension' => __DIR__ . '/..' . '/jangregor/phpstan-prophecy/src/Type/ObjectProphecy/WillExtendOrImplementDynamicReturnTypeExtension.php',
         'JanGregor\\Prophecy\\Type\\Prophet\\ProphesizeDynamicReturnTypeExtension' => __DIR__ . '/..' . '/jangregor/phpstan-prophecy/src/Type/Prophet/ProphesizeDynamicReturnTypeExtension.php',
+        'Middlewares\\Utils\\CallableHandler' => __DIR__ . '/..' . '/middlewares/utils/src/CallableHandler.php',
+        'Middlewares\\Utils\\Dispatcher' => __DIR__ . '/..' . '/middlewares/utils/src/Dispatcher.php',
+        'Middlewares\\Utils\\Factory' => __DIR__ . '/..' . '/middlewares/utils/src/Factory.php',
+        'Middlewares\\Utils\\FactoryDiscovery' => __DIR__ . '/..' . '/middlewares/utils/src/FactoryDiscovery.php',
+        'Middlewares\\Utils\\FactoryInterface' => __DIR__ . '/..' . '/middlewares/utils/src/FactoryInterface.php',
+        'Middlewares\\Utils\\HttpErrorException' => __DIR__ . '/..' . '/middlewares/utils/src/HttpErrorException.php',
+        'Middlewares\\Utils\\RequestHandler' => __DIR__ . '/..' . '/middlewares/utils/src/RequestHandler.php',
+        'Middlewares\\Utils\\RequestHandlerContainer' => __DIR__ . '/..' . '/middlewares/utils/src/RequestHandlerContainer.php',
+        'Middlewares\\Whoops' => __DIR__ . '/..' . '/middlewares/whoops/src/Whoops.php',
+        'Middlewares\\WhoopsHandlerContainer' => __DIR__ . '/..' . '/middlewares/whoops/src/WhoopsHandlerContainer.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
@@ -844,6 +851,7 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'PDepend\\Source\\Language\\PHP\\PHPParserVersion73' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion73.php',
         'PDepend\\Source\\Language\\PHP\\PHPParserVersion74' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion74.php',
         'PDepend\\Source\\Language\\PHP\\PHPParserVersion80' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion80.php',
+        'PDepend\\Source\\Language\\PHP\\PHPParserVersion81' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion81.php',
         'PDepend\\Source\\Language\\PHP\\PHPTokenizerInternal' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPTokenizerInternal.php',
         'PDepend\\Source\\Parser\\InvalidStateException' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Parser/InvalidStateException.php',
         'PDepend\\Source\\Parser\\MissingValueException' => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend/Source/Parser/MissingValueException.php',
@@ -1732,6 +1740,7 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'Slim\\Exception\\HttpBadRequestException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpBadRequestException.php',
         'Slim\\Exception\\HttpException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpException.php',
         'Slim\\Exception\\HttpForbiddenException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpForbiddenException.php',
+        'Slim\\Exception\\HttpGoneException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpGoneException.php',
         'Slim\\Exception\\HttpInternalServerErrorException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpInternalServerErrorException.php',
         'Slim\\Exception\\HttpMethodNotAllowedException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpMethodNotAllowedException.php',
         'Slim\\Exception\\HttpNotFoundException' => __DIR__ . '/..' . '/slim/slim/Slim/Exception/HttpNotFoundException.php',
@@ -1748,7 +1757,6 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'Slim\\Factory\\Psr17\\SlimHttpPsr17Factory' => __DIR__ . '/..' . '/slim/slim/Slim/Factory/Psr17/SlimHttpPsr17Factory.php',
         'Slim\\Factory\\Psr17\\SlimHttpServerRequestCreator' => __DIR__ . '/..' . '/slim/slim/Slim/Factory/Psr17/SlimHttpServerRequestCreator.php',
         'Slim\\Factory\\Psr17\\SlimPsr17Factory' => __DIR__ . '/..' . '/slim/slim/Slim/Factory/Psr17/SlimPsr17Factory.php',
-        'Slim\\Factory\\Psr17\\ZendDiactorosPsr17Factory' => __DIR__ . '/..' . '/slim/slim/Slim/Factory/Psr17/ZendDiactorosPsr17Factory.php',
         'Slim\\Factory\\ServerRequestCreatorFactory' => __DIR__ . '/..' . '/slim/slim/Slim/Factory/ServerRequestCreatorFactory.php',
         'Slim\\Handlers\\ErrorHandler' => __DIR__ . '/..' . '/slim/slim/Slim/Handlers/ErrorHandler.php',
         'Slim\\Handlers\\Strategies\\RequestHandler' => __DIR__ . '/..' . '/slim/slim/Slim/Handlers/Strategies/RequestHandler.php',
@@ -2352,11 +2360,6 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
-        'Zeuxisoo\\Whoops\\Slim\\Tests\\TestCase' => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/tests/TestCase.php',
-        'Zeuxisoo\\Whoops\\Slim\\Tests\\WhoopsGuardTest' => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/tests/WhoopsGuardTest.php',
-        'Zeuxisoo\\Whoops\\Slim\\Tests\\WhoopsMiddlewareTest' => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/tests/WhoopsMiddlewareTest.php',
-        'Zeuxisoo\\Whoops\\Slim\\WhoopsGuard' => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/src/Zeuxisoo/Whoops/Slim/WhoopsGuard.php',
-        'Zeuxisoo\\Whoops\\Slim\\WhoopsMiddleware' => __DIR__ . '/..' . '/zeuxisoo/slim-whoops/src/Zeuxisoo/Whoops/Slim/WhoopsMiddleware.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
@@ -2408,6 +2411,7 @@ class ComposerStaticInit13882b5a8cba9c3248c69dbaaa9d0c36
         'phpDocumentor\\Reflection\\PseudoTypes\\CallableString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/CallableString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\False_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/False_.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\HtmlEscapedString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/HtmlEscapedString.php',
+        'phpDocumentor\\Reflection\\PseudoTypes\\LiteralString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/LiteralString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\LowercaseString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/LowercaseString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NonEmptyLowercaseString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NonEmptyLowercaseString.php',
         'phpDocumentor\\Reflection\\PseudoTypes\\NonEmptyString' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/PseudoTypes/NonEmptyString.php',

@@ -12,15 +12,16 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
+        "filp/whoops": "^2.14",
         "mibe/feedwriter": "^1.1",
+        "middlewares/whoops": "^2.0",
         "monolog/monolog": "^2.0",
         "php-di/php-di": "^6.1",
         "simplepie/simplepie": "^1.5",
         "slim/psr7": "^1.1",
         "slim/slim": "^4.5",
         "slim/twig-view": "^3.1",
-        "vlucas/phpdotenv": "^5.1",
-        "zeuxisoo/slim-whoops": "^0.7.2"
+        "vlucas/phpdotenv": "^5.1"
     },
     "require-dev": {
         "ccampbell/chromephp": "^4.1",

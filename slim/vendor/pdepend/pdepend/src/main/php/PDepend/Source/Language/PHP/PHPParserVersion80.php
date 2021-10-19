@@ -171,21 +171,10 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
      */
     protected function parseFormalParameterOrPrefix(ASTCallable $callable)
     {
-        static $states = array(
-            Tokens::T_PUBLIC    => State::IS_PUBLIC,
-            Tokens::T_PROTECTED => State::IS_PROTECTED,
-            Tokens::T_PRIVATE   => State::IS_PRIVATE,
-        );
-
         $modifier = 0;
 
         if ($callable instanceof ASTMethod && $callable->getName() === '__construct') {
-            $scope = $this->tokenizer->peek();
-
-            if (isset($states[$scope])) {
-                $this->tokenizer->next();
-                $modifier = $states[$scope];
-            }
+            $modifier = $this->parseConstructFormalParameterModifiers();
         }
 
         $parameter = parent::parseFormalParameterOrPrefix($callable);
@@ -195,6 +184,47 @@ abstract class PHPParserVersion80 extends PHPParserVersion74
         }
 
         return $parameter;
+    }
+
+    /**
+     * Parse the modifiers for construct parameter
+     *
+     * @return int
+     */
+    protected function parseConstructFormalParameterModifiers()
+    {
+        static $states = array(
+            Tokens::T_PUBLIC    => State::IS_PUBLIC,
+            Tokens::T_PROTECTED => State::IS_PROTECTED,
+            Tokens::T_PRIVATE   => State::IS_PRIVATE,
+        );
+
+        $modifier = 0;
+        $token = $this->tokenizer->peek();
+
+        if (isset($states[$token])) {
+            $modifier |= $states[$token];
+            $this->tokenizer->next();
+        }
+
+        return $modifier;
+    }
+
+    protected function parseArgumentExpression()
+    {
+        if ($this->tokenizer->peekNext() === Tokens::T_COLON) {
+            $token = $this->tokenizer->currentToken();
+            $image = $token->image;
+
+            // Variable RegExp from https://www.php.net/manual/en/language.variables.basics.php
+            if (preg_match('/^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$/', $image)) {
+                $this->consumeToken($token->type);
+
+                return $this->builder->buildAstConstant($image);
+            }
+        }
+
+        return parent::parseArgumentExpression();
     }
 
     /**
