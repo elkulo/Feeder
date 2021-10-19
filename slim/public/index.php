@@ -34,8 +34,8 @@ if (isset($_ENV['TIME_ZONE'])) {
 }
 
 // Should be set to true in production
-if (isset($_ENV['DEBUG']) ? !$_ENV['DEBUG'] : false) {
-	//$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
+if (false) {
+	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
 }
 
 // Set up settings
