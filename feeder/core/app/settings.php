@@ -28,7 +28,7 @@ return function (ContainerBuilder $containerBuilder) {
                  * ユーティリティ
                  */
                 'slim.path' => dirname(__DIR__),
-                'feed.src' => __DIR__ . '/../' . $_ENV['FEED_SOURCE'],
+                'feed.src' => __DIR__ . '/../../' . ltrim($_ENV['FEED_SOURCE'], '/'),
                 'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 // Should be set to false in production.
                 'displayErrorDetails' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
