@@ -10,14 +10,14 @@
     "format": "eslint --fix './public/webpack/src/**/*.js'",
     "build": "webpack --mode production",
     "serve": "php -S localhost:8000 -t ./public",
-    "composer:update": "cd ./slim/ && composer update",
-    "composer:lint": "cd ./slim/ && composer phpcs",
-    "composer:format": "cd ./slim/ && composer phpcbf"
+    "composer:update": "cd ./feeder/core/ && composer update",
+    "composer:lint": "cd ./feeder/core/ && composer phpcs",
+    "composer:format": "cd ./feeder/core/ && composer phpcbf"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^8.2.3",
     "core-js": "^3.18.3",
     "css-loader": "^6.4.0",
     "css-minimizer-webpack-plugin": "^3.1.1",
@@ -28,7 +28,7 @@
     "sass": "^1.43.2",
     "sass-loader": "^12.2.0",
     "typescript": "^4.4.4",
-    "webpack": "^5.58.2",
+    "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {

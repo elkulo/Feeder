@@ -16,10 +16,10 @@ require __DIR__ . '/../vendor/autoload.php';
 $containerBuilder = new ContainerBuilder();
 
 // Set up Dotenv
-$env = __DIR__ . '/../.env';
+$env = __DIR__ . '/../../';
 try {
-	if (is_readable($env)) {
-		$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+	if (is_readable($env . '.env')) {
+		$dotenv = \Dotenv\Dotenv::createImmutable($env);
 		$dotenv->load();
 	} else {
 		throw new Exception('環境設定ファイルがありません');
