@@ -1,25 +1,12 @@
 # Feeder
 
-## Git Clone
+Slim Framework 4 製のADR（Action-Domain-Responder）パターンを取り入れたフィードリーダー。
 
-~~~
-git clone https://github.com/elkulo/Feeder.git Feeder
-cd Feeder/slim
-composer start
-~~~
+**本プログラムのPHPバージョンは2021年10月現在 v7.4 および v8.0 をサポートします。**
 
-env を .env にリネーム
+---
 
-## Git First Install
-
-~~~
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/elkulo/Feeder.git
-git push -u origin main
-git remote set-head origin main
-git add --all
-git commit -m "Slim"
-~~~
+[Feeder](https://github.com/elkulo/Feeder/)
+Copyright 2020-2021 A.Sudo<br />
+Licensed under LGPL-2.1-only
+https://github.com/elkulo/Feeder/blob/main/LICENSE

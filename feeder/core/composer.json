@@ -7,7 +7,9 @@
         "router",
         "psr7"
     ],
-    "license": "proprietary",
+    "homepage": "https://github.com/elkulo/Feeder",
+    "type": "library",
+    "license": "LGPL-2.1-only",
     "minimum-stability": "stable",
     "require": {
         "php": "^7.4 || ^8.0",
