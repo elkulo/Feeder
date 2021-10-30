@@ -1,6 +1,8 @@
 # Feeder for Github
 
-**Githubで公開しているコードは開発中のバージョンです。** 開発バージョンでは、テスト中のコードも含むため意図しない不具合が発生する可能性があります。
+**Githubで公開しているコードは開発中のバージョンです。**
+
+開発バージョンでは、テスト中のコードも含むため意図しない不具合が発生する可能性があります。
 
 本番環境では最新パッケージをパブリッシャーのサイトから[ダウンロード](https://walkyxwalky.com/download)してご利用ください。
 
@@ -14,9 +16,9 @@ Slim Framework 4 製のADR（Action-Domain-Responder）パターンを取り入�
 
 ## 設置方法
 
-環境設定 env.sample.txt を .env にリネームしてサイト情報を編集します。
-public内の htaccess.txt を .htaccess にリネームします。
-config.php で購読するRSS情報を記載します。
+1) 環境設定 env.sample.txt を .env にリネームしてサイト情報を編集します。  
+2) public内の htaccess.txt を .htaccess にリネームします。  
+3) config.json で購読するRSS情報を記載します。
 
 ~~~
 [
