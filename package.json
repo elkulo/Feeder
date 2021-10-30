@@ -1,7 +1,7 @@
 {
   "name": "elkulo_feeder",
   "version": "1.0.0",
-  "description": "Built locally with Webpack",
+  "description": "Vue x Slim のRSSフィードリーダー",
   "private": true,
   "scripts": {
     "clean": "rm -rf node_modules package-lock.json && npm install",
@@ -12,28 +12,29 @@
     "serve": "php -S localhost:8000 -t ./public",
     "composer:update": "cd ./feeder/core/ && composer update",
     "composer:lint": "cd ./feeder/core/ && composer phpcs",
-    "composer:format": "cd ./feeder/core/ && composer phpcbf"
+    "composer:format": "cd ./feeder/core/ && composer phpcbf",
+    "deploy": "sh deploy.sh"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "babel-loader": "^8.2.3",
-    "core-js": "^3.18.3",
-    "css-loader": "^6.4.0",
+    "core-js": "^3.19.0",
+    "css-loader": "^6.5.0",
     "css-minimizer-webpack-plugin": "^3.1.1",
-    "eslint": "^7.32.0",
-    "eslint-webpack-plugin": "^3.0.1",
-    "mini-css-extract-plugin": "^2.4.2",
+    "eslint": "^8.1.0",
+    "eslint-webpack-plugin": "^3.1.0",
+    "mini-css-extract-plugin": "^2.4.3",
     "prettier": "^2.4.1",
-    "sass": "^1.43.2",
-    "sass-loader": "^12.2.0",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
     "typescript": "^4.4.4",
-    "webpack": "^5.59.1",
+    "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
-    "axios": "^0.23.0",
+    "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
     "smoothscroll-polyfill": "^0.4.4",
     "vue": "^2.6.14"
