@@ -3,10 +3,8 @@
 # feederディレクトリのZipを作成
 zip -r dist/Feeder-latest-ja.zip feeder/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*' '*.log*' '*/logs/' '*.sql*' '*/database/'
 
-# publicディレクトリをexample名でZipに追加
-cp -R public/ example/
-zip -r dist/Feeder-latest-ja.zip example/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*'
-rm -rf example
+# publicディレクトリをZipに追加
+zip -r dist/Feeder-latest-ja.zip public/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*'
 
 # LICENSEをLICENSE.txtにしてZipに追加
 cp -i LICENSE LICENSE.txt
