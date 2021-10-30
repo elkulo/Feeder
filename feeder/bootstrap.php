@@ -1,3 +1,1 @@
-<?php
-// Require Slim Framework file.
-require __DIR__ . "/core/bootstrap/autoload.php";
+<?php require __DIR__ . "/core/bootstrap/autoload.php";
