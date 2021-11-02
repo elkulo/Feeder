@@ -194,11 +194,22 @@
 
 .content-area {
   &__header {
-    margin: 3rem 0.5rem;
+    margin: 3rem 0;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    background: linear-gradient(to right, rgba(144, 202, 249, 0.15), rgba(144, 202, 249, 0));
+
+    .darkmode & {
+      background: linear-gradient(to right, rgba(25, 118, 210, 0.1), rgba(25, 118, 210, 0));
+    }
 
     &__title {
       font-size: 1.5rem;
       font-weight: 700;
+    }
+
+    &__url {
+      margin-bottom: 0;
     }
   }
 }

@@ -3,25 +3,21 @@
 {% apply spaceless %}
 <head>
   <meta charset="UTF-8">
-  {% if robots is defined %}
-  <meta name="robots" content="{{ robots }}">
+  {% if SiteRobots %}
+  <meta name="robots" content="{{ SiteRobots }}">
   {% endif %}
-  <title>{{ title }}</title>
-  {% if description is defined %}
-  <meta name="description" content="{{ description }}">
-  {% endif %}
+  <title>{{ SiteTitle }}</title>
+  <meta name="description" content="{{ SiteDescription }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel='stylesheet' id='app-style-css' href='/webpack/dest/app.min.css' type='text/css' media='all' />
-  <link rel="alternate" type="application/rss+xml" title="{{ title }} &raquo; フィード" href="/rss" />
+  <link rel='stylesheet' id='app-style-css' href='{{SiteURL}}/webpack/dest/app.min.css' type='text/css' media='all' />
+  <link rel="alternate" type="application/rss+xml" title="{{ SiteTitle }} &raquo; フィード" href="/rss" />
 </head>
 {% endapply %}
 <body>
 <div id="app" class="site">
   <div
-    class="d-flex justify-content-center align-items-center text-success site-preload"
-    style="height:var(--maxvh, 100vh)"
+    class="d-flex justify-content-center align-items-center min-vh-100 text-success site-preload"
     v-if="hasPreLoad" 
   >
     <div class="spinner-border h5 m-0 p-0" role="status">
@@ -88,13 +84,13 @@
           </nav>
         </header>
       </div>
-      <div class="main col-md-9 ms-sm-auto px-md-5 pt-md-3">
+      <div class="main col-md-9 ms-sm-auto px-md-5 pt-md-3 min-vh-100">
 
         {% block content %}{% endblock %}
 
         <footer class="site-footer">
           <div class="site-footer__branding">
-            <a href="/" class="site-footer__branding__link" title="{{title}}">{{title}}</a>
+            <a href="{{SiteURL}}" class="site-footer__branding__link" title="{{SiteTitle}}">{{SiteTitle}}</a>
           </div>
 
           <div class="site-powered">
@@ -122,7 +118,7 @@
           </div>
 
           <div class="site-footer__copyright">
-            <p>© {{title}}, Built with Vue. </p>
+            <p>© {{SiteTitle}}, Built with Vue. </p>
           </div>
         </footer>
       </div>
@@ -134,6 +130,6 @@
 {% include 'template-parts/page-top.twig' %}
 
 </div><!-- #app -->
-<script id='app-script-js' src="/webpack/dest/app.min.js"></script>
+<script id='app-script-js' src="{{SiteURL}}/webpack/dest/app.min.js"></script>
 </body>
 </html>
