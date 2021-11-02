@@ -19,16 +19,16 @@ return function (ContainerBuilder $containerBuilder) {
                  */
                 'site.title' => isset($_ENV['SITE_TITLE']) ? $_ENV['SITE_TITLE'] : 'Feeder',
                 'site.description' => isset($_ENV['SITE_DESCRIPTION']) ? $_ENV['SITE_DESCRIPTION'] : '',
-                'site.URL' => $_ENV['SITE_URL'],
-                'site.language' => $_ENV['SITE_LANGUAGE'],
-                'site.category' => $_ENV['SITE_CATEGORY'],
-                'site.robots' => $_ENV['SITE_ROBOTS'],
+                'site.url' => isset($_ENV['SITE_URL'])? rtrim($_ENV['SITE_URL'], '/'): '/',
+                'site.language' => isset($_ENV['SITE_LANGUAGE'])? $_ENV['SITE_LANGUAGE']: 'ja-JP',
+                'site.category' => isset($_ENV['SITE_CATEGORY'])? $_ENV['SITE_CATEGORY']: 'Blog',
+                'site.robots' => isset($_ENV['SITE_ROBOTS'])? $_ENV['SITE_ROBOTS']: 'noindex,follow',
 
                 /**
                  * ユーティリティ
                  */
-                'slim.path' => dirname(__DIR__),
-                'feed.src' => __DIR__ . '/../../' . ltrim($_ENV['FEED_SOURCE'], '/'),
+                'app.path' => dirname(__DIR__),
+                'feeds.src' => __DIR__ . '/../../' . trim($_ENV['FEED_SOURCE'], '/'),
                 'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
                 // Should be set to false in production.
                 'displayErrorDetails' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,

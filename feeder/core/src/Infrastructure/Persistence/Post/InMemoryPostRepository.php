@@ -31,10 +31,11 @@ class InMemoryPostRepository implements PostRepository
     public function __construct(array $posts = null, SettingsInterface $settings)
     {
         $this->settings = $settings;
-        $slim_path = $settings->get('slim.path');
-        $src = $settings->get('feed.src');
-
-        $resource = array();
+        $appPath = $settings->get('app.path');
+        $src = $settings->get('feeds.src');
+        $resource = [];
+        $posts = [];
+        $id = 0;
 
         if (is_readable($src)) {
             $json = file_get_contents($src);
@@ -45,7 +46,7 @@ class InMemoryPostRepository implements PostRepository
         $sites = $resource ? $resource :
             [
                 [
-                    'id' => '1',
+                    'id' => 1,
                     'name' => 'Yahoo主要',
                     'src' => 'https://news.yahoo.co.jp/rss/topics/top-picks.xml',
                     'url' => 'https://news.yahoo.co.jp/',
@@ -54,6 +55,8 @@ class InMemoryPostRepository implements PostRepository
             ];
 
         foreach ($sites as $site) {
+            $id++;
+
             // @reference https://simplepie.org/wiki/reference/simplepie/start
             $rss = new \SimplePie;
 
@@ -61,7 +64,7 @@ class InMemoryPostRepository implements PostRepository
             $rss->set_feed_url($site['src']);
 
             // Cache ディレクトリを指定.
-            $rss->set_cache_location($slim_path . '/var/cache/simplepie');
+            $rss->set_cache_location($appPath . '/var/cache/simplepie');
             $success = $rss->init();
 
             // 投稿格納
@@ -81,7 +84,7 @@ class InMemoryPostRepository implements PostRepository
                 }
 
                 $posts[] = new Post(
-                    (int) $site['id'],
+                    $id,
                     $site['name'],
                     $site['src'],
                     $site['url'],
@@ -92,7 +95,7 @@ class InMemoryPostRepository implements PostRepository
         }
 
         $this->posts = $posts ?? [
-            1 => new Post(1, 'Not Found', '/', '/', [], [])
+            1 => new Post(1, '404 Not Found', '', '', [], [])
         ];
     }
 
@@ -129,7 +132,7 @@ class InMemoryPostRepository implements PostRepository
         $feed = new RSS2;
         $feed->setTitle($settings->get('site.title'));
         $feed->setDescription($settings->get('site.description'));
-        $feed->setLink($settings->get('site.URL'));
+        $feed->setLink($settings->get('site.url'));
         $feed->setDate(new \DateTime());
         $feed->setChannelElement('pubDate', date(\DATE_RSS, time()));
         $feed->setChannelElement('language', $settings->get('site.language'));

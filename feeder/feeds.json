@@ -1,34 +1,29 @@
 [
   {
-    "id": "1",
     "name": "Yahoo主要",
     "src": "https://news.yahoo.co.jp/rss/topics/top-picks.xml",
     "url": "https://news.yahoo.co.jp/",
     "category": ["トピックス"]
   },
   {
-    "id": "2",
     "name": "国内",
     "src": "https://news.yahoo.co.jp/rss/topics/domestic.xml",
     "url": "https://news.yahoo.co.jp/",
     "category": ["トピックス"]
   },
   {
-    "id": "3",
     "name": "国際",
     "src": "https://news.yahoo.co.jp/rss/topics/world.xml",
     "url": "https://news.yahoo.co.jp/",
     "category": ["トピックス"]
   },
   {
-    "id": "4",
     "name": "エンタメ",
     "src": "https://news.yahoo.co.jp/rss/topics/entertainment.xml",
     "url": "https://news.yahoo.co.jp/",
     "category": ["トピックス"]
   },
   {
-    "id": "5",
     "name": "IT",
     "src": "https://news.yahoo.co.jp/rss/topics/it.xml",
     "url": "https://news.yahoo.co.jp/",

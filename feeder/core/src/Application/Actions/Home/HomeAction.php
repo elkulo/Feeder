@@ -43,9 +43,10 @@ class HomeAction extends Action
         $this->logger->info('Home was viewed.');
 
         return $this->view->render($this->response, 'home.twig', [
-            'title' => $this->settings->get('site.title'),
-            'description' => $this->settings->get('site.description'),
-            'robots' => $this->settings->get('site.robots')
+            'SiteURL' => $this->settings->get('site.url'),
+            'SiteTitle' => $this->settings->get('site.title'),
+            'SiteDescription' => $this->settings->get('site.description'),
+            'SiteRobots' => $this->settings->get('site.robots')
         ]);
     }
 }
