@@ -36,15 +36,6 @@ $RECYCLE.BIN/
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
-# Monolog
-*/logs/*
-!/logs/README.md
-
-# PHPUnit Test
-/results/
-/phpunit*.xml
-.phpunit.*.cache
-
 #-------------------------
 # Environment Files
 #-------------------------
@@ -94,10 +85,24 @@ nb-configuration.xml
 # Visual Studio Code
 .vscode/
 
-# NPM
+# PHPUnit Test
+/results/
+/phpunit*.xml
+/.phpunit.*.cache
+
+# Dependency directories
 node_modules/
 jspm_packages/
 package-lock.json
 
-# Composer
-logs/
+# Monolog
+**/logs/*
+!**/logs/.gitkeep
+
+# SQLite
+**/database/
+*.sqlite
+
+# Apache
+.htaccess
+.ftaccess
