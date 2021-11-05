@@ -17,8 +17,9 @@
 <body>
 <div id="app" class="site">
   <div
-    class="d-flex justify-content-center align-items-center min-vh-100 text-success site-preload"
-    v-if="hasPreLoad" 
+    class="d-flex justify-content-center align-items-center text-success site-preload"
+    style="min-height:var(--maxvh,100vh)"
+    v-if="hasPreLoad"
   >
     <div class="spinner-border h5 m-0 p-0" role="status">
       <span class="visually-hidden">Loading...</span>
