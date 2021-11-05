@@ -197,17 +197,17 @@
     margin: 3rem 0;
     padding: 1rem 2rem;
     border-radius: 3px;
-    background: rgba(144, 202, 249, 0.15);
+    background: rgba(144, 202, 249, 0.2);
 
     @media (min-width: 768px) {
-      background: linear-gradient(to right, rgba(144, 202, 249, 0.15), rgba(144, 202, 249, 0));
+      background: linear-gradient(to right, rgba(144, 202, 249, 0.2), rgba(144, 202, 249, 0));
     }
 
     .darkmode & {
-      background: rgba(25, 118, 210, 0.1);
+      background: rgba(25, 118, 210, 0.2);
 
       @media (min-width: 768px) {
-        background: linear-gradient(to right, rgba(25, 118, 210, 0.1), rgba(25, 118, 210, 0));
+        background: linear-gradient(to right, rgba(25, 118, 210, 0.2), rgba(25, 118, 210, 0));
       }  
     }
 
