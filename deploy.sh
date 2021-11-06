@@ -3,14 +3,10 @@
 # feederディレクトリのZipを作成
 zip -r dist/Feeder-latest-ja.zip feeder/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*' '*.log*' '*/logs/' '*.sql*' '*/database/'
 
-# .htaccessをhtaccess.txtにリネーム
-mv -n public/.htaccess public/htaccess.txt
-
-# publicディレクトリをZipに追加
+# .htaccessをhtaccess.txtにしてZipに追加
+cp -i public/.htaccess public/htaccess.txt
 zip -r dist/Feeder-latest-ja.zip public/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*' '*.htaccess'
-
-# htaccess.txtを.htaccessにリネーム
-mv -n public/htaccess.txt public/.htaccess
+rm -f public/htaccess.txt
 
 # LICENSEをLICENSE.txtにしてZipに追加
 cp -i LICENSE LICENSE.txt
