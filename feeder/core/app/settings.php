@@ -35,7 +35,7 @@ return function (ContainerBuilder $containerBuilder) {
                 'logError'            => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'false' : true,
                 'logErrorDetails'     => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'false' : true,
                 'logger' => [
-                    'name' => 'slim-app',
+                    'name' => 'feeder',
                     'path' => $log_file,
                     'level' => Logger::DEBUG,
                 ],
