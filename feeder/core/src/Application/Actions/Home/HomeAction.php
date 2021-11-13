@@ -45,8 +45,7 @@ class HomeAction extends Action
         return $this->view->render($this->response, 'home.twig', [
             'SiteURL' => $this->settings->get('site.url'),
             'SiteTitle' => $this->settings->get('site.title'),
-            'SiteDescription' => $this->settings->get('site.description'),
-            'SiteRobots' => $this->settings->get('site.robots')
+            'SiteDescription' => $this->settings->get('site.description')
         ]);
     }
 }
