@@ -22,7 +22,6 @@ return function (ContainerBuilder $containerBuilder) {
                 'site.url' => isset($_ENV['SITE_URL'])? rtrim($_ENV['SITE_URL'], '/'): '/',
                 'site.language' => isset($_ENV['SITE_LANGUAGE'])? $_ENV['SITE_LANGUAGE']: 'ja-JP',
                 'site.category' => isset($_ENV['SITE_CATEGORY'])? $_ENV['SITE_CATEGORY']: 'Blog',
-                'site.robots' => isset($_ENV['SITE_ROBOTS'])? $_ENV['SITE_ROBOTS']: 'noindex,follow',
 
                 /**
                  * ユーティリティ
