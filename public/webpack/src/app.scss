@@ -3,6 +3,7 @@
  * Copyright 2020-2021 A.Sudo
  * Licensed under LGPL-2.1-only (https://github.com/elkulo/Feeder/blob/main/LICENSE)
  */
-@import 'scss/color-scheme';
-@import 'scss/element';
-@import 'scss/layout';
+
+@use 'scss/color-scheme';
+@use 'scss/element';
+@use 'scss/layout';
