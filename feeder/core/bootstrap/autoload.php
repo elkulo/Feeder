@@ -19,7 +19,7 @@ defined('ENV_IDENTIFY') || define('ENV_IDENTIFY', '');
 $containerBuilder = new ContainerBuilder();
 
 // Set up Dotenv
-$env = '.env' . ( ENV_IDENTIFY ? '.' .ENV_IDENTIFY: '' );
+$env = rtrim('.env.' . trim(ENV_IDENTIFY, '.'), '.');
 if ( file_exists( __DIR__ . '/../../' . $env ) ) {
   \Dotenv\Dotenv::createImmutable( __DIR__ . '/../../', $env )->load();
 } else {
@@ -32,9 +32,9 @@ if (isset($_ENV['TIME_ZONE'])) {
 }
 
 // Should be set to true in production
-if (false) {
-	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
-}
+//if (false) {
+//	$containerBuilder->enableCompilation(__DIR__ . '/../var/cache');
+//}
 
 // Set up settings
 $settings = require __DIR__ . '/../app/settings.php';
