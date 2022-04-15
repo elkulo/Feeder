@@ -12,7 +12,7 @@
     "license": "LGPL-2.1-only",
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^7.4 || ^8.0 || ^8.1",
         "ext-json": "*",
         "filp/whoops": "^2.14",
         "mibe/feedwriter": "^1.1",
