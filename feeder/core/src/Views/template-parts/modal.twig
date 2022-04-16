@@ -20,7 +20,7 @@
             class="form-check-input btn-lg float-end"
             type="checkbox"
             id="switchAutoload"
-            v-bind:checked="setting.autoload ? 'checked' : ''"
+            v-model="state.setting.autoload"
             v-on:click="toggleSwitchSetting('autoload')"
           >
           <label class="form-check-label fw-bold" for="switchAutoload">オートリロード</label>
@@ -32,7 +32,7 @@
             class="form-check-input btn-lg float-end"
             type="checkbox"
             id="switchDarkmode"
-            v-bind:checked="setting.darkmode ? 'checked' : ''"
+            v-model="state.setting.darkmode"
             v-on:click="toggleSwitchSetting('darkmode')"
           >
           <label class="form-check-label fw-bold" for="switchDarkmode">ダークモード</label>

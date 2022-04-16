@@ -18,7 +18,7 @@
   <div
     class="d-flex justify-content-center align-items-center text-success site-preload"
     style="min-height:var(--maxvh,100vh)"
-    v-if="hasPreLoad"
+    v-if="state.hasPreLoad"
   >
     <div class="spinner-border h5 m-0 p-0" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -38,18 +38,18 @@
             <h1 class="site-header__heroe__title">Feeder</h1>
 
             <div class="site-header__heroe__clock">
-              <span v-html="clock.day"></span><br />
-              <span v-html="clock.time"></span>
+              <span v-html="state.clock.day"></span><br />
+              <span v-html="state.clock.time"></span>
             </div>
             <div class="d-flex justify-content-center align-items-center mt-3 pe-3">
               <div
                 class="spinner-grow text-success spinner-grow-sm"
                 role="status"
-                v-bind:style="autoload.display ? { visibility: 'visible' } : { visibility: 'hidden' }"
+                v-bind:style="state.autoload.display ? { visibility: 'visible' } : { visibility: 'hidden' }"
               >
                 <span class="visually-hidden">Loading...</span>
               </div>
-              <div class="px-2 text-success" v-html="autoload.latest"></div>
+              <div class="px-2 text-success" v-html="state.autoload.latest"></div>
             </div>
 
           </div>
@@ -62,20 +62,20 @@
                 <a
                   href="javascript:void(0)"
                   v-on:click="changeCategory()"
-                  v-bind:class="{'active': isActiveCategory === ''}"
+                  v-bind:class="{'active': state.isActiveCategory === ''}"
                 >
                   ホーム
                 </a>
               </li>
               <li
                 class="site-navigation__list__item"
-                v-for="(category, index) in categories"
+                v-for="(category, index) in state.categories"
                 :key="index"
               >
                 <a
                   href="javascript:void(0)"
                   v-on:click="changeCategory(category)"
-                  v-bind:class="{'active': isActiveCategory === category}"
+                  v-bind:class="{'active': state.isActiveCategory === category}"
                 >
                   ${category}
                 </a>
