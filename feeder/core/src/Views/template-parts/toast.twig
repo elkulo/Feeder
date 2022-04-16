@@ -1,6 +1,6 @@
 {# BootstrapのToastアラート #}
 
-<template id="__toast" v-if="toast.display">
+<template id="__toast" v-if="state.toast.display">
   <div
     class="toast position-fixed top-0 start-50 translate-middle-x my-1 show"
     style="z-index:1100"
@@ -12,10 +12,10 @@
       <div class="spinner-grow text-danger spinner-grow-sm" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
-      <strong class="d-inline-block me-auto px-2 text-danger" v-html="toast.title"></strong>
-      <span class="text-secondary" v-html="toast.latest"></span>
+      <strong class="d-inline-block me-auto px-2 text-danger" v-html="state.toast.title"></strong>
+      <span class="text-secondary" v-html="state.toast.latest"></span>
       <button type="button" class="btn-close" v-on:click="chengeToastDisplay(false)"></button>
     </div>
-    <div class="toast-body bg-danger bg-gradient text-white rounded-bottom" v-html="toast.content"></div>
+    <div class="toast-body bg-danger bg-gradient text-white rounded-bottom" v-html="state.toast.content"></div>
   </div>
 </template>

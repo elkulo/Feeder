@@ -1,6 +1,6 @@
 {
   "name": "elkulo_feeder",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Vue x Slim のRSSフィードリーダー",
   "private": true,
   "scripts": {
@@ -12,9 +12,8 @@
     "serve": "php -S localhost:8000 -t ./public",
     "composer:install": "cd feeder/core/ && composer install",
     "composer:update": "cd feeder/core/ && composer update",
-    "composer:phpcs": "cd feeder/core/ && composer phpcs",
-    "composer:phpcbf": "cd feeder/core/ && composer phpcbf",
-    "composer:phpstan": "cd feeder/core/ && composer phpstan",
+    "composer:analyse": "cd feeder/core/ && composer analyse",
+    "composer:format": "cd feeder/core/ && composer format",
     "deploy": "sh deploy.sh"
   },
   "devDependencies": {
@@ -39,6 +38,6 @@
     "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
     "smoothscroll-polyfill": "^0.4.4",
-    "vue": "^2.6.14"
+    "vue": "^3.2.33"
   }
 }

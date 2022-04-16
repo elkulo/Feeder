@@ -1,19 +1,18 @@
 // ストレージのサポート判定
 export default {
-	methods: {
-		isStorageAvailable: function( type ) {
-			let storage;
-			try {
-				storage = window[type];
-				let x = '__storage_test__';
-				storage.setItem( x, x );
-				storage.removeItem( x );
-				return true;
-			} catch ( e ) {
-				return e instanceof DOMException && (
+	has: ( type ) => {
+		let storage;
+		try {
+			storage = window[type];
+			let x = '__storage_test__';
+			storage.setItem( x, x );
+			storage.removeItem( x );
+			return true;
+		} catch ( e ) {
+			return e instanceof DOMException && (
 
-					// everything except Firefox
-					e.code === 22 ||
+			// everything except Firefox
+				e.code === 22 ||
 
 							// Firefox
 							e.code === 1014 ||
@@ -27,7 +26,6 @@ export default {
 
 							// acknowledge QuotaExceededError only if there's something already stored
 							( storage && storage.length !== 0 );
-			}
-		},
+		}
 	}
 };
