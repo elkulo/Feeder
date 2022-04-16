@@ -2,7 +2,7 @@
 
 <template id="__toast" v-if="state.toast.display">
   <div
-    class="toast position-fixed top-0 start-50 translate-middle-x my-1 show"
+    class="toast position-fixed top-0 end-0 m-2 show bg-danger"
     style="z-index:1100"
     role="alert"
     aria-live="assertive"
@@ -16,6 +16,6 @@
       <span class="text-secondary" v-html="state.toast.latest"></span>
       <button type="button" class="btn-close" v-on:click="chengeToastDisplay(false)"></button>
     </div>
-    <div class="toast-body bg-danger bg-gradient text-white rounded-bottom" v-html="state.toast.content"></div>
+    <div class="toast-body bg-gradient text-white rounded-bottom" v-html="state.toast.content"></div>
   </div>
 </template>

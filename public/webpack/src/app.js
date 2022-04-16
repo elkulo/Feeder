@@ -292,6 +292,26 @@ export default {
 			];
 		};
 
+		// スクロールを監視.
+		const ScrollEvent = {
+			do: () => {
+				const windowHeight = window.innerHeight;
+				if ( window.scrollY > windowHeight ) {
+					state.backToTop.display = true;
+				} else {
+					state.backToTop.display = false;
+				}
+			},
+			add: () => {
+				requestAnimationFrame( () => {
+					window.addEventListener( 'scroll', ScrollEvent.do, false );
+				});
+			},
+			remove: () => {
+				window.removeEventListener( 'scroll', ScrollEvent.do, false );
+			}
+		};
+
 		const debug = ( text ) => {
 			// eslint-disable-next-line no-console
 			console.log( text );
@@ -299,6 +319,7 @@ export default {
 
 		onMounted( () => {
 			Fix100vh.add();
+			ScrollEvent.add();
 			onCurrentDay();
 			onCurrentTime();
 
@@ -314,6 +335,7 @@ export default {
 
 		onBeforeUnmount( () => {
 			Fix100vh.remove();
+			ScrollEvent.remove();
 			clearTimeout( RELOAD_TIMER.id );
 		});
 
@@ -329,20 +351,5 @@ export default {
 			getQueryAll,
 			debug,
 		};
-	},
-	mounted() {
-		if ( ! this.$options.onScrollEvent ) {
-			return;
-		}
-		requestAnimationFrame( () => {
-			this.$options.onScrollEvent = this.$options.onScrollEvent.bind( this );
-			window.addEventListener( 'scroll', this.$options.onScrollEvent );
-		});
-	},
-	destroyed() {
-		if ( ! this.$options.onScrollEvent ) {
-			return;
-		}
-		window.removeEventListener( 'scroll', this.$options.onScrollEvent );
 	},
 };
