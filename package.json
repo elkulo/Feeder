@@ -12,9 +12,8 @@
     "serve": "php -S localhost:8000 -t ./public",
     "composer:install": "cd feeder/core/ && composer install",
     "composer:update": "cd feeder/core/ && composer update",
-    "composer:phpcs": "cd feeder/core/ && composer phpcs",
-    "composer:phpcbf": "cd feeder/core/ && composer phpcbf",
-    "composer:phpstan": "cd feeder/core/ && composer phpstan",
+    "composer:analyse": "cd feeder/core/ && composer analyse",
+    "composer:format": "cd feeder/core/ && composer format",
     "deploy": "sh deploy.sh"
   },
   "devDependencies": {
