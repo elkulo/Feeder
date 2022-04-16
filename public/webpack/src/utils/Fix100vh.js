@@ -1,12 +1,12 @@
 // ビューポート100vhの固定
 export default {
-	mounted() {
+	add() {
 		document.documentElement.style.setProperty(
 			'--maxvh',
 			`${window.innerHeight}px`
 		);
 	},
-	destroyed() {
+	remove() {
 		document.documentElement.style.removeProperty(
 			'--maxvh'
 		);
