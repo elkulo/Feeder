@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # feederディレクトリのZipを作成
-zip -r dist/Feeder-latest-ja.zip feeder/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*' '*.log*' '*/logs/' '*.sql*' '*/database/'
+zip -r dist/Feeder-latest-ja.zip feeder/ -x '*.git*' '*.env*' '*.DS_Store' '*__MACOSX*' '*.log*' '*/logs/' '*.sql*' '*/database/' '*/var/cache/simplepie/*.*' '*/var/cache/twig/*' '*/var/tmp/*.*'
 
 # .htaccessをhtaccess.txtにしてZipに追加
 cp -i public/.htaccess public/htaccess.txt
