@@ -1,7 +1,7 @@
 /**
  * Webpack 5
  *
- * @version 2022.04.16
+ * @version 2023.01.10
  */
 const dirscript = "./public/webpack";
 
@@ -65,6 +65,8 @@ module.exports = {
     minimizer: [new TerserJSPlugin(), new CssMinimizerPlugin()],
   },
   performance: {
+    maxEntrypointSize: 500000,
+    maxAssetSize: 500000,
     assetFilter: function (assetFilename) {
       return assetFilename.endsWith(".js");
     },

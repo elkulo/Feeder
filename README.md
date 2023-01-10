@@ -10,7 +10,7 @@
 
 Slim Framework 4 製のADR（Action-Domain-Responder）パターンを取り入れた Vue x Slim のRSSフィードリーダー（以下「本プログラム」という）です。
 
-**本プログラムのPHPバージョンは2022年4月現在 v8.0 および v8.1 をサポートします。**
+**本プログラムは2023年1月現在 v8.0　-　v8.2.x のPHPバージョンをサポートします。**
 
 ---
 
@@ -40,6 +40,6 @@ Slim Framework 4 製のADR（Action-Domain-Responder）パターンを取り入�
 ---
 
 [Feeder](https://github.com/elkulo/Feeder/)  
-Copyright 2020-2022 A.Sudo  
+Copyright 2020-2023 A.Sudo  
 Licensed under LGPL-2.1-only  
 https://github.com/elkulo/Feeder/blob/main/LICENSE
