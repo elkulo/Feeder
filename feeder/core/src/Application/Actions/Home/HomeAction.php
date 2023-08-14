@@ -12,21 +12,10 @@ use Slim\Views\Twig;
 class HomeAction extends Action
 {
 
-    /**
-     * @var SettingsInterface
-     */
-    protected $settings;
+    protected SettingsInterface $settings;
 
-    /**
-     * @var Twig
-     */
-    protected $view;
+    protected Twig $view;
 
-    /**
-     * @param LoggerInterface $logger
-     * @param SettingsInterface $settings
-     * @param Twig $twig
-     */
     public function __construct(LoggerInterface $logger, SettingsInterface $settings, Twig $twig)
     {
         parent::__construct($logger);

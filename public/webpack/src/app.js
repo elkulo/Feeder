@@ -1,5 +1,5 @@
 /*!
- * Feeder | el.kulo v2.1.0 (https://github.com/elkulo/Feeder/)
+ * Feeder | el.kulo v2.2.0 (https://github.com/elkulo/Feeder/)
  * Copyright 2020-2023 A.Sudo
  * Licensed under LGPL-2.1-only (https://github.com/elkulo/Feeder/blob/main/LICENSE)
  */

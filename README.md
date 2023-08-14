@@ -10,17 +10,17 @@
 
 Slim Framework 4 製のADR（Action-Domain-Responder）パターンを取り入れた Vue x Slim のRSSフィードリーダー（以下「本プログラム」という）です。
 
-**本プログラムは2023年1月現在 v8.0 - v8.2.x のPHPバージョンをサポートします。**
+**本プログラムは2023年7月現在 v8.1 以上のPHPバージョンをサポートします。**
 
 ---
 
 ## 設置方法
 
-1) 環境設定 env.sample.txt を .env にリネームしてサイト情報を編集します。  
-2) public内の htaccess.txt を .htaccess にリネームします。  
-3) feeds.json で購読するRSS情報を記載します。
+1. 環境設定 env.sample.txt を .env にリネームしてサイト情報を編集します。
+2. public内の htaccess.txt を .htaccess にリネームします。
+3. feeds.json で購読するRSS情報を記載します。
 
-~~~
+```
 [
   {
     "name": "Yahoo主要",
@@ -35,7 +35,7 @@ Slim Framework 4 製のADR（Action-Domain-Responder）パターンを取り入�
     "category": ["トピックス"]
   }
 ]
-~~~
+```
 
 ---
 

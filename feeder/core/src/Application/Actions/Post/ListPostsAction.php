@@ -14,7 +14,7 @@ class ListPostsAction extends PostAction
     {
         $posts = $this->postRepository->findAll();
 
-        $this->logger->info("Posts list was viewed.");
+        $this->logger->info('Posts list was viewed.');
 
         return $this->respondWithData($posts);
     }
