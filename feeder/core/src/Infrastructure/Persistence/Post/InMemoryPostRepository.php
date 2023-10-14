@@ -13,22 +13,13 @@ class InMemoryPostRepository implements PostRepository
 {
 
     /**
-     * @var SettingsInterface
-     */
-    private $settings;
-
-    /**
      * @var Post[]
      */
-    private $posts;
+    private array $posts;
 
-    /**
-     * InMemoryPostRepository constructor.
-     *
-     * @param array|null $posts
-     * @param SettingsInterface $settings
-     */
-    public function __construct(array $posts = null, SettingsInterface $settings)
+    private SettingsInterface $settings;
+
+    public function __construct(SettingsInterface $settings)
     {
         $this->settings = $settings;
         $appPath = $settings->get('app.path');
@@ -94,7 +85,7 @@ class InMemoryPostRepository implements PostRepository
             }
         }
 
-        $this->posts = $posts ?? [
+        $this->posts = $posts ? $posts : [
             1 => new Post(1, '404 Not Found', '', '', [], [])
         ];
     }

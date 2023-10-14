@@ -12,29 +12,14 @@ use Slim\Exception\HttpNotFoundException;
 
 abstract class Action
 {
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
+    protected LoggerInterface $logger;
 
-    /**
-     * @var Request
-     */
-    protected $request;
+    protected Request $request;
 
-    /**
-     * @var Response
-     */
-    protected $response;
+    protected Response $response;
 
-    /**
-     * @var array
-     */
-    protected $args;
+    protected array $args;
 
-    /**
-     * @param LoggerInterface $logger
-     */
     public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
@@ -119,7 +104,7 @@ abstract class Action
         $this->response->getBody()->write($json);
 
         return $this->response
-                    ->withHeader('Content-Type', 'application/json')
-                    ->withStatus($payload->getStatusCode());
+            ->withHeader('Content-Type', 'application/json')
+            ->withStatus($payload->getStatusCode());
     }
 }

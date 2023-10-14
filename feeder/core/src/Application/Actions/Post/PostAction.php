@@ -9,15 +9,9 @@ use Psr\Log\LoggerInterface;
 
 abstract class PostAction extends Action
 {
-    /**
-     * @var PostRepository
-     */
-    protected $postRepository;
 
-    /**
-     * @param LoggerInterface $logger
-     * @param PostRepository  $postRepository
-     */
+    protected PostRepository $postRepository;
+
     public function __construct(LoggerInterface $logger, PostRepository $postRepository)
     {
         parent::__construct($logger);

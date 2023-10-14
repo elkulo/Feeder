@@ -15,7 +15,7 @@ class ViewPostAction extends PostAction
         $postId = (int) $this->resolveArg('id');
         $post = $this->postRepository->findPostOfId($postId);
 
-        $this->logger->info("Post of id `${postId}` was viewed.");
+        $this->logger->info('Post of id ' . $postId . ' was viewed.');
 
         return $this->respondWithData($post);
     }

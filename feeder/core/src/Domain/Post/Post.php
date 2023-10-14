@@ -104,9 +104,9 @@ class Post implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return [
             'id' => $this->id,
