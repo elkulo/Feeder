@@ -85,7 +85,7 @@ class InMemoryPostRepository implements PostRepository
             }
         }
 
-        $this->posts = $posts ?? [
+        $this->posts = $posts ? $posts : [
             1 => new Post(1, '404 Not Found', '', '', [], [])
         ];
     }
