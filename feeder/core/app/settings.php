@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use DI\ContainerBuilder;
-use Monolog\Logger;
+use Monolog\Level;
 use App\Application\Settings\Settings;
 use App\Application\Settings\SettingsInterface;
 
@@ -36,7 +36,7 @@ return function (ContainerBuilder $containerBuilder) {
                 'logger' => [
                     'name' => 'feeder',
                     'path' => $log_file,
-                    'level' => Logger::DEBUG,
+                    'level' => Level::Debug,
                 ],
                 'twig' => [
                     'debug' => isset($_ENV['DEBUG']) ? $_ENV['DEBUG'] === 'true' : false,
