@@ -18,7 +18,8 @@ return function (ContainerBuilder $containerBuilder) {
                  * サイト情報
                  */
                 'site.title' => isset($_ENV['SITE_TITLE']) ? $_ENV['SITE_TITLE'] : 'Feeder',
-                'site.description' => isset($_ENV['SITE_DESCRIPTION']) ? $_ENV['SITE_DESCRIPTION'] : '',
+                'site.description' =>
+                    isset($_ENV['SITE_DESCRIPTION']) ? $_ENV['SITE_DESCRIPTION'] : 'Distributing website updates.',
                 'site.url' => isset($_ENV['SITE_URL'])? rtrim($_ENV['SITE_URL'], '/'): '/',
                 'site.language' => isset($_ENV['SITE_LANGUAGE'])? $_ENV['SITE_LANGUAGE']: 'ja-JP',
                 'site.category' => isset($_ENV['SITE_CATEGORY'])? $_ENV['SITE_CATEGORY']: 'Blog',
